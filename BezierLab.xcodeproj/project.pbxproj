@@ -1,0 +1,482 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8308B442197E73A8005460BB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8308B441197E73A8005460BB /* Cocoa.framework */; };
+		8308B44C197E73A8005460BB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8308B44A197E73A8005460BB /* InfoPlist.strings */; };
+		8308B44E197E73A8005460BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308B44D197E73A8005460BB /* main.m */; };
+		8308B452197E73A8005460BB /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8308B450197E73A8005460BB /* Credits.rtf */; };
+		8308B455197E73A8005460BB /* BLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308B454197E73A8005460BB /* BLAppDelegate.m */; };
+		8308B458197E73A8005460BB /* BLMainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8308B456197E73A8005460BB /* BLMainMenu.xib */; };
+		8308B45A197E73A8005460BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8308B459197E73A8005460BB /* Images.xcassets */; };
+		8308B461197E73A8005460BB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8308B460197E73A8005460BB /* XCTest.framework */; };
+		8308B462197E73A8005460BB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8308B441197E73A8005460BB /* Cocoa.framework */; };
+		8308B46A197E73A8005460BB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8308B468197E73A8005460BB /* InfoPlist.strings */; };
+		8308B46C197E73A8005460BB /* BezierLabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308B46B197E73A8005460BB /* BezierLabTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8308B463197E73A8005460BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8308B436197E73A8005460BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8308B43D197E73A8005460BB;
+			remoteInfo = BezierLab;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8308B43E197E73A8005460BB /* BezierLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BezierLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8308B441197E73A8005460BB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		8308B444197E73A8005460BB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		8308B445197E73A8005460BB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8308B446197E73A8005460BB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8308B449197E73A8005460BB /* BezierLab-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BezierLab-Info.plist"; sourceTree = "<group>"; };
+		8308B44B197E73A8005460BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8308B44D197E73A8005460BB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8308B44F197E73A8005460BB /* BezierLab-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BezierLab-Prefix.pch"; sourceTree = "<group>"; };
+		8308B451197E73A8005460BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		8308B453197E73A8005460BB /* BLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLAppDelegate.h; sourceTree = "<group>"; };
+		8308B454197E73A8005460BB /* BLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLAppDelegate.m; sourceTree = "<group>"; };
+		8308B457197E73A8005460BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BLMainMenu.xib; sourceTree = "<group>"; };
+		8308B459197E73A8005460BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8308B45F197E73A8005460BB /* BezierLabTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BezierLabTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8308B460197E73A8005460BB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		8308B467197E73A8005460BB /* BezierLabTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BezierLabTests-Info.plist"; sourceTree = "<group>"; };
+		8308B469197E73A8005460BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8308B46B197E73A8005460BB /* BezierLabTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BezierLabTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8308B43B197E73A8005460BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8308B442197E73A8005460BB /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8308B45C197E73A8005460BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8308B462197E73A8005460BB /* Cocoa.framework in Frameworks */,
+				8308B461197E73A8005460BB /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8308B435197E73A8005460BB = {
+			isa = PBXGroup;
+			children = (
+				8308B447197E73A8005460BB /* BezierLab */,
+				8308B465197E73A8005460BB /* BezierLabTests */,
+				8308B440197E73A8005460BB /* Frameworks */,
+				8308B43F197E73A8005460BB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8308B43F197E73A8005460BB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8308B43E197E73A8005460BB /* BezierLab.app */,
+				8308B45F197E73A8005460BB /* BezierLabTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8308B440197E73A8005460BB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8308B441197E73A8005460BB /* Cocoa.framework */,
+				8308B460197E73A8005460BB /* XCTest.framework */,
+				8308B443197E73A8005460BB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8308B443197E73A8005460BB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8308B444197E73A8005460BB /* AppKit.framework */,
+				8308B445197E73A8005460BB /* CoreData.framework */,
+				8308B446197E73A8005460BB /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		8308B447197E73A8005460BB /* BezierLab */ = {
+			isa = PBXGroup;
+			children = (
+				8308B453197E73A8005460BB /* BLAppDelegate.h */,
+				8308B454197E73A8005460BB /* BLAppDelegate.m */,
+				8308B456197E73A8005460BB /* BLMainMenu.xib */,
+				8308B459197E73A8005460BB /* Images.xcassets */,
+				8308B448197E73A8005460BB /* Supporting Files */,
+			);
+			path = BezierLab;
+			sourceTree = "<group>";
+		};
+		8308B448197E73A8005460BB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8308B449197E73A8005460BB /* BezierLab-Info.plist */,
+				8308B44A197E73A8005460BB /* InfoPlist.strings */,
+				8308B44D197E73A8005460BB /* main.m */,
+				8308B44F197E73A8005460BB /* BezierLab-Prefix.pch */,
+				8308B450197E73A8005460BB /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8308B465197E73A8005460BB /* BezierLabTests */ = {
+			isa = PBXGroup;
+			children = (
+				8308B46B197E73A8005460BB /* BezierLabTests.m */,
+				8308B466197E73A8005460BB /* Supporting Files */,
+			);
+			path = BezierLabTests;
+			sourceTree = "<group>";
+		};
+		8308B466197E73A8005460BB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8308B467197E73A8005460BB /* BezierLabTests-Info.plist */,
+				8308B468197E73A8005460BB /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8308B43D197E73A8005460BB /* BezierLab */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8308B46F197E73A8005460BB /* Build configuration list for PBXNativeTarget "BezierLab" */;
+			buildPhases = (
+				8308B43A197E73A8005460BB /* Sources */,
+				8308B43B197E73A8005460BB /* Frameworks */,
+				8308B43C197E73A8005460BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BezierLab;
+			productName = BezierLab;
+			productReference = 8308B43E197E73A8005460BB /* BezierLab.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8308B45E197E73A8005460BB /* BezierLabTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8308B472197E73A8005460BB /* Build configuration list for PBXNativeTarget "BezierLabTests" */;
+			buildPhases = (
+				8308B45B197E73A8005460BB /* Sources */,
+				8308B45C197E73A8005460BB /* Frameworks */,
+				8308B45D197E73A8005460BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8308B464197E73A8005460BB /* PBXTargetDependency */,
+			);
+			name = BezierLabTests;
+			productName = BezierLabTests;
+			productReference = 8308B45F197E73A8005460BB /* BezierLabTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8308B436197E73A8005460BB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = BL;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Tong G.";
+				TargetAttributes = {
+					8308B45E197E73A8005460BB = {
+						TestTargetID = 8308B43D197E73A8005460BB;
+					};
+				};
+			};
+			buildConfigurationList = 8308B439197E73A8005460BB /* Build configuration list for PBXProject "BezierLab" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8308B435197E73A8005460BB;
+			productRefGroup = 8308B43F197E73A8005460BB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8308B43D197E73A8005460BB /* BezierLab */,
+				8308B45E197E73A8005460BB /* BezierLabTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8308B43C197E73A8005460BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8308B44C197E73A8005460BB /* InfoPlist.strings in Resources */,
+				8308B45A197E73A8005460BB /* Images.xcassets in Resources */,
+				8308B452197E73A8005460BB /* Credits.rtf in Resources */,
+				8308B458197E73A8005460BB /* BLMainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8308B45D197E73A8005460BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8308B46A197E73A8005460BB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8308B43A197E73A8005460BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8308B455197E73A8005460BB /* BLAppDelegate.m in Sources */,
+				8308B44E197E73A8005460BB /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8308B45B197E73A8005460BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8308B46C197E73A8005460BB /* BezierLabTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8308B464197E73A8005460BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8308B43D197E73A8005460BB /* BezierLab */;
+			targetProxy = 8308B463197E73A8005460BB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8308B44A197E73A8005460BB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8308B44B197E73A8005460BB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8308B450197E73A8005460BB /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8308B451197E73A8005460BB /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		8308B456197E73A8005460BB /* BLMainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8308B457197E73A8005460BB /* Base */,
+			);
+			name = BLMainMenu.xib;
+			sourceTree = "<group>";
+		};
+		8308B468197E73A8005460BB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8308B469197E73A8005460BB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8308B46D197E73A8005460BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		8308B46E197E73A8005460BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		8308B470197E73A8005460BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BezierLab/BezierLab-Prefix.pch";
+				INFOPLIST_FILE = "BezierLab/BezierLab-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8308B471197E73A8005460BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BezierLab/BezierLab-Prefix.pch";
+				INFOPLIST_FILE = "BezierLab/BezierLab-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		8308B473197E73A8005460BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BezierLab.app/Contents/MacOS/BezierLab";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BezierLab/BezierLab-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "BezierLabTests/BezierLabTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		8308B474197E73A8005460BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BezierLab.app/Contents/MacOS/BezierLab";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BezierLab/BezierLab-Prefix.pch";
+				INFOPLIST_FILE = "BezierLabTests/BezierLabTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8308B439197E73A8005460BB /* Build configuration list for PBXProject "BezierLab" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8308B46D197E73A8005460BB /* Debug */,
+				8308B46E197E73A8005460BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8308B46F197E73A8005460BB /* Build configuration list for PBXNativeTarget "BezierLab" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8308B470197E73A8005460BB /* Debug */,
+				8308B471197E73A8005460BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8308B472197E73A8005460BB /* Build configuration list for PBXNativeTarget "BezierLabTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8308B473197E73A8005460BB /* Debug */,
+				8308B474197E73A8005460BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8308B436197E73A8005460BB /* Project object */;
+}
