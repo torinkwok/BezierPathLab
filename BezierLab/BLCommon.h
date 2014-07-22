@@ -31,14 +31,33 @@
  **                                                                         **
  ****************************************************************************/
 
- 
+#define __THROW_EXCEPTION__WHEN_INVOKED_PURE_METHOD__           \
+    @throw [ NSException exceptionWithName: NSGenericException  \
+                         reason: [ NSString stringWithFormat: @"unimplemented pure virtual method `%@` in `%@` " \
+                                                               "from instance: %p" \
+                                                            , NSStringFromSelector( _cmd )          \
+                                                            , NSStringFromClass( [ self class ] )   \
+                                                            , self ]                                \
+                         userInfo: nil ]
 
-#ifdef __OBJC__
-    #import <Cocoa/Cocoa.h>
-    #import "BLCommon.h"
+
+
+#if DEBUG
+#   define __CAVEMEN_DEBUGGING__PRINT_WHICH_METHOD_INVOKED__   \
+        NSLog( @"-[ %@ %@ ] be invoked"                        \
+            , NSStringFromClass( [ self class ] )              \
+            , NSStringFromSelector( _cmd )                     \
+            )
+#else
+#   define __CAVEMEN_DEBUGGING__PRINT_WHICH_METHOD_INVOKED__
 #endif
 
-/////////////////////////////////////////////////////////////////////////////
+#define IBACTION_BUT_NOT_FOR_IB IBAction
+
+#define USER_DEFAULTS  [ NSUserDefaults standardUserDefaults ]
+#define NOTIFICATION_CENTER [ NSNotificationCenter defaultCenter ]
+
+////////////////////////////////////////////////////////////////////////////
 
 /****************************************************************************
  **                                                                        **

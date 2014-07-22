@@ -54,7 +54,8 @@
 		8308B46B197E73A8005460BB /* BezierLabTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BezierLabTests.m; sourceTree = "<group>"; };
 		8308B475197EB94A005460BB /* BLMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLMainWindowController.h; sourceTree = "<group>"; };
 		8308B476197EB94A005460BB /* BLMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLMainWindowController.m; sourceTree = "<group>"; };
-		83F49753197EBA3D008CEAD4 /* BLMainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLMainWindow.xib; sourceTree = "<group>"; };
+		83F49753197EBA3D008CEAD4 /* BLMainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BLMainWindow.xib; path = BezierLab/BLMainWindow.xib; sourceTree = "<group>"; };
+		83F49756197EBB31008CEAD4 /* BLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLCommon.h; path = BezierLab/BLCommon.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +82,9 @@
 		8308B435197E73A8005460BB = {
 			isa = PBXGroup;
 			children = (
+				83F49756197EBB31008CEAD4 /* BLCommon.h */,
 				8308B447197E73A8005460BB /* BezierLab */,
+				83F49755197EBB06008CEAD4 /* User Interfaces */,
 				8308B465197E73A8005460BB /* BezierLabTests */,
 				8308B440197E73A8005460BB /* Frameworks */,
 				8308B43F197E73A8005460BB /* Products */,
@@ -121,11 +124,10 @@
 			isa = PBXGroup;
 			children = (
 				8308B453197E73A8005460BB /* BLAppDelegate.h */,
-				83F49753197EBA3D008CEAD4 /* BLMainWindow.xib */,
 				8308B454197E73A8005460BB /* BLAppDelegate.m */,
 				8308B475197EB94A005460BB /* BLMainWindowController.h */,
 				8308B476197EB94A005460BB /* BLMainWindowController.m */,
-				8308B456197E73A8005460BB /* BLMainMenu.xib */,
+				8308B44D197E73A8005460BB /* main.m */,
 				8308B459197E73A8005460BB /* Images.xcassets */,
 				8308B448197E73A8005460BB /* Supporting Files */,
 			);
@@ -137,7 +139,6 @@
 			children = (
 				8308B449197E73A8005460BB /* BezierLab-Info.plist */,
 				8308B44A197E73A8005460BB /* InfoPlist.strings */,
-				8308B44D197E73A8005460BB /* main.m */,
 				8308B44F197E73A8005460BB /* BezierLab-Prefix.pch */,
 				8308B450197E73A8005460BB /* Credits.rtf */,
 			);
@@ -160,6 +161,15 @@
 				8308B468197E73A8005460BB /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		83F49755197EBB06008CEAD4 /* User Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				8308B456197E73A8005460BB /* BLMainMenu.xib */,
+				83F49753197EBA3D008CEAD4 /* BLMainWindow.xib */,
+			);
+			name = "User Interfaces";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,6 +319,7 @@
 				8308B457197E73A8005460BB /* Base */,
 			);
 			name = BLMainMenu.xib;
+			path = BezierLab;
 			sourceTree = "<group>";
 		};
 		8308B468197E73A8005460BB /* InfoPlist.strings */ = {
