@@ -31,16 +31,34 @@
  **                                                                         **
  ****************************************************************************/
 
-#import <Cocoa/Cocoa.h>
+#import "BLMainWindowController.h"
 
-@class BLMainWindowController;
+// BLMainWindowController class
+@implementation BLMainWindowController
 
-// BLAppDelegate class
-@interface BLAppDelegate : NSObject <NSApplicationDelegate>
+#pragma mark Initializers
++ ( id ) mainWindowController
+    {
+    return [ [ [ [ self class ] alloc ] init ] autorelease ];
+    }
 
-@property ( retain ) BLMainWindowController* _mainWindowController;
+- ( id ) init
+    {
+    if ( self = [ super initWithWindowNibName: @"BLMainWindow" ] )
+        {
+        // TODO:
+        }
 
-@end // BLAppDelegate
+    return self;
+    }
+
+#pragma mark Conforms <NSNibAwaking> protocol
+- ( void ) awakeFromNib
+    {
+    // TODO:
+    }
+
+@end // BLMainWindowController
 
 /////////////////////////////////////////////////////////////////////////////
 

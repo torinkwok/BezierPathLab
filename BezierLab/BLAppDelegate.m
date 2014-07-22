@@ -32,13 +32,25 @@
  ****************************************************************************/
 
 #import "BLAppDelegate.h"
+#import "BLMainWindowController.h"
 
 // BLAppDelegate class
 @implementation BLAppDelegate
 
+@synthesize _mainWindowController;
+
+#pragma mark -
+#pragma mark Conforms <NSNibLoading> protocol
 - ( void ) awakeFromNib
     {
-    // TODO:
+    self._mainWindowController = [ BLMainWindowController mainWindowController ];
+
+    [ self._mainWindowController showWindow: self ];
+    }
+
+- ( void ) applicationDidFinishLaunching: ( NSNotification* )_Notification
+    {
+
     }
 
 @end // BLAppDelegate

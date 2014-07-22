@@ -660,6 +660,16 @@
                         </items>
                     </menu>
                 </menuItem>
+                <menuItem title="Drawing" id="9cy-Jo-ASY">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Drawing" id="Lyp-eJ-hUo">
+                        <items>
+                            <menuItem title="Testing for Affine Transform" id="bS2-7B-ZfI">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
             </items>
         </menu>
     </objects>

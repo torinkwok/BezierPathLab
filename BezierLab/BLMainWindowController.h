@@ -33,14 +33,14 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class BLMainWindowController;
+@class LIGetPathsOperation;
 
-// BLAppDelegate class
-@interface BLAppDelegate : NSObject <NSApplicationDelegate>
+// BLMainWindowController class
+@interface BLMainWindowController : NSWindowController
 
-@property ( retain ) BLMainWindowController* _mainWindowController;
++ ( id ) mainWindowController;
 
-@end // BLAppDelegate
+@end // BLMainWindowController
 
 /////////////////////////////////////////////////////////////////////////////
 
