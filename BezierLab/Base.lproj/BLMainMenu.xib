@@ -662,19 +662,6 @@
                 </menuItem>
                 <menuItem title="Drawing" id="9cy-Jo-ASY">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Drawing" id="Lyp-eJ-hUo">
-                        <items>
-                            <menuItem title="Testing for Affine Transform" id="bS2-7B-ZfI">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                            </menuItem>
-                            <menuItem title="Testing for NSImageRep" keyEquivalent="O" id="MMt-9l-OhY">
-                                <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
-                                <connections>
-                                    <action selector="testingForImageRep:" target="-1" id="qbL-jR-VIE"/>
-                                </connections>
-                            </menuItem>
-                        </items>
-                    </menu>
                 </menuItem>
             </items>
         </menu>

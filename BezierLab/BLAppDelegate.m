@@ -53,13 +53,6 @@
 
     }
 
-#pragma mark Testings for NSImage, NSImageRep along with its subclass
-- ( IBAction ) testingForImageRep: ( id )_Sender
-    {
-    [ NOTIFICATION_CENTER postNotificationName: @"TestingForImageRep"
-                                        object: self ];
-    }
-
 @end // BLAppDelegate
 
 /////////////////////////////////////////////////////////////////////////////
