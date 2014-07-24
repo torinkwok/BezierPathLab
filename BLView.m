@@ -31,36 +31,75 @@
  **                                                                         **
  ****************************************************************************/
 
-#import "BLAppDelegate.h"
-#import "BLMainWindowController.h"
+#import "BLView.h"
 
-// BLAppDelegate class
-@implementation BLAppDelegate
+// BLView class
+@implementation BLView
 
-@synthesize _mainWindowController;
-
-#pragma mark -
-#pragma mark Conforms <NSNibLoading> protocol
 - ( void ) awakeFromNib
     {
-    self._mainWindowController = [ BLMainWindowController mainWindowController ];
-
-    [ self._mainWindowController showWindow: self ];
+    [ NOTIFICATION_CENTER addObserver: self
+                             selector: @selector( testingForImageRep: )
+                                 name: @"TestingForImageRep"
+                               object: nil ];
     }
 
-- ( void ) applicationDidFinishLaunching: ( NSNotification* )_Notification
+- ( BOOL ) isFlipped
     {
-
+    return YES;
     }
 
 #pragma mark Testings for NSImage, NSImageRep along with its subclass
 - ( IBAction ) testingForImageRep: ( id )_Sender
     {
-    [ NOTIFICATION_CENTER postNotificationName: @"TestingForImageRep"
-                                        object: self ];
+    NSOpenPanel* openPanel = [ NSOpenPanel openPanel ];
+
+    [ openPanel beginSheetModalForWindow: [ self window ]
+                       completionHandler:
+        ^( NSInteger _Result )
+            {
+            if ( _Result == NSFileHandlingPanelOKButton )
+                {
+                dispatch_queue_t defaultGlobalDispatchQueue = dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0 );
+
+                dispatch_async( defaultGlobalDispatchQueue
+                    , ^( void )
+                        {
+                        NSData* imageData = [ NSData dataWithContentsOfURL: [ openPanel URL ] ];
+                        NSArray* bitmapImageReps = [ NSBitmapImageRep imageRepsWithData: imageData ];
+
+                        dispatch_apply( [ bitmapImageReps count ], defaultGlobalDispatchQueue
+                            , ^( size_t _CurrentIndex )
+                                {
+                                [ self lockFocusIfCanDraw ];
+                            #if 1
+                                NSAffineTransform* flipTransform = [ NSAffineTransform transform ];
+                                NSAffineTransformStruct flipTransformStruct = { 1.f, .0f, .0f, -1.f, .0f, self.bounds.size.height };
+                                [ flipTransform setTransformStruct: flipTransformStruct ];
+                                [ flipTransform concat ];
+                            #endif
+
+                                NSRect rect = NSMakeRect( random() % ( long )self.bounds.size.width
+                                                        , random() % ( long )self.bounds.size.height
+                                                        , 100, 100 ) ;
+
+                                NSBitmapImageRep* imageRep = ( NSBitmapImageRep* )bitmapImageReps[ _CurrentIndex ];
+                                [ imageRep drawInRect: rect ];
+
+                                [ [ NSGraphicsContext currentContext ] flushGraphics ];
+                            #if 1
+                                [ flipTransform invert ];
+                                [ flipTransform concat ];
+                            #endif
+                                [ self unlockFocus ];
+                                } );
+                        } );
+                }
+            } ];
+
     }
 
-@end // BLAppDelegate
+@end // BLView
 
 /////////////////////////////////////////////////////////////////////////////
 

@@ -31,36 +31,11 @@
  **                                                                         **
  ****************************************************************************/
 
-#import "BLAppDelegate.h"
-#import "BLMainWindowController.h"
+#import <Cocoa/Cocoa.h>
 
-// BLAppDelegate class
-@implementation BLAppDelegate
-
-@synthesize _mainWindowController;
-
-#pragma mark -
-#pragma mark Conforms <NSNibLoading> protocol
-- ( void ) awakeFromNib
-    {
-    self._mainWindowController = [ BLMainWindowController mainWindowController ];
-
-    [ self._mainWindowController showWindow: self ];
-    }
-
-- ( void ) applicationDidFinishLaunching: ( NSNotification* )_Notification
-    {
-
-    }
-
-#pragma mark Testings for NSImage, NSImageRep along with its subclass
-- ( IBAction ) testingForImageRep: ( id )_Sender
-    {
-    [ NOTIFICATION_CENTER postNotificationName: @"TestingForImageRep"
-                                        object: self ];
-    }
-
-@end // BLAppDelegate
+// BLView class
+@interface BLView : NSView
+@end // BLView
 
 /////////////////////////////////////////////////////////////////////////////
 
