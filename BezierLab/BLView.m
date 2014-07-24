@@ -78,7 +78,7 @@
                                 [ flipTransform setTransformStruct: flipTransformStruct ];
                                 [ flipTransform concat ];
                             #endif
-
+                                srand( ( int )time( NULL ) );
                                 NSRect rect = NSMakeRect( random() % ( long )self.bounds.size.width
                                                         , random() % ( long )self.bounds.size.height
                                                         , 100, 100 ) ;
