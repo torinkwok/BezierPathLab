@@ -72,12 +72,13 @@
                             , ^( size_t _CurrentIndex )
                                 {
                                 [ self lockFocusIfCanDraw ];
-                            #if 1
+
+                                // Flip transform for removing the inversion caused by the view being flipped.
                                 NSAffineTransform* flipTransform = [ NSAffineTransform transform ];
                                 NSAffineTransformStruct flipTransformStruct = { 1.f, .0f, .0f, -1.f, .0f, self.bounds.size.height };
                                 [ flipTransform setTransformStruct: flipTransformStruct ];
                                 [ flipTransform concat ];
-                            #endif
+
                                 srand( ( int )time( NULL ) );
                                 NSRect rect = NSMakeRect( random() % ( long )self.bounds.size.width
                                                         , random() % ( long )self.bounds.size.height
@@ -87,10 +88,11 @@
                                 [ imageRep drawInRect: rect ];
 
                                 [ [ NSGraphicsContext currentContext ] flushGraphics ];
-                            #if 1
+
+                                // Undo the flip transform.
                                 [ flipTransform invert ];
                                 [ flipTransform concat ];
-                            #endif
+
                                 [ self unlockFocus ];
                                 } );
                         } );
