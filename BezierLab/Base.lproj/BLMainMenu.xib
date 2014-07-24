@@ -667,6 +667,12 @@
                             <menuItem title="Testing for Affine Transform" id="bS2-7B-ZfI">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                             </menuItem>
+                            <menuItem title="Testing for NSImageRep" keyEquivalent="O" id="MMt-9l-OhY">
+                                <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                <connections>
+                                    <action selector="testingForImageRef:" target="-1" id="Fjt-yL-wpD"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>
