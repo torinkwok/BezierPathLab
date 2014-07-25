@@ -33,6 +33,7 @@
 
 #import "BLAppDelegate.h"
 #import "BLMainWindowController.h"
+#import "BLView.h"
 
 // BLAppDelegate class
 @implementation BLAppDelegate
@@ -57,7 +58,9 @@
 - ( IBAction ) testingForImageRep: ( id )_Sender
     {
     [ NOTIFICATION_CENTER postNotificationName: @"TestingForImageRep"
-                                        object: self ];
+                                        object: self
+                                      userInfo: @{ BLViewClickedButtonNotification : _Sender }
+                                      ];
     }
 
 @end // BLAppDelegate

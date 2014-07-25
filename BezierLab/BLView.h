@@ -33,8 +33,14 @@
 
 #import <Cocoa/Cocoa.h>
 
+// Notification names
+NSString extern* const BLViewClickedButtonNotification;
+
 // BLView class
 @interface BLView : NSView
+
+@property ( retain ) NSAffineTransform* _flipTransform;
+
 @end // BLView
 
 /////////////////////////////////////////////////////////////////////////////

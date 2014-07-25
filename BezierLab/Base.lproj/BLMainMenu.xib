@@ -669,8 +669,16 @@
                             </menuItem>
                             <menuItem title="Testing for NSImageRep" keyEquivalent="O" id="MMt-9l-OhY">
                                 <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                <accessibility description="NSImageRep"/>
                                 <connections>
                                     <action selector="testingForImageRep:" target="-1" id="qbL-jR-VIE"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Testing for NSImage" keyEquivalent="P" id="HL4-Vy-rOY" colorLabel="IBBuiltInLabel-Red">
+                                <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                <accessibility description="NSImage"/>
+                                <connections>
+                                    <action selector="testingForImageRep:" target="-1" id="QtS-cA-fzo"/>
                                 </connections>
                             </menuItem>
                         </items>
