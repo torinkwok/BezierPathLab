@@ -54,7 +54,7 @@
     {
     NSOpenPanel* openPanel = [ NSOpenPanel openPanel ];
 
-    [ openPanel setPrompt: @"Choose" ];
+    [ openPanel setPrompt: NSLocalizedString( @"Choose", nil ) ];
     [ openPanel setAllowedFileTypes: [ NSImage imageUnfilteredFileTypes ] ];
 
     [ openPanel beginSheetModalForWindow: [ self window ]
