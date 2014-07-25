@@ -54,6 +54,9 @@
     {
     NSOpenPanel* openPanel = [ NSOpenPanel openPanel ];
 
+    [ openPanel setPrompt: @"Choose" ];
+    [ openPanel setAllowedFileTypes: [ NSImage imageUnfilteredFileTypes ] ];
+
     [ openPanel beginSheetModalForWindow: [ self window ]
                        completionHandler:
         ^( NSInteger _Result )
@@ -65,8 +68,7 @@
                 dispatch_async( defaultGlobalDispatchQueue
                     , ^( void )
                         {
-                        NSData* imageData = [ NSData dataWithContentsOfURL: [ openPanel URL ] ];
-                        NSArray* bitmapImageReps = [ NSBitmapImageRep imageRepsWithData: imageData ];
+                        NSArray* bitmapImageReps = [ NSBitmapImageRep imageRepsWithContentsOfURL: [ openPanel URL ] ];
 
                         dispatch_apply( [ bitmapImageReps count ], defaultGlobalDispatchQueue
                             , ^( size_t _CurrentIndex )
