@@ -20,6 +20,8 @@
 		8308B46C197E73A8005460BB /* BezierLabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308B46B197E73A8005460BB /* BezierLabTests.m */; };
 		8308B477197EB94A005460BB /* BLMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308B476197EB94A005460BB /* BLMainWindowController.m */; };
 		8340BDA019813C8A00FD12CE /* BLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8340BD9E19813C8A00FD12CE /* BLView.m */; };
+		835948BD19837CD00009B3DB /* BLCompressionSchemesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 835948BA19837CD00009B3DB /* BLCompressionSchemesView.xib */; };
+		835948BE19837CD00009B3DB /* BLCompressionSchemesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 835948BC19837CD00009B3DB /* BLCompressionSchemesViewController.m */; };
 		83F49754197EBA3D008CEAD4 /* BLMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F49753197EBA3D008CEAD4 /* BLMainWindow.xib */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +59,9 @@
 		8308B476197EB94A005460BB /* BLMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLMainWindowController.m; sourceTree = "<group>"; };
 		8340BD9E19813C8A00FD12CE /* BLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLView.m; sourceTree = "<group>"; };
 		8340BD9F19813C8A00FD12CE /* BLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLView.h; sourceTree = "<group>"; };
+		835948BA19837CD00009B3DB /* BLCompressionSchemesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BLCompressionSchemesView.xib; path = BezierLab/BLCompressionSchemesView.xib; sourceTree = "<group>"; };
+		835948BB19837CD00009B3DB /* BLCompressionSchemesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCompressionSchemesViewController.h; sourceTree = "<group>"; };
+		835948BC19837CD00009B3DB /* BLCompressionSchemesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCompressionSchemesViewController.m; sourceTree = "<group>"; };
 		83F49753197EBA3D008CEAD4 /* BLMainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BLMainWindow.xib; path = BezierLab/BLMainWindow.xib; sourceTree = "<group>"; };
 		83F49756197EBB31008CEAD4 /* BLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLCommon.h; path = BezierLab/BLCommon.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,6 +137,8 @@
 				8340BD9E19813C8A00FD12CE /* BLView.m */,
 				8308B475197EB94A005460BB /* BLMainWindowController.h */,
 				8308B476197EB94A005460BB /* BLMainWindowController.m */,
+				835948BB19837CD00009B3DB /* BLCompressionSchemesViewController.h */,
+				835948BC19837CD00009B3DB /* BLCompressionSchemesViewController.m */,
 				8308B44D197E73A8005460BB /* main.m */,
 				8308B459197E73A8005460BB /* Images.xcassets */,
 				8308B448197E73A8005460BB /* Supporting Files */,
@@ -173,6 +180,7 @@
 			children = (
 				8308B456197E73A8005460BB /* BLMainMenu.xib */,
 				83F49753197EBA3D008CEAD4 /* BLMainWindow.xib */,
+				835948BA19837CD00009B3DB /* BLCompressionSchemesView.xib */,
 			);
 			name = "User Interfaces";
 			sourceTree = "<group>";
@@ -257,6 +265,7 @@
 				8308B44C197E73A8005460BB /* InfoPlist.strings in Resources */,
 				8308B45A197E73A8005460BB /* Images.xcassets in Resources */,
 				8308B452197E73A8005460BB /* Credits.rtf in Resources */,
+				835948BD19837CD00009B3DB /* BLCompressionSchemesView.xib in Resources */,
 				83F49754197EBA3D008CEAD4 /* BLMainWindow.xib in Resources */,
 				8308B458197E73A8005460BB /* BLMainMenu.xib in Resources */,
 			);
@@ -277,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				835948BE19837CD00009B3DB /* BLCompressionSchemesViewController.m in Sources */,
 				8340BDA019813C8A00FD12CE /* BLView.m in Sources */,
 				8308B455197E73A8005460BB /* BLAppDelegate.m in Sources */,
 				8308B477197EB94A005460BB /* BLMainWindowController.m in Sources */,

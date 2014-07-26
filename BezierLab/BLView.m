@@ -32,6 +32,7 @@
  ****************************************************************************/
 
 #import "BLView.h"
+#import "BLCompressionSchemesViewController.h"
 
 // Notification names
 NSString* const BLViewClickedButtonNotification = @"Clicked Button Notif";
@@ -113,6 +114,33 @@ NSString* const BLViewClickedButtonNotification = @"Clicked Button Notif";
                             [ self lockFocusIfCanDraw ];
 
                             NSImage* sourceImage = [ [ [ NSImage alloc ] initWithContentsOfURL: [ openPanel URL ] ] autorelease ];
+
+                            dispatch_async( dispatch_get_main_queue()
+                                , ^( void )
+                                    {
+                                    NSData* TIFFData = [ sourceImage TIFFRepresentationUsingCompression: NSTIFFCompressionJPEG factor: 1.f ];
+
+                                    if ( TIFFData )
+                                        {
+                                        NSSavePanel* savePanel = [ NSSavePanel savePanel ];
+                                        BLCompressionSchemesViewController* compressionSchemesViewController = [ BLCompressionSchemesViewController compressionSchemesViewController ];
+                                        [ savePanel setAccessoryView: [ compressionSchemesViewController view ] ];
+
+                                        [ savePanel setExtensionHidden: YES ];
+                                        [ savePanel beginSheetModalForWindow: [ self window ]
+                                                           completionHandler:
+                                            ^( NSInteger _Result )
+                                                {
+                                                if ( _Result == NSFileHandlingPanelOKButton )
+                                                    [ TIFFData writeToURL: [ savePanel URL ] atomically: YES ];
+                                                } ];
+                                        }
+                                    else
+                                        {
+                                        NSLog( @"Fuck" );
+                                        }
+                                    } );
+
                             NSImage* destinationImage = [ [ [ NSImage alloc ] initWithContentsOfURL: [ NSURL URLWithString: @"file:///Users/EsquireTongG/QingFeng.png" ] ] autorelease ];
 
 //                            [ sourceImage setFlipped: YES ];
