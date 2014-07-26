@@ -37,17 +37,29 @@
 // Notification names
 NSString* const BLViewClickedButtonNotification = @"Clicked Button Notif";
 
+// Error domain
+NSString* const BLBezierLabErrorDomain = @"individual.TongG.BezierLab.ErrorDomain";
+
+    // Error code
+    NSInteger const BLFailureToCreateImageError = 0x31;
+
 // BLView class
 @implementation BLView
+
+@synthesize _XMLDocument;
 
 - ( void ) awakeFromNib
     {
     self._flipTransform = [ NSAffineTransform transform ];
 
-    
     [ NOTIFICATION_CENTER addObserver: self
                              selector: @selector( testingForImageRep: )
                                  name: @"TestingForImageRep"
+                               object: nil ];
+
+    [ NOTIFICATION_CENTER addObserver: self
+                             selector: @selector( testingForErrorHandlingOfParsingXMLDocument: )
+                                 name: @"TestingForErrorHandling"
                                object: nil ];
     }
 
@@ -115,33 +127,33 @@ NSString* const BLViewClickedButtonNotification = @"Clicked Button Notif";
 
                             NSImage* sourceImage = [ [ [ NSImage alloc ] initWithContentsOfURL: [ openPanel URL ] ] autorelease ];
 
-                            dispatch_async( dispatch_get_main_queue()
-                                , ^( void )
-                                    {
-                                    NSData* TIFFData = [ sourceImage TIFFRepresentationUsingCompression: NSTIFFCompressionJPEG factor: 1.f ];
+                            NSURL* destImageURL = [ NSURL URLWithString: @"file:///sers/EsquireTongG/QingFeng.png" ];
+                            NSImage* destinationImage = [ [ [ NSImage alloc ] initWithContentsOfURL: destImageURL ] autorelease ];
+                            if ( !destinationImage )
+                                {
+                                NSError* failureToCreateDestImage = [ NSError errorWithDomain: BLBezierLabErrorDomain
+                                                                                         code: BLFailureToCreateImageError
+                                                                                     userInfo:
+                                    @{ NSLocalizedDescriptionKey : [ NSString stringWithFormat: NSLocalizedString( @"Failure to create the image which located at %@. Because the path is incorrect.", nil ), destImageURL.path ]
+                                     , NSFilePathErrorKey: [ destImageURL path ]
+                                     , NSLocalizedFailureReasonErrorKey: NSLocalizedString( @"Because the path is incorrect.", nil )
+                                     , NSLocalizedRecoverySuggestionErrorKey: NSLocalizedString( @"Choose a correct path and try again?", nil )
+                                     , NSLocalizedRecoveryOptionsErrorKey: @[ NSLocalizedString( @"Try again",nil ), NSLocalizedString( @"Cancel", nil ) ]
+                                     , NSRecoveryAttempterErrorKey : self
+                                     } ];
 
-                                    if ( TIFFData )
+                                dispatch_async( dispatch_get_main_queue()
+                                    , ^( void )
                                         {
-                                        NSSavePanel* savePanel = [ NSSavePanel savePanel ];
-                                        BLCompressionSchemesViewController* compressionSchemesViewController = [ BLCompressionSchemesViewController compressionSchemesViewController ];
-                                        [ savePanel setAccessoryView: [ compressionSchemesViewController view ] ];
+                                        [ self presentError: failureToCreateDestImage ];
 
-                                        [ savePanel setExtensionHidden: YES ];
-                                        [ savePanel beginSheetModalForWindow: [ self window ]
-                                                           completionHandler:
-                                            ^( NSInteger _Result )
-                                                {
-                                                if ( _Result == NSFileHandlingPanelOKButton )
-                                                    [ TIFFData writeToURL: [ savePanel URL ] atomically: YES ];
-                                                } ];
-                                        }
-                                    else
-                                        {
-                                        NSLog( @"Fuck" );
-                                        }
-                                    } );
-
-                            NSImage* destinationImage = [ [ [ NSImage alloc ] initWithContentsOfURL: [ NSURL URLWithString: @"file:///Users/EsquireTongG/QingFeng.png" ] ] autorelease ];
+//                                        [ self presentError: failureToCreateDestImage
+//                                             modalForWindow: [ self window ]
+//                                                   delegate: self
+//                                         didPresentSelector: @selector( didPresentErrorWithRecovery:contextInfo: )
+//                                                contextInfo: nil ];
+                                        } );
+                                }
 
 //                            [ sourceImage setFlipped: YES ];
 //                            [ destinationImage setFlipped: YES ];
@@ -203,6 +215,102 @@ NSString* const BLViewClickedButtonNotification = @"Clicked Button Notif";
     {
     [ self._flipTransform invert ];
     [ self._flipTransform concat ];
+    }
+
+- ( void ) testingForErrorHandlingOfParsingXMLDocument: ( id )_Sender
+    {
+    NSError* err = nil;
+
+    // self._XMLDocument is an NSXMLDocument instance variable.
+    if ( self._XMLDocument )
+        self._XMLDocument = nil;
+
+    NSURL* url = [ NSURL URLWithString: @"file:///Users/EsquireTongG/xml.plis" ];
+    self._XMLDocument = [ [ [ NSXMLDocument alloc ] initWithContentsOfURL: url options: NSXMLNodeOptionsNone error: &err ] autorelease ];
+
+    if ( !self._XMLDocument && err )
+        {
+        NSMutableDictionary* newUserInfo = [ [ err userInfo ] mutableCopy ];
+        newUserInfo[ NSURLErrorKey ] = url;
+
+        [ self presentError: [ NSError errorWithDomain: err.domain code: err.code userInfo: newUserInfo ]
+             modalForWindow: [ self window ]
+                   delegate: self
+         didPresentSelector: @selector( didPresentRecoveryWithRecovery:contextInfo: )
+                contextInfo: nil ];
+        }
+    }
+
+- ( void ) attemptRecoveryFromError: ( NSError* )_Error
+                        optionIndex: ( NSUInteger )_RecoveryOptionIndex
+                           delegate: ( id )_Delegate
+                 didRecoverSelector: ( SEL )_DidRecoverSelector
+                        contextInfo: ( void* )_ContextInfo
+    {
+    BOOL success = NO;
+    NSError* err = nil;
+
+    NSInvocation* invocation = [ NSInvocation invocationWithMethodSignature: [ _Delegate methodSignatureForSelector: _DidRecoverSelector ] ];
+    [ invocation setSelector: _DidRecoverSelector ];
+
+    if ( _RecoveryOptionIndex == 0 )    // Recovery requested.
+        {
+        self._XMLDocument = [ [ [ NSXMLDocument alloc ] initWithContentsOfURL: _Error.userInfo[ NSURLErrorKey ]
+                                                                      options: NSXMLDocumentTidyXML
+                                                                        error: &err ] autorelease ];
+        if ( self._XMLDocument )
+            success = YES;
+        }
+
+    [ invocation setArgument: ( void* )&success atIndex: 2 ];
+
+    if ( err )
+        [ invocation setArgument: &err atIndex: 3 ];
+
+    [ invocation invokeWithTarget: _Delegate ];
+    }
+
+- ( void ) didPresentRecoveryWithRecovery: ( BOOL )_DidRecover
+                              contextInfo: ( void* )_ContextInfo
+    {
+    NSError* error = ( NSError* )_ContextInfo;
+
+    if ( error && [ error isKindOfClass: [ NSError class ] ] )
+        {
+        [ [ NSAlert alertWithError: error ] beginSheetModalForWindow: [ self window ]
+                                                   completionHandler: nil ];
+        }
+    }
+
+- ( NSError* ) willPresentError: ( NSError* ) _Error
+    {
+    if ( [ [ _Error domain ] isEqualToString: NSCocoaErrorDomain ] )
+        {
+        switch ( [ _Error code ] )
+            {
+        case NSFileReadNoSuchFileError:
+                {
+                NSString* newDesc = [ [ _Error localizedDescription ]
+                    stringByAppendingString: ( _Error.localizedFailureReason ? _Error.localizedFailureReason : @"" ) ];
+
+                NSMutableDictionary* newUserInfo = [ [ _Error userInfo ] mutableCopy ];
+
+                newUserInfo[ NSLocalizedDescriptionKey ] = newDesc;
+                newUserInfo[ NSLocalizedRecoverySuggestionErrorKey ] = NSLocalizedString( @"Would you like to tidy the XML and try again?", nil );
+                newUserInfo[ NSLocalizedRecoveryOptionsErrorKey ] = @[ NSLocalizedString( @"Yeah, try again", nil ), NSLocalizedString( @"Cancel", nil ) ];
+                newUserInfo[ NSRecoveryAttempterErrorKey ] = self;
+
+                NSError* customizedError = [ NSError errorWithDomain: [ _Error domain ]
+                                                                code: [ _Error code ]
+                                                            userInfo: newUserInfo ];
+                return customizedError;
+                }
+        default:
+                return [ super willPresentError: _Error ];
+            }
+        }
+
+    return [ super willPresentError: _Error ];
     }
 
 @end // BLView

@@ -36,10 +36,18 @@
 // Notification names
 NSString extern* const BLViewClickedButtonNotification;
 
+// Error domain
+NSString extern* const BLBezierLabErrorDomain;
+
+    // Error code
+    NSInteger extern const BLFailureToCreateImageError;
+
 // BLView class
 @interface BLView : NSView
 
 @property ( retain ) NSAffineTransform* _flipTransform;
+
+@property ( retain ) NSXMLDocument* _XMLDocument;
 
 @end // BLView
 

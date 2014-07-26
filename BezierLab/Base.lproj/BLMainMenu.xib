@@ -681,6 +681,13 @@
                                     <action selector="testingForImageRep:" target="-1" id="QtS-cA-fzo"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Testing for Error Handling of Parsing XML Document" keyEquivalent="P" id="XnD-dF-fRI" colorLabel="IBBuiltInLabel-Red">
+                                <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                <accessibility description="NSImage"/>
+                                <connections>
+                                    <action selector="testingForErrorHandlingOfParsingXMLDocument:" target="-1" id="VOl-OG-Fng"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>

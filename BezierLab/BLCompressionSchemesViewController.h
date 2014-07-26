@@ -36,6 +36,8 @@
 // BLCompressionSchemesViewController
 @interface BLCompressionSchemesViewController : NSViewController
 
+@property ( assign ) IBOutlet NSPopUpButton* _selectSchemesPopUpButton;
+
 + ( id ) compressionSchemesViewController;
 
 @end // BLCompressionSchemesViewController

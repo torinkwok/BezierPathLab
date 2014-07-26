@@ -6,6 +6,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="BLCompressionSchemesViewController">
             <connections>
+                <outlet property="_selectSchemesPopUpButton" destination="npz-RG-OiX" id="dl5-oB-nmR"/>
                 <outlet property="view" destination="c22-O7-iKe" id="XPR-ve-tjM"/>
             </connections>
         </customObject>
@@ -18,34 +19,34 @@
                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="npz-RG-OiX">
                     <rect key="frame" x="141" y="16" width="339" height="26"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" preferredEdge="maxY" id="eAj-5a-ic2">
+                    <popUpButtonCell key="cell" type="push" title="Non Compression (Not Recommend)" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="1" imageScaling="proportionallyDown" inset="2" preferredEdge="maxY" selectedItem="6bt-4Z-Alu" id="eAj-5a-ic2">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="menu"/>
                         <menu key="menu" title="OtherViews" id="DFz-y9-YOr">
                             <items>
-                                <menuItem title="Non Compression (Not Recommend)" toolTip="No compression." id="6bt-4Z-Alu">
+                                <menuItem title="Non Compression (Not Recommend)" state="on" tag="1" toolTip="No compression." id="6bt-4Z-Alu">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                 </menuItem>
-                                <menuItem title="CCITT Fax Group 3 compression (CCITTFAX3)" toolTip="Compresses and decompresses 1 bit gray-scale images using international fax compression standards CCITT3." id="GRb-6f-1fr">
+                                <menuItem title="CCITT Fax Group 3 compression (CCITTFAX3)" tag="3" toolTip="Compresses and decompresses 1 bit gray-scale images using international fax compression standards CCITT3." id="GRb-6f-1fr">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                 </menuItem>
-                                <menuItem title="CCITT Fax Group 4 compression (CCITTFAX4)" toolTip="Compresses and decompresses 1 bit gray-scale images using international fax compression standards CCITT4." id="qP8-dV-S2X">
+                                <menuItem title="CCITT Fax Group 4 compression (CCITTFAX4)" tag="4" toolTip="Compresses and decompresses 1 bit gray-scale images using international fax compression standards CCITT4." id="qP8-dV-S2X">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                 </menuItem>
-                                <menuItem title="LZW Compression" id="fkL-i0-8uc">
+                                <menuItem title="LZW Compression" tag="5" id="fkL-i0-8uc">
                                     <string key="toolTip">Compresses and decompresses without information loss, achieving compression ratios up to 5:1. It may be somewhat slower to compress and decompress than the PackBits scheme.</string>
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                 </menuItem>
-                                <menuItem title="PackBits Compression" toolTip="Compresses and decompresses without information loss, but may not achieve the same compression ratios as LZW." id="S5y-wC-XIV">
+                                <menuItem title="PackBits Compression" tag="32773" toolTip="Compresses and decompresses without information loss, but may not achieve the same compression ratios as LZW." id="S5y-wC-XIV">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                 </menuItem>
-                                <menuItem title="JPEG Compression" toolTip="PEG compression is no longer supported in TIFF files, and this factor is ignored." id="vNq-5V-cds">
+                                <menuItem title="NEXT Compression" tag="32766" toolTip="NeXT compressed. Supported for input only." id="t0g-Tp-76f">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                 </menuItem>
-                                <menuItem title="NEXT Compression" toolTip="NeXT compressed. Supported for input only." id="t0g-Tp-76f">
+                                <menuItem title="JPEG Compression" tag="6" toolTip="PEG compression is no longer supported in TIFF files, and this factor is ignored." id="vNq-5V-cds">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                 </menuItem>
-                                <menuItem title="OldJPEG Compression" toolTip="Old JPEG compression. No longer supported for input or output." id="8Yd-eK-04z">
+                                <menuItem title="Old JPEG Compression" tag="32865" toolTip="Old JPEG compression. No longer supported for input or output." id="8Yd-eK-04z">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                 </menuItem>
                             </items>

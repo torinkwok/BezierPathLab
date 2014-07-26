@@ -33,8 +33,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class LIGetPathsOperation;
-
 // BLMainWindowController class
 @interface BLMainWindowController : NSWindowController
 
