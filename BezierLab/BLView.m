@@ -76,7 +76,7 @@ NSString* const BLBezierLabErrorDomain = @"individual.TongG.BezierLab.ErrorDomai
         [ openPanel setMessage: NSLocalizedString( @"Testing for Fucking NSImage", nil ) ];
 
     [ openPanel setPrompt: NSLocalizedString( @"Choose", nil ) ];
-    [ openPanel setAllowedFileTypes: [ NSImage imageUnfilteredFileTypes ] ];
+    [ openPanel setAllowedFileTypes: [ NSImage imageUnfilteredTypes ] ];
 
     [ openPanel beginSheetModalForWindow: [ self window ]
                        completionHandler:
@@ -84,6 +84,8 @@ NSString* const BLBezierLabErrorDomain = @"individual.TongG.BezierLab.ErrorDomai
             {
             if ( _Result == NSFileHandlingPanelOKButton )
                 {
+                NSURL* selectedURL = [ openPanel URL ];
+
                 dispatch_queue_t defaultGlobalDispatchQueue = dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0 );
 
                 dispatch_async( defaultGlobalDispatchQueue
@@ -91,7 +93,7 @@ NSString* const BLBezierLabErrorDomain = @"individual.TongG.BezierLab.ErrorDomai
                         {
                         if ( isTestingForNSImageRep )
                             {
-                            NSArray* bitmapImageReps = [ NSBitmapImageRep imageRepsWithContentsOfURL: [ openPanel URL ] ];
+                            NSArray* bitmapImageReps = [ NSBitmapImageRep imageRepsWithContentsOfURL: selectedURL ];
 
                             dispatch_apply( [ bitmapImageReps count ], defaultGlobalDispatchQueue
                                 , ^( size_t _CurrentIndex )
@@ -106,8 +108,8 @@ NSString* const BLBezierLabErrorDomain = @"individual.TongG.BezierLab.ErrorDomai
 
                                     NSBitmapImageRep* imageRep = ( NSBitmapImageRep* )bitmapImageReps[ _CurrentIndex ];
                                     NSImage* image = [ [ NSImage alloc ] init ];
-                                    [ image drawRepresentation: imageRep inRect: rect ];
-//                                    [ imageRep drawInRect: rect fromRect: NSZeroRect operation: NSCompositeSourceOver fraction: 1.f respectFlipped: NO hints: nil ];
+
+                                    [ imageRep drawInRect: rect fromRect: NSZeroRect operation: NSCompositeSourceOver fraction: 1.f respectFlipped: NO hints: nil ];
                                     [ image release ];
 
                                     [ [ NSGraphicsContext currentContext ] flushGraphics ];
@@ -120,15 +122,37 @@ NSString* const BLBezierLabErrorDomain = @"individual.TongG.BezierLab.ErrorDomai
                             {
                             [ self lockFocusIfCanDraw ];
 
-                            NSImage* sourceImage = [ [ [ NSImage alloc ] initWithContentsOfURL: [ openPanel URL ] ] autorelease ];
+                            NSImage* sourceImage = [ [ [ NSImage alloc ] initWithContentsOfURL: selectedURL ] autorelease ];
+                            [ sourceImage setName: @"QingFeng" ];
+                            [ sourceImage setName: nil ];
 
-                            NSURL* destImageURL = [ NSURL URLWithString: @"file:///sers/EsquireTongG/QingFeng.png" ];
-                            NSImage* destinationImage = [ [ [ NSImage alloc ] initWithContentsOfURL: destImageURL ] autorelease ];
-                            if ( !destinationImage )
+//                            NSURL* destImageURL = [ [ NSBundle mainBundle ] URLForResource: @"QingFeng" withExtension: @"png" ];
+                            NSImage* destinationImage = [ NSImage imageNamed: @"QingFeng" ];
+
+//                            if ( destImageURL )
+//                                destinationImage = [ [ [ NSImage alloc ] initWithContentsOfURL: destImageURL ] autorelease ];
+//                            else
+//                                destImageURL = [ [ NSBundle mainBundle ] bundleURL ];
+
+                            if ( destinationImage )
+                                {
+                                NSAffineTransform* translateTransformation = [ NSAffineTransform transform ];
+                                NSAffineTransformStruct translateTransformationStruct = { 1.f, 0.f, 0.f, 1.f, 20.f, 20.f };
+                                [ translateTransformation setTransformStruct: translateTransformationStruct ];
+
+                                NSPoint point = NSMakePoint( 50, 50 );
+
+                                [ self drawOnImage: destinationImage ];
+                                [ destinationImage drawAtPoint: [ translateTransformation transformPoint: point ]
+                                                      fromRect: NSZeroRect
+                                                     operation: NSCompositeSourceOver
+                                                      fraction: .8f ];
+                                }
+                            else
                                 {
                                 NSError* failureToCreateDestImage = [ NSError errorWithDomain: BLBezierLabErrorDomain
                                                                                          code: BLFailureToCreateImageError
-                                                                                     userInfo: @{ NSFilePathErrorKey : destImageURL } ];
+                                                                                     userInfo: nil ];
                                 dispatch_async( dispatch_get_main_queue()
                                     , ^( void )
                                         {
@@ -154,17 +178,6 @@ NSString* const BLBezierLabErrorDomain = @"individual.TongG.BezierLab.ErrorDomai
                             [ transform invert ];
                             [ transform concat ];
 
-                            NSAffineTransform* translateTransformation = [ NSAffineTransform transform ];
-                            NSAffineTransformStruct translateTransformationStruct = { 1.f, 0.f, 0.f, 1.f, 20.f, 20.f };
-                            [ translateTransformation setTransformStruct: translateTransformationStruct ];
-
-                            NSPoint point = NSMakePoint( 50, 50 );
-
-                            [ destinationImage drawAtPoint: [ translateTransformation transformPoint: point ]
-                                                  fromRect: NSZeroRect
-                                                 operation: NSCompositeSourceOver
-                                                  fraction: .8f ];
-
                             [ [ NSGraphicsContext currentContext ] flushGraphics ];
 
                             [ self unlockFocus ];
@@ -173,6 +186,48 @@ NSString* const BLBezierLabErrorDomain = @"individual.TongG.BezierLab.ErrorDomai
                 }
             } ];
 
+    }
+
+- ( void ) drawOnImage: ( NSImage* )_Image
+    {
+    NSImage* image = [ NSImage imageWithSize: NSMakeSize( 100, 100 )
+                                     flipped: NO
+                              drawingHandler:
+                         ^BOOL ( NSRect _Rect )
+                             {
+                             NSColor* strokeColor = [ NSColor colorWithCalibratedRed: .6392f green: .5333 blue: .8588 alpha: 1.f ];
+                             NSColor* fillColor = [ NSColor colorWithDeviceCyan: .5042 magenta: .0f yellow: .2362 black: .0f alpha: 1.f ];
+                             [ strokeColor setStroke ];
+                             [ fillColor setFill ];
+
+                             NSBezierPath* bezierPath = [ NSBezierPath bezierPathWithOvalInRect: NSMakeRect( 20, 0, 100, 100 ) ];
+                             [ bezierPath setLineWidth: 10 ];
+                             [ bezierPath stroke ];
+                             [ bezierPath fill ];
+
+                             return YES;
+                             } ];
+
+    // NSImage 0x60800007e740
+    // NSCustomImageRep 0x60800009e230
+    [ image drawInRect: NSMakeRect( 300, 300, 100, 100 )
+              fromRect: NSMakeRect( 0, 0, 50, 50 )
+             operation: NSCompositeSourceOver
+              fraction: 1.f ];
+
+    [ self flipCurrentTransform ];
+
+    [ image drawInRect: NSMakeRect( 200, 200, 101, 100 )
+              fromRect: NSMakeRect( 20, 30, 50, 50 )
+             operation: NSCompositeSourceOver
+              fraction: 1.f ];
+
+    [ self undoFlip ];
+#if 0
+    [ _Image lockFocus ];
+
+    [ _Image unlockFocus ];
+#endif
     }
 
 // Flip transform for removing the inversion caused by the view being flipped.
@@ -226,6 +281,7 @@ NSString* const BLBezierLabErrorDomain = @"individual.TongG.BezierLab.ErrorDomai
                                 isRecoverSuccess = YES;
 
                                 [ invocation setArgument: ( void* )&isRecoverSuccess atIndex: 2 ];
+
                                 [ invocation setArgument: &correctURL atIndex: 3 ];
                                 [ invocation invokeWithTarget: _Delegate ];
                                 }

@@ -63,6 +63,19 @@
                                       ];
     }
 
+- ( IBAction ) testingForImageFileTypes: ( id )_Sender
+    {
+    NSArray* fileTypes = [ NSImage imageFileTypes ];
+    NSArray* unfilteredTypes1 = [ NSImage imageUnfilteredTypes ];
+    NSArray* unfilteredTypes2 = [ NSImage imageUnfilteredFileTypes ];
+    NSArray* unfilteredTypes3 = [ NSImage imageUnfilteredFileTypes ];
+    }
+
+- ( IBAction ) testingForImageUnfilteredTypes: ( id )_Sender
+    {
+    NSArray* types = [ NSImage imageUnfilteredFileTypes ];
+    }
+
 @end // BLAppDelegate
 
 /////////////////////////////////////////////////////////////////////////////

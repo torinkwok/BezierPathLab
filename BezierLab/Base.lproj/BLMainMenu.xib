@@ -688,6 +688,21 @@
                                     <action selector="testingForErrorHandlingOfParsingXMLDocument:" target="-1" id="VOl-OG-Fng"/>
                                 </connections>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="hTW-aK-teZ"/>
+                            <menuItem title="Testing for ImageFileTypes" keyEquivalent="P" id="GNl-oj-0eP" colorLabel="IBBuiltInLabel-Red">
+                                <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                <accessibility description="NSImage"/>
+                                <connections>
+                                    <action selector="testingForImageFileTypes:" target="-1" id="QSW-P2-OcS"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Testing for ImageFileUnfilteredTypes" keyEquivalent="P" id="NDy-sa-Ufg" colorLabel="IBBuiltInLabel-Red">
+                                <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                <accessibility description="NSImage"/>
+                                <connections>
+                                    <action selector="testingForImageUnfilteredTypes:" target="-1" id="qiJ-P5-UeD"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>
