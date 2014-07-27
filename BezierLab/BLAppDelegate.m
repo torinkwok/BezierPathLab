@@ -63,15 +63,6 @@
                                       ];
     }
 
-#pragma mark IBActions
-- ( IBAction ) testingForErrorHandlingOfParsingXMLDocument: ( id )_Sender
-    {
-    [ NOTIFICATION_CENTER postNotificationName: @"TestingForErrorHandling"
-                                        object: self
-                                      userInfo: nil
-                                      ];
-    }
-
 @end // BLAppDelegate
 
 /////////////////////////////////////////////////////////////////////////////

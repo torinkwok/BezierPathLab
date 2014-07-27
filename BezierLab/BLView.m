@@ -56,11 +56,6 @@ NSString* const BLBezierLabErrorDomain = @"individual.TongG.BezierLab.ErrorDomai
                              selector: @selector( testingForImageRep: )
                                  name: @"TestingForImageRep"
                                object: nil ];
-
-    [ NOTIFICATION_CENTER addObserver: self
-                             selector: @selector( testingForErrorHandlingOfParsingXMLDocument: )
-                                 name: @"TestingForErrorHandling"
-                               object: nil ];
     }
 
 - ( BOOL ) isFlipped
@@ -133,39 +128,17 @@ NSString* const BLBezierLabErrorDomain = @"individual.TongG.BezierLab.ErrorDomai
                                 {
                                 NSError* failureToCreateDestImage = [ NSError errorWithDomain: BLBezierLabErrorDomain
                                                                                          code: BLFailureToCreateImageError
-                                                                                     userInfo:
-                                    @{ NSLocalizedDescriptionKey : [ NSString stringWithFormat: NSLocalizedString( @"Failure to create the image which located at %@. Because the path is incorrect.", nil ), destImageURL.path ]
-                                     , NSFilePathErrorKey: [ destImageURL path ]
-                                     , NSLocalizedFailureReasonErrorKey: NSLocalizedString( @"Because the path is incorrect.", nil )
-                                     , NSLocalizedRecoverySuggestionErrorKey: NSLocalizedString( @"Choose a correct path and try again?", nil )
-                                     , NSLocalizedRecoveryOptionsErrorKey: @[ NSLocalizedString( @"Try again",nil ), NSLocalizedString( @"Cancel", nil ) ]
-                                     , NSRecoveryAttempterErrorKey : self
-                                     } ];
-
+                                                                                     userInfo: @{ NSFilePathErrorKey : destImageURL } ];
                                 dispatch_async( dispatch_get_main_queue()
                                     , ^( void )
                                         {
-                                        [ self presentError: failureToCreateDestImage ];
-
-//                                        [ self presentError: failureToCreateDestImage
-//                                             modalForWindow: [ self window ]
-//                                                   delegate: self
-//                                         didPresentSelector: @selector( didPresentErrorWithRecovery:contextInfo: )
-//                                                contextInfo: nil ];
+                                        [ self presentError: failureToCreateDestImage
+                                             modalForWindow: [ self window ]
+                                                   delegate: self
+                                         didPresentSelector: @selector( didPresentErrorWithRecovery:contextInfo: )
+                                                contextInfo: nil ];
                                         } );
                                 }
-
-//                            [ sourceImage setFlipped: YES ];
-//                            [ destinationImage setFlipped: YES ];
-
-//                            [ translateTransformation rotateByDegrees: 20.f ];
-//                            [ self flipCurrentTransform ];
-//                            [ translateTransformation concat ];
-
-//                            [ sourceImage drawAtPoint: NSMakePoint( 50, 50 )
-//                                             fromRect: NSZeroRect
-//                                            operation: NSCompositeSourceOver
-//                                             fraction: 1.f ];
 
                             NSAffineTransformStruct transformStruct = { .5f, 0.f, 0.f, .5f, 0.f, 0.f };
                             NSAffineTransform* transform = [ NSAffineTransform transform ];
@@ -217,96 +190,95 @@ NSString* const BLBezierLabErrorDomain = @"individual.TongG.BezierLab.ErrorDomai
     [ self._flipTransform concat ];
     }
 
-- ( void ) testingForErrorHandlingOfParsingXMLDocument: ( id )_Sender
-    {
-    NSError* err = nil;
-
-    // self._XMLDocument is an NSXMLDocument instance variable.
-    if ( self._XMLDocument )
-        self._XMLDocument = nil;
-
-    NSURL* url = [ NSURL URLWithString: @"file:///Users/EsquireTongG/xml.plis" ];
-    self._XMLDocument = [ [ [ NSXMLDocument alloc ] initWithContentsOfURL: url options: NSXMLNodeOptionsNone error: &err ] autorelease ];
-
-    if ( !self._XMLDocument && err )
-        {
-        NSMutableDictionary* newUserInfo = [ [ err userInfo ] mutableCopy ];
-        newUserInfo[ NSURLErrorKey ] = url;
-
-        [ self presentError: [ NSError errorWithDomain: err.domain code: err.code userInfo: newUserInfo ]
-             modalForWindow: [ self window ]
-                   delegate: self
-         didPresentSelector: @selector( didPresentRecoveryWithRecovery:contextInfo: )
-                contextInfo: nil ];
-        }
-    }
-
 - ( void ) attemptRecoveryFromError: ( NSError* )_Error
-                        optionIndex: ( NSUInteger )_RecoveryOptionIndex
+                        optionIndex: ( NSUInteger )_OptionIndex
                            delegate: ( id )_Delegate
-                 didRecoverSelector: ( SEL )_DidRecoverSelector
+                 didRecoverSelector: ( SEL )_DidRecoverySelector
                         contextInfo: ( void* )_ContextInfo
     {
-    BOOL success = NO;
-    NSError* err = nil;
+    __block BOOL isRecoverSuccess = NO;
 
-    NSInvocation* invocation = [ NSInvocation invocationWithMethodSignature: [ _Delegate methodSignatureForSelector: _DidRecoverSelector ] ];
-    [ invocation setSelector: _DidRecoverSelector ];
+    NSInvocation* invocation = [ NSInvocation invocationWithMethodSignature: [ _Delegate methodSignatureForSelector: _DidRecoverySelector ] ];
+    [ invocation setSelector: _DidRecoverySelector ];
 
-    if ( _RecoveryOptionIndex == 0 )    // Recovery requested.
-        {
-        self._XMLDocument = [ [ [ NSXMLDocument alloc ] initWithContentsOfURL: _Error.userInfo[ NSURLErrorKey ]
-                                                                      options: NSXMLDocumentTidyXML
-                                                                        error: &err ] autorelease ];
-        if ( self._XMLDocument )
-            success = YES;
-        }
-
-    [ invocation setArgument: ( void* )&success atIndex: 2 ];
-
-    if ( err )
-        [ invocation setArgument: &err atIndex: 3 ];
-
-    [ invocation invokeWithTarget: _Delegate ];
-    }
-
-- ( void ) didPresentRecoveryWithRecovery: ( BOOL )_DidRecover
-                              contextInfo: ( void* )_ContextInfo
-    {
-    NSError* error = ( NSError* )_ContextInfo;
-
-    if ( error && [ error isKindOfClass: [ NSError class ] ] )
-        {
-        [ [ NSAlert alertWithError: error ] beginSheetModalForWindow: [ self window ]
-                                                   completionHandler: nil ];
-        }
-    }
-
-- ( NSError* ) willPresentError: ( NSError* ) _Error
-    {
-    if ( [ [ _Error domain ] isEqualToString: NSCocoaErrorDomain ] )
+    if ( [ _Error.domain isEqualToString: BLBezierLabErrorDomain ] )
         {
         switch ( [ _Error code ] )
             {
-        case NSFileReadNoSuchFileError:
+        case BLFailureToCreateImageError:
                 {
-                NSString* newDesc = [ [ _Error localizedDescription ]
-                    stringByAppendingString: ( _Error.localizedFailureReason ? _Error.localizedFailureReason : @"" ) ];
+                if ( _OptionIndex == 0 )
+                    {
+                    NSOpenPanel* openPanel = [ NSOpenPanel openPanel ];
 
-                NSMutableDictionary* newUserInfo = [ [ _Error userInfo ] mutableCopy ];
+                    [ openPanel setPrompt: NSLocalizedString( @"Choose", nil ) ];
+                    [ openPanel setMessage: NSLocalizedString( @"Choose a correct path again.", nil ) ];
+                    [ openPanel setCanChooseDirectories: NO ];
+                    [ openPanel setAllowedFileTypes: [ NSImage imageUnfilteredFileTypes ] ];
 
-                newUserInfo[ NSLocalizedDescriptionKey ] = newDesc;
-                newUserInfo[ NSLocalizedRecoverySuggestionErrorKey ] = NSLocalizedString( @"Would you like to tidy the XML and try again?", nil );
-                newUserInfo[ NSLocalizedRecoveryOptionsErrorKey ] = @[ NSLocalizedString( @"Yeah, try again", nil ), NSLocalizedString( @"Cancel", nil ) ];
-                newUserInfo[ NSRecoveryAttempterErrorKey ] = self;
+                    [ openPanel beginSheetModalForWindow: [ self window ]
+                                       completionHandler:
+                        ^( NSInteger _Result )
+                            {
+                            if ( _Result == NSFileHandlingPanelOKButton )
+                                {
+                                NSURL* correctURL = [ openPanel URL ];
+                                isRecoverSuccess = YES;
 
-                NSError* customizedError = [ NSError errorWithDomain: [ _Error domain ]
-                                                                code: [ _Error code ]
-                                                            userInfo: newUserInfo ];
-                return customizedError;
+                                [ invocation setArgument: ( void* )&isRecoverSuccess atIndex: 2 ];
+                                [ invocation setArgument: &correctURL atIndex: 3 ];
+                                [ invocation invokeWithTarget: _Delegate ];
+                                }
+                            } ];
+                    return;
+                    }
                 }
-        default:
-                return [ super willPresentError: _Error ];
+            }
+        }
+
+    [ invocation setArgument: ( void* )&isRecoverSuccess atIndex: 2 ];
+    [ invocation invokeWithTarget: _Delegate ];
+    }
+
+- ( void ) didPresentErrorWithRecovery: ( BOOL )_DidRecover
+                           contextInfo: ( id )_ContextInfo
+    {
+    if ( _DidRecover && [ _ContextInfo isKindOfClass: [ NSURL class ] ] )
+        {
+        NSURL* correctURL = ( NSURL* )_ContextInfo;
+        NSImage* imageWithCorrectPath = [ [ [ NSImage alloc ] initWithContentsOfURL: correctURL ] autorelease ];
+
+        NSAffineTransform* translateTransformation = [ NSAffineTransform transform ];
+        NSAffineTransformStruct translateTransformationStruct = { 1.f, 0.f, 0.f, 1.f, 20.f, 20.f };
+        [ translateTransformation setTransformStruct: translateTransformationStruct ];
+
+        NSPoint point = NSMakePoint( 50, 50 );
+
+        [ imageWithCorrectPath drawAtPoint: [ translateTransformation transformPoint: point ]
+                              fromRect: NSZeroRect
+                             operation: NSCompositeSourceOver
+                              fraction: .8f ];
+        }
+    }
+
+- ( NSError* ) willPresentError: ( NSError* )_Error
+    {
+    if ( [ _Error.domain isEqualToString: BLBezierLabErrorDomain ] )
+        {
+        switch ( [ _Error code ] )
+            {
+        case BLFailureToCreateImageError:
+                {
+                NSMutableDictionary* newInfo = [ [ _Error userInfo ] mutableCopy ];
+
+                newInfo[ NSLocalizedDescriptionKey ] = [ NSString stringWithFormat: NSLocalizedString( @"Failure to create the image which located at %@. Because the path is incorrect.", nil ), newInfo[ NSFilePathErrorKey ] ];
+                newInfo[ NSLocalizedFailureReasonErrorKey ] = NSLocalizedString( @"Because the path is incorrect.", nil );
+                newInfo[ NSLocalizedRecoverySuggestionErrorKey ] = NSLocalizedString( @"Choose a correct path and try again?", nil );
+                newInfo[ NSLocalizedRecoveryOptionsErrorKey ] = @[ NSLocalizedString( @"Try again",nil ), NSLocalizedString( @"Cancel", nil ) ];
+                newInfo[ NSRecoveryAttempterErrorKey ] = self;
+
+                return [ NSError errorWithDomain: _Error.domain code: _Error.code userInfo: newInfo ];
+                }
             }
         }
 
