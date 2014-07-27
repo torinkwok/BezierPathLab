@@ -41,6 +41,7 @@ NSString extern* const BLBezierLabErrorDomain;
 
     // Error code
     NSInteger extern const BLFailureToCreateImageError;
+    NSInteger extern const BLNoSuchImageError;
 
 // BLView class
 @interface BLView : NSView

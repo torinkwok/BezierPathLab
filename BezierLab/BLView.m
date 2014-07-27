@@ -42,6 +42,7 @@ NSString* const BLBezierLabErrorDomain = @"individual.TongG.BezierLab.ErrorDomai
 
     // Error code
     NSInteger const BLFailureToCreateImageError = 0x31;
+    NSInteger const BLNoSuchImageError = 0x32;
 
 // BLView class
 @implementation BLView
@@ -249,17 +250,25 @@ NSString* const BLBezierLabErrorDomain = @"individual.TongG.BezierLab.ErrorDomai
     {
     BOOL success = NO;
     NSError* err = nil;
-
     NSInvocation* invocation = [ NSInvocation invocationWithMethodSignature: [ _Delegate methodSignatureForSelector: _DidRecoverSelector ] ];
     [ invocation setSelector: _DidRecoverSelector ];
 
-    if ( _RecoveryOptionIndex == 0 )    // Recovery requested.
+    if ( [ _Error.domain isEqualToString: NSCocoaErrorDomain ] )
         {
-        self._XMLDocument = [ [ [ NSXMLDocument alloc ] initWithContentsOfURL: _Error.userInfo[ NSURLErrorKey ]
-                                                                      options: NSXMLDocumentTidyXML
-                                                                        error: &err ] autorelease ];
-        if ( self._XMLDocument )
-            success = YES;
+        switch ( [ _Error code ] )
+            {
+        case NSFileReadNoSuchFileError:
+                {
+                if ( _RecoveryOptionIndex == 0 )    // Recovery requested.
+                    {
+                    self._XMLDocument = [ [ [ NSXMLDocument alloc ] initWithContentsOfURL: _Error.userInfo[ NSURLErrorKey ]
+                                                                                  options: NSXMLDocumentTidyXML
+                                                                                    error: &err ] autorelease ];
+                    if ( self._XMLDocument )
+                        success = YES;
+                    }
+                }
+            }
         }
 
     [ invocation setArgument: ( void* )&success atIndex: 2 ];
