@@ -33,26 +33,12 @@
 
 #import <Cocoa/Cocoa.h>
 
-// Notification names
-NSString extern* const BLViewClickedButtonNotification;
+// BLTestingViewController
+@interface BLTestingViewController : NSViewController
 
-// Error domain
-NSString extern* const BLBezierLabErrorDomain;
++ ( id ) testingViewController;
 
-    // Error code
-    NSInteger extern const BLFailureToCreateImageError;
-    NSInteger extern const BLFailureToDrawnIntoViewError;
-
-@class BLTestingViewController;
-
-// BLView class
-@interface BLView : NSView
-
-@property ( retain ) NSAffineTransform* _flipTransform;
-@property ( retain ) NSXMLDocument* _XMLDocument;
-@property ( retain ) BLTestingViewController* _testingViewController;
-
-@end // BLView
+@end // BLTestingViewController
 
 /////////////////////////////////////////////////////////////////////////////
 

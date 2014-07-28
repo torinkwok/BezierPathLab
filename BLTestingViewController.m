@@ -31,28 +31,25 @@
  **                                                                         **
  ****************************************************************************/
 
-#import <Cocoa/Cocoa.h>
+#import "BLTestingViewController.h"
 
-// Notification names
-NSString extern* const BLViewClickedButtonNotification;
+// BLTestingViewController class
+@implementation BLTestingViewController
 
-// Error domain
-NSString extern* const BLBezierLabErrorDomain;
++ ( id ) testingViewController
+    {
+    return [ [ [ [ self class ] alloc ] init ] autorelease ];
+    }
 
-    // Error code
-    NSInteger extern const BLFailureToCreateImageError;
-    NSInteger extern const BLFailureToDrawnIntoViewError;
+- ( id ) init
+    {
+    if ( self = [ super initWithNibName: @"BLTestingView" bundle: [ NSBundle mainBundle ] ] )
+        ;
 
-@class BLTestingViewController;
+    return self;
+    }
 
-// BLView class
-@interface BLView : NSView
-
-@property ( retain ) NSAffineTransform* _flipTransform;
-@property ( retain ) NSXMLDocument* _XMLDocument;
-@property ( retain ) BLTestingViewController* _testingViewController;
-
-@end // BLView
+@end // BLTestingViewController
 
 /////////////////////////////////////////////////////////////////////////////
 

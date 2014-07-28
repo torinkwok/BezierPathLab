@@ -76,6 +76,14 @@
     NSArray* types = [ NSImage imageUnfilteredFileTypes ];
     }
 
+- ( IBAction ) checkToSeeIfAViewCanBeDrawn: ( id )_Sender
+    {
+    [ NOTIFICATION_CENTER postNotificationName: @"TestingForCanBeDrawn"
+                                        object: self
+                                      userInfo: @{ BLViewClickedButtonNotification : _Sender }
+                                      ];
+    }
+
 @end // BLAppDelegate
 
 /////////////////////////////////////////////////////////////////////////////

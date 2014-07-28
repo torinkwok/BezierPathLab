@@ -11,7 +11,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <rect key="contentRect" x="196" y="240" width="500" height="500"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
-            <view key="contentView" id="EiT-Mj-1SZ" customClass="BLView">
+            <view key="contentView" canDrawConcurrently="YES" id="EiT-Mj-1SZ" customClass="BLView">
                 <rect key="frame" x="0.0" y="0.0" width="500" height="500"/>
                 <autoresizingMask key="autoresizingMask"/>
             </view>

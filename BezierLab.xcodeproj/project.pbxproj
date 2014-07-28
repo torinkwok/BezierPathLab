@@ -21,6 +21,9 @@
 		8308B477197EB94A005460BB /* BLMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308B476197EB94A005460BB /* BLMainWindowController.m */; };
 		832A521F198512200064FBEE /* GameCenter.icns in Resources */ = {isa = PBXBuildFile; fileRef = 832A521E198512200064FBEE /* GameCenter.icns */; };
 		8340BDA019813C8A00FD12CE /* BLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8340BD9E19813C8A00FD12CE /* BLView.m */; };
+		8358C85F198626D200923C2B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8358C85E198626D200923C2B /* MapKit.framework */; };
+		8358C8621986461200923C2B /* BLTestingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8358C8611986461200923C2B /* BLTestingViewController.m */; };
+		8358C8641986462600923C2B /* BLTestingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8358C8631986462600923C2B /* BLTestingView.xib */; };
 		835948BD19837CD00009B3DB /* BLCompressionSchemesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 835948BA19837CD00009B3DB /* BLCompressionSchemesView.xib */; };
 		835948BE19837CD00009B3DB /* BLCompressionSchemesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 835948BC19837CD00009B3DB /* BLCompressionSchemesViewController.m */; };
 		83F49754197EBA3D008CEAD4 /* BLMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F49753197EBA3D008CEAD4 /* BLMainWindow.xib */; };
@@ -61,6 +64,10 @@
 		832A521E198512200064FBEE /* GameCenter.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = GameCenter.icns; sourceTree = "<group>"; };
 		8340BD9E19813C8A00FD12CE /* BLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLView.m; sourceTree = "<group>"; };
 		8340BD9F19813C8A00FD12CE /* BLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLView.h; sourceTree = "<group>"; };
+		8358C85E198626D200923C2B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		8358C8601986461200923C2B /* BLTestingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLTestingViewController.h; sourceTree = "<group>"; };
+		8358C8611986461200923C2B /* BLTestingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLTestingViewController.m; sourceTree = "<group>"; };
+		8358C8631986462600923C2B /* BLTestingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLTestingView.xib; sourceTree = "<group>"; };
 		835948BA19837CD00009B3DB /* BLCompressionSchemesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BLCompressionSchemesView.xib; path = BezierLab/BLCompressionSchemesView.xib; sourceTree = "<group>"; };
 		835948BB19837CD00009B3DB /* BLCompressionSchemesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCompressionSchemesViewController.h; sourceTree = "<group>"; };
 		835948BC19837CD00009B3DB /* BLCompressionSchemesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCompressionSchemesViewController.m; sourceTree = "<group>"; };
@@ -73,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8358C85F198626D200923C2B /* MapKit.framework in Frameworks */,
 				8308B442197E73A8005460BB /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,6 +100,9 @@
 		8308B435197E73A8005460BB = {
 			isa = PBXGroup;
 			children = (
+				8358C8631986462600923C2B /* BLTestingView.xib */,
+				8358C8601986461200923C2B /* BLTestingViewController.h */,
+				8358C8611986461200923C2B /* BLTestingViewController.m */,
 				832A521E198512200064FBEE /* GameCenter.icns */,
 				83F49756197EBB31008CEAD4 /* BLCommon.h */,
 				8308B447197E73A8005460BB /* BezierLab */,
@@ -114,6 +125,7 @@
 		8308B440197E73A8005460BB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8358C85E198626D200923C2B /* MapKit.framework */,
 				8308B441197E73A8005460BB /* Cocoa.framework */,
 				8308B460197E73A8005460BB /* XCTest.framework */,
 				8308B443197E73A8005460BB /* Other Frameworks */,
@@ -266,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				832A521F198512200064FBEE /* GameCenter.icns in Resources */,
+				8358C8641986462600923C2B /* BLTestingView.xib in Resources */,
 				8308B44C197E73A8005460BB /* InfoPlist.strings in Resources */,
 				8308B45A197E73A8005460BB /* Images.xcassets in Resources */,
 				8308B452197E73A8005460BB /* Credits.rtf in Resources */,
@@ -295,6 +308,7 @@
 				8308B455197E73A8005460BB /* BLAppDelegate.m in Sources */,
 				8308B477197EB94A005460BB /* BLMainWindowController.m in Sources */,
 				8308B44E197E73A8005460BB /* main.m in Sources */,
+				8358C8621986461200923C2B /* BLTestingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

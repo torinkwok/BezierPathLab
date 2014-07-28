@@ -33,6 +33,7 @@
 
 #import "BLView.h"
 #import "BLCompressionSchemesViewController.h"
+#import "BLTestingViewController.h"
 
 // Notification names
 NSString* const BLViewClickedButtonNotification = @"Clicked Button Notif";
@@ -41,20 +42,29 @@ NSString* const BLViewClickedButtonNotification = @"Clicked Button Notif";
 NSString* const BLBezierLabErrorDomain = @"individual.TongG.BezierLab.ErrorDomain";
 
     // Error code
-    NSInteger const BLFailureToCreateImageError = 0x31;
+    NSInteger const BLFailureToCreateImageError = 31;
+    NSInteger const BLFailureToDrawnIntoViewError = 32;
 
 // BLView class
 @implementation BLView
 
 @synthesize _XMLDocument;
+@synthesize _flipTransform;
+@synthesize _testingViewController;
 
 - ( void ) awakeFromNib
     {
     self._flipTransform = [ NSAffineTransform transform ];
+    self._testingViewController = [ BLTestingViewController testingViewController ];
 
     [ NOTIFICATION_CENTER addObserver: self
                              selector: @selector( testingForImageRep: )
                                  name: @"TestingForImageRep"
+                               object: nil ];
+
+    [ NOTIFICATION_CENTER addObserver: self
+                             selector: @selector( checkToSeeIfAViewCanBeDrawn: )
+                                 name: @"TestingForCanBeDrawn"
                                object: nil ];
     }
 
@@ -94,93 +104,125 @@ NSString* const BLBezierLabErrorDomain = @"individual.TongG.BezierLab.ErrorDomai
                         if ( isTestingForNSImageRep )
                             {
                             NSArray* bitmapImageReps = [ NSBitmapImageRep imageRepsWithContentsOfURL: selectedURL ];
+                            NSUInteger iterationCount = [ bitmapImageReps count ];
 
-                            dispatch_apply( [ bitmapImageReps count ], defaultGlobalDispatchQueue
+                            dispatch_apply( iterationCount, defaultGlobalDispatchQueue
                                 , ^( size_t _CurrentIndex )
                                     {
-                                    [ self lockFocusIfCanDraw ];
-                                    [ self flipCurrentTransform ];
+                                    if ( [ self lockFocusIfCanDraw ] )
+                                        {
+                                        [ self flipCurrentTransform ];
 
-                                    srand( ( int )time( NULL ) );
-                                    NSRect rect = NSMakeRect( random() % ( long )self.bounds.size.width
-                                                            , random() % ( long )self.bounds.size.height
-                                                            , 100, 100 ) ;
+                                        srand( ( int )time( NULL ) );
+                                        NSRect rect = NSMakeRect( random() % ( long )self.bounds.size.width
+                                                                , random() % ( long )self.bounds.size.height
+                                                                , 100, 100 ) ;
 
-                                    NSBitmapImageRep* imageRep = ( NSBitmapImageRep* )bitmapImageReps[ _CurrentIndex ];
-                                    NSImage* image = [ [ NSImage alloc ] init ];
+                                        NSBitmapImageRep* imageRep = ( NSBitmapImageRep* )bitmapImageReps[ _CurrentIndex ];
+                                        NSImage* image = [ [ NSImage alloc ] init ];
 
-                                    [ imageRep drawInRect: rect fromRect: NSZeroRect operation: NSCompositeSourceOver fraction: 1.f respectFlipped: NO hints: nil ];
-                                    [ image release ];
+                                        [ imageRep drawInRect: rect fromRect: NSZeroRect operation: NSCompositeSourceOver fraction: 1.f respectFlipped: NO hints: nil ];
+                                        [ image release ];
 
-                                    [ [ NSGraphicsContext currentContext ] flushGraphics ];
+                                        [ [ NSGraphicsContext currentContext ] flushGraphics ];
 
-                                    [ self undoFlip ];
-                                    [ self unlockFocus ];
+                                        [ self undoFlip ];
+                                        [ self unlockFocus ];
+                                        }
+                                    else
+                                        {
+                                        if ( _CurrentIndex == ( iterationCount - 1 ) )
+                                            {
+                                            dispatch_async( dispatch_get_main_queue()
+                                                , ^( void )
+                                                    {
+                                                    NSError* cannotDrawIntoView = [ NSError errorWithDomain: BLBezierLabErrorDomain code: BLFailureToDrawnIntoViewError userInfo: nil ];
+
+                                                    [ self presentError: cannotDrawIntoView
+                                                         modalForWindow: [ self window ]
+                                                               delegate: self
+                                                     didPresentSelector: @selector( didPresentErrorWithRecovery:contextInfo: )
+                                                            contextInfo: nil ];
+                                                    } );
+                                            }
+                                        }
                                     } );
                             }
                         else
                             {
-                            [ self lockFocusIfCanDraw ];
-
-                            NSImage* sourceImage = [ [ [ NSImage alloc ] initWithContentsOfURL: selectedURL ] autorelease ];
-                            [ sourceImage setName: @"QingFeng" ];
-                            [ sourceImage setName: nil ];
-
-//                            NSURL* destImageURL = [ [ NSBundle mainBundle ] URLForResource: @"QingFeng" withExtension: @"png" ];
-                            NSImage* destinationImage = [ NSImage imageNamed: @"QingFeng" ];
-
-//                            if ( destImageURL )
-//                                destinationImage = [ [ [ NSImage alloc ] initWithContentsOfURL: destImageURL ] autorelease ];
-//                            else
-//                                destImageURL = [ [ NSBundle mainBundle ] bundleURL ];
-
-                            if ( destinationImage )
+                            if ( [ self lockFocusIfCanDraw ] )
                                 {
-                                NSAffineTransform* translateTransformation = [ NSAffineTransform transform ];
-                                NSAffineTransformStruct translateTransformationStruct = { 1.f, 0.f, 0.f, 1.f, 20.f, 20.f };
-                                [ translateTransformation setTransformStruct: translateTransformationStruct ];
+                                NSImage* sourceImage = [ [ [ NSImage alloc ] initWithContentsOfURL: selectedURL ] autorelease ];
+                                [ sourceImage setName: @"QingFeng" ];
+                                [ sourceImage setName: nil ];
 
-                                NSPoint point = NSMakePoint( 50, 50 );
+                                NSImage* destinationImage = [ NSImage imageNamed: @"QingFeng" ];
 
-                                [ self drawOnImage: destinationImage ];
-                                [ destinationImage drawAtPoint: [ translateTransformation transformPoint: point ]
-                                                      fromRect: NSZeroRect
-                                                     operation: NSCompositeSourceOver
-                                                      fraction: .8f ];
+                                destinationImage = nil;
+
+                                if ( destinationImage )
+                                    {
+                                    NSAffineTransform* translateTransformation = [ NSAffineTransform transform ];
+                                    NSAffineTransformStruct translateTransformationStruct = { 1.f, 0.f, 0.f, 1.f, 20.f, 20.f };
+                                    [ translateTransformation setTransformStruct: translateTransformationStruct ];
+
+                                    NSPoint point = NSMakePoint( 50, 50 );
+
+                                    [ destinationImage drawAtPoint: [ translateTransformation transformPoint: point ]
+                                                          fromRect: NSZeroRect
+                                                         operation: NSCompositeSourceOver
+                                                          fraction: .8f ];
+                                    }
+                                else
+                                    {
+                                    dispatch_async( dispatch_get_main_queue()
+                                        , ^( void )
+                                            {
+                                            NSError* failureToCreateDestImage = [ NSError errorWithDomain: BLBezierLabErrorDomain
+                                                                                                     code: BLFailureToCreateImageError
+                                                                                                 userInfo: nil ];
+                                            [ self presentError: failureToCreateDestImage
+                                                 modalForWindow: [ self window ]
+                                                       delegate: self
+                                             didPresentSelector: @selector( didPresentErrorWithRecovery:contextInfo: )
+                                                    contextInfo: nil ];
+                                            } );
+                                    }
+
+                                NSAffineTransformStruct transformStruct = { .5f, 0.f, 0.f, .5f, 0.f, 0.f };
+                                NSAffineTransform* transform = [ NSAffineTransform transform ];
+                                [ transform setTransformStruct: transformStruct ];
+                                [ transform concat ];
+
+                                [ sourceImage drawInRect: NSMakeRect( 300, 300, 200, 200 ) ];
+                                [ sourceImage drawInRect: NSMakeRect( 50, 50, 200, 200 )
+                                                fromRect: NSMakeRect( 100, 300, 200, 200 )
+                                               operation: NSCompositeSourceOver
+                                                fraction: 1.f ];
+
+                                [ self drawTheCapturing ];
+
+                                [ transform invert ];
+                                [ transform concat ];
+
+                                [ [ NSGraphicsContext currentContext ] flushGraphics ];
+
+                                [ self unlockFocus ];
                                 }
                             else
                                 {
-                                NSError* failureToCreateDestImage = [ NSError errorWithDomain: BLBezierLabErrorDomain
-                                                                                         code: BLFailureToCreateImageError
-                                                                                     userInfo: nil ];
                                 dispatch_async( dispatch_get_main_queue()
                                     , ^( void )
                                         {
-                                        [ self presentError: failureToCreateDestImage
+                                        NSError* cannotDrawIntoView = [ NSError errorWithDomain: BLBezierLabErrorDomain code: BLFailureToDrawnIntoViewError userInfo: nil ];
+
+                                        [ self presentError: cannotDrawIntoView
                                              modalForWindow: [ self window ]
                                                    delegate: self
                                          didPresentSelector: @selector( didPresentErrorWithRecovery:contextInfo: )
                                                 contextInfo: nil ];
                                         } );
                                 }
-
-                            NSAffineTransformStruct transformStruct = { .5f, 0.f, 0.f, .5f, 0.f, 0.f };
-                            NSAffineTransform* transform = [ NSAffineTransform transform ];
-                            [ transform setTransformStruct: transformStruct ];
-                            [ transform concat ];
-
-                            [ sourceImage drawInRect: NSMakeRect( 300, 300, 200, 200 ) ];
-                            [ sourceImage drawInRect: NSMakeRect( 50, 50, 200, 200 )
-                                            fromRect: NSMakeRect( 100, 300, 200, 200 )
-                                           operation: NSCompositeSourceOver
-                                            fraction: 1.f ];
-
-                            [ transform invert ];
-                            [ transform concat ];
-
-                            [ [ NSGraphicsContext currentContext ] flushGraphics ];
-
-                            [ self unlockFocus ];
                             }
                         } );
                 }
@@ -188,46 +230,25 @@ NSString* const BLBezierLabErrorDomain = @"individual.TongG.BezierLab.ErrorDomai
 
     }
 
-- ( void ) drawOnImage: ( NSImage* )_Image
+- ( IBAction ) checkToSeeIfAViewCanBeDrawn: ( id )_Sender
     {
-    NSImage* image = [ NSImage imageWithSize: NSMakeSize( 100, 100 )
-                                     flipped: NO
-                              drawingHandler:
-                         ^BOOL ( NSRect _Rect )
-                             {
-                             NSColor* strokeColor = [ NSColor colorWithCalibratedRed: .6392f green: .5333 blue: .8588 alpha: 1.f ];
-                             NSColor* fillColor = [ NSColor colorWithDeviceCyan: .5042 magenta: .0f yellow: .2362 black: .0f alpha: 1.f ];
-                             [ strokeColor setStroke ];
-                             [ fillColor setFill ];
+    [ self setHidden: ![ self isHidden ] ];
+    }
 
-                             NSBezierPath* bezierPath = [ NSBezierPath bezierPathWithOvalInRect: NSMakeRect( 20, 0, 100, 100 ) ];
-                             [ bezierPath setLineWidth: 10 ];
-                             [ bezierPath stroke ];
-                             [ bezierPath fill ];
+- ( void ) drawTheCapturing
+    {
+    NSBitmapImageRep* bitmap = [ NSBitmapImageRep imageRepWithContentsOfURL: [ [ NSBundle mainBundle ] URLForResource: @"QingFeng" withExtension: @"png" ] ];
+    NSColor* color = [ NSColor colorWithCalibratedRed: 0.4314f green: 0.7843 blue: 0.9294 alpha: 1.f ];
 
-                             return YES;
-                             } ];
+    for ( int _Index = 0; _Index < 100000; _Index++ )
+        [ bitmap setColor: color atX: _Index y: _Index ];
 
-    // NSImage 0x60800007e740
-    // NSCustomImageRep 0x60800009e230
-    [ image drawInRect: NSMakeRect( 300, 300, 100, 100 )
-              fromRect: NSMakeRect( 0, 0, 50, 50 )
-             operation: NSCompositeSourceOver
-              fraction: 1.f ];
-
-    [ self flipCurrentTransform ];
-
-    [ image drawInRect: NSMakeRect( 200, 200, 101, 100 )
-              fromRect: NSMakeRect( 20, 30, 50, 50 )
-             operation: NSCompositeSourceOver
-              fraction: 1.f ];
-
-    [ self undoFlip ];
-#if 0
-    [ _Image lockFocus ];
-
-    [ _Image unlockFocus ];
-#endif
+    [ bitmap drawInRect: NSMakeRect( 500, 500, 300, 300 )
+               fromRect: NSZeroRect
+              operation: NSCompositeSourceOver
+               fraction: 1.f
+         respectFlipped: YES
+                  hints: nil ];
     }
 
 // Flip transform for removing the inversion caused by the view being flipped.
@@ -243,6 +264,11 @@ NSString* const BLBezierLabErrorDomain = @"individual.TongG.BezierLab.ErrorDomai
     {
     [ self._flipTransform invert ];
     [ self._flipTransform concat ];
+    }
+
+- ( BOOL ) attemptRecoveryFromError:(NSError *)error optionIndex:(NSUInteger)recoveryOptionIndex
+    {
+    return YES;
     }
 
 - ( void ) attemptRecoveryFromError: ( NSError* )_Error
@@ -289,6 +315,14 @@ NSString* const BLBezierLabErrorDomain = @"individual.TongG.BezierLab.ErrorDomai
                     return;
                     }
                 }
+
+        case BLFailureToDrawnIntoViewError:
+                {
+                if ( _OptionIndex == 0 )
+                    [ self setHidden: NO ];
+
+                isRecoverSuccess = YES;
+                }
             }
         }
 
@@ -319,26 +353,35 @@ NSString* const BLBezierLabErrorDomain = @"individual.TongG.BezierLab.ErrorDomai
 
 - ( NSError* ) willPresentError: ( NSError* )_Error
     {
+    NSMutableDictionary* newInfo = [ [ _Error userInfo ] mutableCopy ];
+
     if ( [ _Error.domain isEqualToString: BLBezierLabErrorDomain ] )
         {
         switch ( [ _Error code ] )
             {
         case BLFailureToCreateImageError:
                 {
-                NSMutableDictionary* newInfo = [ [ _Error userInfo ] mutableCopy ];
-
                 newInfo[ NSLocalizedDescriptionKey ] = [ NSString stringWithFormat: NSLocalizedString( @"Failure to create the image which located at %@. Because the path is incorrect.", nil ), newInfo[ NSFilePathErrorKey ] ];
                 newInfo[ NSLocalizedFailureReasonErrorKey ] = NSLocalizedString( @"Because the path is incorrect.", nil );
                 newInfo[ NSLocalizedRecoverySuggestionErrorKey ] = NSLocalizedString( @"Choose a correct path and try again?", nil );
                 newInfo[ NSLocalizedRecoveryOptionsErrorKey ] = @[ NSLocalizedString( @"Try again",nil ), NSLocalizedString( @"Cancel", nil ) ];
                 newInfo[ NSRecoveryAttempterErrorKey ] = self;
+                } break;
 
-                return [ NSError errorWithDomain: _Error.domain code: _Error.code userInfo: newInfo ];
-                }
+        case BLFailureToDrawnIntoViewError:
+                {
+                newInfo[ NSLocalizedDescriptionKey ] = NSLocalizedString( @"Failure to draw into the view. Because the view has been hidden.", nil );
+                newInfo[ NSLocalizedFailureReasonErrorKey ] = NSLocalizedString( @"Because the view has been hidden.", nil );
+                newInfo[ NSLocalizedRecoverySuggestionErrorKey ] = NSLocalizedString( @"Would you like to show the currently hidden view and try again?", nil );
+                newInfo[ NSLocalizedRecoveryOptionsErrorKey ] = @[ NSLocalizedString( @"Try Again", nil ), NSLocalizedString( @"Cancel", nil ) ];
+                newInfo[ NSRecoveryAttempterErrorKey ] = self;
+                } break;
             }
         }
 
-    return [ super willPresentError: _Error ];
+    return [ super willPresentError: [ NSError errorWithDomain: _Error.domain
+                                                          code: _Error.code
+                                                      userInfo: newInfo ] ];
     }
 
 @end // BLView

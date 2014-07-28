@@ -703,6 +703,13 @@
                                     <action selector="testingForImageUnfilteredTypes:" target="-1" id="qiJ-P5-UeD"/>
                                 </connections>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="uJm-lm-h4G"/>
+                            <menuItem title="Check to See if A View Can Be Drawn" keyEquivalent="C" id="ue7-NQ-CdE">
+                                <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                <connections>
+                                    <action selector="checkToSeeIfAViewCanBeDrawn:" target="-1" id="a8k-ow-g9r"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>
