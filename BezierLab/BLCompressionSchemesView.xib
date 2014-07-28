@@ -19,12 +19,12 @@
                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="npz-RG-OiX">
                     <rect key="frame" x="141" y="16" width="339" height="26"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <popUpButtonCell key="cell" type="push" title="Non Compression (Not Recommend)" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="1" imageScaling="proportionallyDown" inset="2" preferredEdge="maxY" selectedItem="6bt-4Z-Alu" id="eAj-5a-ic2">
+                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" preferredEdge="maxY" id="eAj-5a-ic2">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="menu"/>
                         <menu key="menu" title="OtherViews" id="DFz-y9-YOr">
                             <items>
-                                <menuItem title="Non Compression (Not Recommend)" state="on" tag="1" toolTip="No compression." id="6bt-4Z-Alu">
+                                <menuItem title="Non Compression (Not Recommend)" tag="1" toolTip="No compression." id="6bt-4Z-Alu">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                 </menuItem>
                                 <menuItem title="CCITT Fax Group 3 compression (CCITTFAX3)" tag="3" toolTip="Compresses and decompresses 1 bit gray-scale images using international fax compression standards CCITT3." id="GRb-6f-1fr">

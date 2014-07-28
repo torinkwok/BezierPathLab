@@ -232,23 +232,38 @@ NSString* const BLBezierLabErrorDomain = @"individual.TongG.BezierLab.ErrorDomai
 
 - ( IBAction ) checkToSeeIfAViewCanBeDrawn: ( id )_Sender
     {
-    [ self setHidden: ![ self isHidden ] ];
+    NSView* offscreenView = [ [ BLCompressionSchemesViewController compressionSchemesViewController ] view ];
+    NSWindow* offscreenWindow = [ [ [ NSWindow alloc ] init ] autorelease ];
+
+    NSLog( @"Can be drawn: %@", [ offscreenView canDraw ] ? @"YES" : @"NO" );
+
+    [ [ offscreenWindow contentView ] addSubview: offscreenView ];
+
+    NSLog( @"Can be drawn: %@", [ offscreenView canDraw ] ? @"YES" : @"NO" );
     }
 
 - ( void ) drawTheCapturing
     {
-    NSBitmapImageRep* bitmap = [ NSBitmapImageRep imageRepWithContentsOfURL: [ [ NSBundle mainBundle ] URLForResource: @"QingFeng" withExtension: @"png" ] ];
-    NSColor* color = [ NSColor colorWithCalibratedRed: 0.4314f green: 0.7843 blue: 0.9294 alpha: 1.f ];
+#if 0
+    NSImage* image = [ [ [ NSImage alloc ] initWithContentsOfURL: [ [ NSBundle mainBundle ] URLForResource: @"QingFeng" withExtension: @"png" ] ] autorelease ];
 
-    for ( int _Index = 0; _Index < 100000; _Index++ )
-        [ bitmap setColor: color atX: _Index y: _Index ];
+    [ image drawInRect: NSMakeRect( 500, 500, 300, 300 )
+              fromRect: NSZeroRect
+             operation: NSCompositeSourceOver
+              fraction: 1.f ];
 
-    [ bitmap drawInRect: NSMakeRect( 500, 500, 300, 300 )
-               fromRect: NSZeroRect
-              operation: NSCompositeSourceOver
-               fraction: 1.f
-         respectFlipped: YES
-                  hints: nil ];
+    [ image lockFocus ];
+    NSBitmapImageRep* bitmapImageRep = [ [ [ NSBitmapImageRep alloc ] initWithFocusedViewRect: NSMakeRect( 0, 0, 100, 100 ) ] autorelease ];
+    [ image unlockFocus ];
+
+    [ bitmapImageRep drawInRect: NSMakeRect( 100, 300, 300, 300 )
+                       fromRect: NSZeroRect
+                      operation: NSCompositeSourceOver
+                       fraction: 1.f
+                 respectFlipped: YES
+                          hints: nil ];
+#endif
+
     }
 
 // Flip transform for removing the inversion caused by the view being flipped.

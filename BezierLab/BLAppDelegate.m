@@ -34,6 +34,7 @@
 #import "BLAppDelegate.h"
 #import "BLMainWindowController.h"
 #import "BLView.h"
+#import "BLCompressionSchemesViewController.h"
 
 // BLAppDelegate class
 @implementation BLAppDelegate
@@ -63,25 +64,43 @@
                                       ];
     }
 
-- ( IBAction ) testingForImageFileTypes: ( id )_Sender
-    {
-    NSArray* fileTypes = [ NSImage imageFileTypes ];
-    NSArray* unfilteredTypes1 = [ NSImage imageUnfilteredTypes ];
-    NSArray* unfilteredTypes2 = [ NSImage imageUnfilteredFileTypes ];
-    NSArray* unfilteredTypes3 = [ NSImage imageUnfilteredFileTypes ];
-    }
-
-- ( IBAction ) testingForImageUnfilteredTypes: ( id )_Sender
-    {
-    NSArray* types = [ NSImage imageUnfilteredFileTypes ];
-    }
-
 - ( IBAction ) checkToSeeIfAViewCanBeDrawn: ( id )_Sender
     {
     [ NOTIFICATION_CENTER postNotificationName: @"TestingForCanBeDrawn"
                                         object: self
                                       userInfo: @{ BLViewClickedButtonNotification : _Sender }
                                       ];
+    }
+
+- ( IBAction ) testingForOffscreenDrawn: ( id )_Sender
+    {
+    NSWindow* mainWindow = [ self._mainWindowController window ];
+
+    //    NSWindow* offscreenWindow = [ [ [ NSWindow alloc ] init ] autorelease ];
+    NSWindow* offscreenWindow = [ [ NSWindow alloc ] initWithContentRect: NSMakeRect( 0, 0, mainWindow.frame.size.width, mainWindow.frame.size.height )
+                                                               styleMask: NSBorderlessWindowMask
+                                                                 backing: NSBackingStoreRetained
+                                                                   defer: NO];
+
+    NSView* offscreenView = [ [ BLCompressionSchemesViewController compressionSchemesViewController ] view ];
+    [ [ offscreenWindow contentView ] addSubview: offscreenView ];
+    [ [ offscreenWindow contentView ] display ];
+
+    NSRect rect = [ offscreenView bounds ];
+
+    if ( [ offscreenWindow.contentView lockFocusIfCanDraw ] )
+        {
+        NSBitmapImageRep* bitmapImageRep = [ [ [ NSBitmapImageRep alloc ] initWithFocusedViewRect: rect ] autorelease ];
+        [ offscreenWindow.contentView unlockFocus ];
+
+        if ( [ mainWindow.contentView lockFocusIfCanDraw ] )
+            {
+            [ bitmapImageRep drawAtPoint: NSMakePoint( 100, 500 ) ];
+            [ mainWindow.contentView unlockFocus ];
+            }
+        }
+
+    [ offscreenWindow release ];
     }
 
 @end // BLAppDelegate

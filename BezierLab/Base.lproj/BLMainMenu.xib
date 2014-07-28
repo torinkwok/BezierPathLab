@@ -710,6 +710,12 @@
                                     <action selector="checkToSeeIfAViewCanBeDrawn:" target="-1" id="a8k-ow-g9r"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Testing for Offscreen Drawn" id="B96-PA-apk">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="testingForOffscreenDrawn:" target="-1" id="Wdf-gW-8ku"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>
