@@ -52,6 +52,10 @@ NSString extern* const BLBezierLabErrorDomain;
 @property ( retain ) NSXMLDocument* _XMLDocument;
 @property ( retain ) BLTestingViewController* _testingViewController;
 
+@property ( retain ) NSImage* _startCapImage;
+@property ( retain ) NSImage* _centerFillImage;
+@property ( retain ) NSImage* _endCapImage;
+
 @end // BLView
 
 /////////////////////////////////////////////////////////////////////////////

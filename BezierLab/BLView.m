@@ -52,6 +52,10 @@ NSString* const BLBezierLabErrorDomain = @"individual.TongG.BezierLab.ErrorDomai
 @synthesize _flipTransform;
 @synthesize _testingViewController;
 
+@synthesize _startCapImage;
+@synthesize _centerFillImage;
+@synthesize _endCapImage;
+
 - ( void ) awakeFromNib
     {
     self._flipTransform = [ NSAffineTransform transform ];
@@ -66,11 +70,68 @@ NSString* const BLBezierLabErrorDomain = @"individual.TongG.BezierLab.ErrorDomai
                              selector: @selector( checkToSeeIfAViewCanBeDrawn: )
                                  name: @"TestingForCanBeDrawn"
                                object: nil ];
+
+    self._startCapImage = [ [ [ NSImage alloc ] initWithContentsOfFile: @"/Users/EsquireTongG/_startCap.tiff" ] autorelease ];
+    self._centerFillImage = [ [ [ NSImage alloc ] initWithContentsOfFile: @"/Users/EsquireTongG/_centerFill.tiff" ] autorelease ];
+    self._endCapImage = [ [ [ NSImage alloc ] initWithContentsOfFile: @"/Users/EsquireTongG/_endCap.tiff" ] autorelease ];
     }
 
 - ( BOOL ) isFlipped
     {
     return YES;
+    }
+
+NSRect customButtonFrame;
+- ( void ) drawRect: ( NSRect )_Rect
+    {
+    customButtonFrame = NSMakeRect( 20, 60, 100, 20 );
+
+    if ( [ self lockFocusIfCanDraw ] )
+        {
+        if ( _startCapImage && _centerFillImage && _endCapImage )
+            NSDrawThreePartImage( customButtonFrame
+                                , _startCapImage, _centerFillImage, _endCapImage, NO, NSCompositeSourceOver, 1.f, YES );
+
+        [ self unlockFocus ];
+        }
+    else
+        {
+        NSError* error = [ NSError errorWithDomain: BLBezierLabErrorDomain code: BLFailureToDrawnIntoViewError userInfo: nil ];
+        [ self presentError: error
+             modalForWindow: [ self window ]
+                   delegate: self
+         didPresentSelector: @selector( didPresentErrorWithRecovery:contextInfo: )
+                contextInfo: nil ];
+        }
+    }
+
+- ( void ) mouseDown: ( NSEvent* )_Event
+    {
+    NSPoint location = [ self convertPoint: [ _Event locationInWindow ] fromView: nil ];
+
+    if ( NSPointInRect( location , customButtonFrame ) )
+        if ( [ self lockFocusIfCanDraw ] )
+            {
+            NSDrawThreePartImage( customButtonFrame
+                                , _startCapImage, _centerFillImage, _endCapImage, NO, NSCompositeSourceOver, 1.f, NO );
+            [ [ NSGraphicsContext currentContext ] flushGraphics ];
+            [ self unlockFocus ];
+            }
+    }
+
+- ( void ) mouseUp: ( NSEvent* )_Event
+    {
+    NSPoint location = [ self convertPoint: [ _Event locationInWindow ] fromView: nil ];
+
+    if ( NSPointInRect( location , customButtonFrame ) )
+        if ( [ self lockFocusIfCanDraw ] )
+            {
+            [ self setNeedsDisplayInRect: customButtonFrame ];
+            NSDrawThreePartImage( customButtonFrame
+                                , _startCapImage, _centerFillImage, _endCapImage, NO, NSCompositeSourceOver, 1.f, YES );
+            [ [ NSGraphicsContext currentContext ] flushGraphics ];
+            [ self unlockFocus ];
+            }
     }
 
 #pragma mark Testings for NSImage, NSImageRep along with its subclass

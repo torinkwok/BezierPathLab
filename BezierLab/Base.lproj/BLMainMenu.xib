@@ -716,6 +716,18 @@
                                     <action selector="testingForOffscreenDrawn:" target="-1" id="Wdf-gW-8ku"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Testing for PDF Rep" id="sKX-CM-gAf">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="testingForPDFRep:" target="-1" id="5cW-Ar-DQw"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Testing for Converting Bitmap" id="i2W-a8-zia">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="testingForConvertingBitmap:" target="-1" id="FTe-Xh-1Af"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>

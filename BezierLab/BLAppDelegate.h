@@ -33,6 +33,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+NSInteger extern const BLInvalidFileTypeError;
+
 @class BLMainWindowController;
 
 // BLAppDelegate class
