@@ -92,6 +92,43 @@ NSRect customButtonFrame;
             NSDrawThreePartImage( customButtonFrame
                                 , _startCapImage, _centerFillImage, _endCapImage, NO, NSCompositeSourceOver, 1.f, YES );
 
+        // New journey for NSShadow
+        NSColor* strokeColor = [ NSColor colorWithCalibratedRed: 0.3843f green: 0.7569 blue: 0.9451 alpha: 1.f ];
+        NSColor* fillColor = [ NSColor colorWithCalibratedRed: 0.8784 green: 0.7922 blue: 0.4392 alpha: 1.f ];
+        [ strokeColor setStroke ];
+        [ fillColor setFill ];
+
+        [ self flipCurrentTransform ];
+
+        [ NSGraphicsContext saveGraphicsState ];
+
+        NSShadow* shadow = [ [ [ NSShadow alloc ] init ] autorelease ];
+        [ shadow setShadowColor: [ [ NSColor blackColor ] colorWithAlphaComponent: .3f ] ];
+        [ shadow setShadowOffset: NSMakeSize( 10.f, -10.f ) ];
+        [ shadow setShadowBlurRadius: 5.f ];
+
+        [ shadow set ];
+
+        // Bezier Path for Oval
+        NSBezierPath* bezierPathForOval = [ NSBezierPath bezierPathWithOvalInRect: NSMakeRect( 50, 100, 200, 200 ) ];
+        [ bezierPathForOval setLineWidth: 20 ];
+
+        [ bezierPathForOval stroke ];
+        [ bezierPathForOval fill ];
+
+        [ NSGraphicsContext restoreGraphicsState ];
+
+        // Bezier Path for Oval
+        NSBezierPath* bezierPathForRectangle = [ NSBezierPath bezierPathWithOvalInRect: NSMakeRect( 280, 100, 200, 200 ) ];
+        [ bezierPathForRectangle setLineWidth: 20 ];
+
+        [ NSGraphicsContext saveGraphicsState ];
+        [ shadow set ];
+        [ bezierPathForRectangle stroke ];
+        [ NSGraphicsContext restoreGraphicsState ];
+
+        [ bezierPathForRectangle fill ];
+
         [ self unlockFocus ];
         }
     else
