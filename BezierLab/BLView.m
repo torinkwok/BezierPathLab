@@ -84,61 +84,89 @@ NSString* const BLBezierLabErrorDomain = @"individual.TongG.BezierLab.ErrorDomai
 NSRect customButtonFrame;
 - ( void ) drawRect: ( NSRect )_Rect
     {
-    customButtonFrame = NSMakeRect( 20, 60, 100, 20 );
-
-    if ( [ self lockFocusIfCanDraw ] )
+    @autoreleasepool
         {
-        if ( _startCapImage && _centerFillImage && _endCapImage )
-            NSDrawThreePartImage( customButtonFrame
-                                , _startCapImage, _centerFillImage, _endCapImage, NO, NSCompositeSourceOver, 1.f, YES );
+        customButtonFrame = NSMakeRect( 20, 60, 100, 20 );
 
-        // New journey for NSShadow
-        NSColor* strokeColor = [ NSColor colorWithCalibratedRed: 0.3843f green: 0.7569 blue: 0.9451 alpha: 1.f ];
-        NSColor* fillColor = [ NSColor colorWithCalibratedRed: 0.8784 green: 0.7922 blue: 0.4392 alpha: 1.f ];
-        [ strokeColor setStroke ];
-        [ fillColor setFill ];
+        if ( [ self lockFocusIfCanDraw ] )
+            {
+            if ( _startCapImage && _centerFillImage && _endCapImage )
+                NSDrawThreePartImage( customButtonFrame
+                                    , _startCapImage, _centerFillImage, _endCapImage, NO, NSCompositeSourceOver, 1.f, YES );
 
-        [ self flipCurrentTransform ];
+            // New journey for NSShadow
+            NSColor* beginningColor = [ NSColor colorWithCalibratedRed: 0.9961f green: 0.8588f blue: 0.4000f alpha: 1.f ];
+            NSColor* middlingColorOne = [ NSColor colorWithCalibratedRed: 0.6941f green: 0.3490f blue: 0.5059f alpha: 1.f ];
+            NSColor* middlingColorTwo = [ NSColor colorWithCalibratedRed: 0.5451f green: 0.1137f blue: 0.5725f alpha: 1.f ];
+            NSColor* middlingColorThree = [ NSColor colorWithCalibratedRed: 0.3176f green: 0.0392f blue: 0.3765f alpha: 1.f ];
+            NSColor* middlingColorFour = [ NSColor colorWithCalibratedRed: 0.1216f green: 0.0235f blue: 0.1373f alpha: 1.f ];
+            NSColor* endingColor = [ NSColor colorWithCalibratedRed: 0.8784 green: 0.7922 blue: 0.4392 alpha: 1.f ];
+            [ beginningColor setStroke ];
+            [ endingColor setFill ];
 
-        [ NSGraphicsContext saveGraphicsState ];
+            [ NSGraphicsContext saveGraphicsState ];
 
-        NSShadow* shadow = [ [ [ NSShadow alloc ] init ] autorelease ];
-        [ shadow setShadowColor: [ [ NSColor blackColor ] colorWithAlphaComponent: .3f ] ];
-        [ shadow setShadowOffset: NSMakeSize( 10.f, -10.f ) ];
-        [ shadow setShadowBlurRadius: 5.f ];
+            NSShadow* shadow = [ [ [ NSShadow alloc ] init ] autorelease ];
+            [ shadow setShadowColor: [ [ NSColor blackColor ] colorWithAlphaComponent: .3f ] ];
+            [ shadow setShadowOffset: NSMakeSize( 10.f, -10.f ) ];
+            [ shadow setShadowBlurRadius: 5.f ];
 
-        [ shadow set ];
+            [ shadow set ];
 
-        // Bezier Path for Oval
-        NSBezierPath* bezierPathForOval = [ NSBezierPath bezierPathWithOvalInRect: NSMakeRect( 50, 100, 200, 200 ) ];
-        [ bezierPathForOval setLineWidth: 20 ];
+            // Bezier Path for Oval
+            NSBezierPath* bezierPathForOval = [ NSBezierPath bezierPathWithOvalInRect: NSMakeRect( 50, 100, 200, 200 ) ];
+            [ bezierPathForOval setLineWidth: 20 ];
 
-        [ bezierPathForOval stroke ];
-        [ bezierPathForOval fill ];
+            NSArray* gradientColors = @[ beginningColor, middlingColorOne, middlingColorTwo, middlingColorThree, middlingColorFour, endingColor ];
 
-        [ NSGraphicsContext restoreGraphicsState ];
+            size_t locationsSize = gradientColors.count * sizeof( CGFloat );
+            CGFloat* locations = malloc( locationsSize );
+            locations[ 0 ] = .0f;
+            locations[ 1 ] = .4f;
+            locations[ 2 ] = .6;
+            locations[ 3 ] = .8f;
+            locations[ 4 ] = .9f;
+            locations[ 5 ] = 1.f;
 
-        // Bezier Path for Oval
-        NSBezierPath* bezierPathForRectangle = [ NSBezierPath bezierPathWithOvalInRect: NSMakeRect( 280, 100, 200, 200 ) ];
-        [ bezierPathForRectangle setLineWidth: 20 ];
+            NSGradient* gradientInCMYKColorSpace = nil;
+            NSGradient* gradientInRGBColorSpace = nil;
 
-        [ NSGraphicsContext saveGraphicsState ];
-        [ shadow set ];
-        [ bezierPathForRectangle stroke ];
-        [ NSGraphicsContext restoreGraphicsState ];
+            gradientInRGBColorSpace = [ [ [ NSGradient alloc ] initWithColors: gradientColors
+                                                                  atLocations: locations
+                                                                   colorSpace: [ NSColorSpace genericRGBColorSpace ] ] autorelease ];
+            gradientInCMYKColorSpace = [ [ [ NSGradient alloc ] initWithColors: gradientColors
+                                                                   atLocations: locations
+                                                                    colorSpace: [ NSColorSpace genericCMYKColorSpace ] ] autorelease ];
 
-        [ bezierPathForRectangle fill ];
+            for ( int index = 0; index < 6; index++ )
+                {
+                @autoreleasepool
+                    {
+                    NSColor* gradientColor = nil;
+                    CGFloat location = .0f;
 
-        [ self unlockFocus ];
-        }
-    else
-        {
-        NSError* error = [ NSError errorWithDomain: BLBezierLabErrorDomain code: BLFailureToDrawnIntoViewError userInfo: nil ];
-        [ self presentError: error
-             modalForWindow: [ self window ]
-                   delegate: self
-         didPresentSelector: @selector( didPresentErrorWithRecovery:contextInfo: )
-                contextInfo: nil ];
+                    [ gradientInCMYKColorSpace getColor: &gradientColor location: &location atIndex: index ];
+                    NSLog( @"Gradient Color: %@  Location: %g", gradientColor, location );
+                    }
+                }
+
+            NSLog( @"Color space: %@", [ gradientInCMYKColorSpace colorSpace ] );
+
+            [ gradientInCMYKColorSpace drawInBezierPath: bezierPathForOval angle: -30.f ];
+            [ gradientInRGBColorSpace drawInBezierPath: [ NSBezierPath bezierPathWithOvalInRect: NSMakeRect( 260, 100, 200, 200 ) ] angle: -30.f ];
+            free( locations );
+
+            [ self unlockFocus ];
+            }
+        else
+            {
+            NSError* error = [ NSError errorWithDomain: BLBezierLabErrorDomain code: BLFailureToDrawnIntoViewError userInfo: nil ];
+            [ self presentError: error
+                 modalForWindow: [ self window ]
+                       delegate: self
+             didPresentSelector: @selector( didPresentErrorWithRecovery:contextInfo: )
+                    contextInfo: nil ];
+            }
         }
     }
 
