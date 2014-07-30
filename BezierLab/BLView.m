@@ -90,72 +90,68 @@ NSRect customButtonFrame;
 
         if ( [ self lockFocusIfCanDraw ] )
             {
+        #if 0
             if ( _startCapImage && _centerFillImage && _endCapImage )
                 NSDrawThreePartImage( customButtonFrame
                                     , _startCapImage, _centerFillImage, _endCapImage, NO, NSCompositeSourceOver, 1.f, YES );
+        #endif
 
             // New journey for NSShadow
-            NSColor* beginningColor = [ NSColor colorWithCalibratedRed: 0.9961f green: 0.8588f blue: 0.4000f alpha: 1.f ];
-            NSColor* middlingColorOne = [ NSColor colorWithCalibratedRed: 0.6941f green: 0.3490f blue: 0.5059f alpha: 1.f ];
-            NSColor* middlingColorTwo = [ NSColor colorWithCalibratedRed: 0.5451f green: 0.1137f blue: 0.5725f alpha: 1.f ];
-            NSColor* middlingColorThree = [ NSColor colorWithCalibratedRed: 0.3176f green: 0.0392f blue: 0.3765f alpha: 1.f ];
-            NSColor* middlingColorFour = [ NSColor colorWithCalibratedRed: 0.1216f green: 0.0235f blue: 0.1373f alpha: 1.f ];
-            NSColor* endingColor = [ NSColor colorWithCalibratedRed: 0.8784 green: 0.7922 blue: 0.4392 alpha: 1.f ];
-            [ beginningColor setStroke ];
-            [ endingColor setFill ];
-
-            [ NSGraphicsContext saveGraphicsState ];
-
-            NSShadow* shadow = [ [ [ NSShadow alloc ] init ] autorelease ];
-            [ shadow setShadowColor: [ [ NSColor blackColor ] colorWithAlphaComponent: .3f ] ];
-            [ shadow setShadowOffset: NSMakeSize( 10.f, -10.f ) ];
-            [ shadow setShadowBlurRadius: 5.f ];
-
-            [ shadow set ];
+            NSColor* beginningColor = [ NSColor colorWithCalibratedRed: 0.9882f green: 0.0784f blue: 0.1216f alpha: 1.f ];
+            NSColor* middlingColorOne = [ NSColor colorWithCalibratedRed: 0.9922f green: 0.9922f blue: 0.2157f alpha: 1.f ];
+            NSColor* middlingColorTwo = [ NSColor colorWithCalibratedRed: 0.1961f green: 0.9922f blue: 0.1804f alpha: 1.f ];
+            NSColor* middlingColorThree = [ NSColor colorWithCalibratedRed: 0.1725f green: 0.9961f blue: 0.8863f alpha: 1.f ];
+            NSColor* middlingColorFour = [ NSColor colorWithCalibratedRed: 0.0471f green: 0.1804f blue: 0.9843f alpha: 1.f ];
+            NSColor* endingColor = [ NSColor colorWithCalibratedRed: 0.9608f green: 0.1608f blue: 0.9882f alpha: 1.f ];
 
             // Bezier Path for Oval
-            NSBezierPath* bezierPathForOval = [ NSBezierPath bezierPathWithOvalInRect: NSMakeRect( 50, 100, 200, 200 ) ];
-            [ bezierPathForOval setLineWidth: 20 ];
-
             NSArray* gradientColors = @[ beginningColor, middlingColorOne, middlingColorTwo, middlingColorThree, middlingColorFour, endingColor ];
 
-            size_t locationsSize = gradientColors.count * sizeof( CGFloat );
-            CGFloat* locations = malloc( locationsSize );
+            size_t locationsCount = [ gradientColors count ];
+            CGFloat* locations = malloc( locationsCount * sizeof( CGFloat ) );
             locations[ 0 ] = .0f;
-            locations[ 1 ] = .4f;
-            locations[ 2 ] = .6;
-            locations[ 3 ] = .8f;
-            locations[ 4 ] = .9f;
+            locations[ 1 ] = .166f;
+            locations[ 2 ] = .33f;
+            locations[ 3 ] = .58f;
+            locations[ 4 ] = .75f;
             locations[ 5 ] = 1.f;
 
-            NSGradient* gradientInCMYKColorSpace = nil;
-            NSGradient* gradientInRGBColorSpace = nil;
-
-            gradientInRGBColorSpace = [ [ [ NSGradient alloc ] initWithColors: gradientColors
-                                                                  atLocations: locations
-                                                                   colorSpace: [ NSColorSpace genericRGBColorSpace ] ] autorelease ];
-            gradientInCMYKColorSpace = [ [ [ NSGradient alloc ] initWithColors: gradientColors
-                                                                   atLocations: locations
-                                                                    colorSpace: [ NSColorSpace genericCMYKColorSpace ] ] autorelease ];
-
-            for ( int index = 0; index < 6; index++ )
-                {
-                @autoreleasepool
-                    {
-                    NSColor* gradientColor = nil;
-                    CGFloat location = .0f;
-
-                    [ gradientInCMYKColorSpace getColor: &gradientColor location: &location atIndex: index ];
-                    NSLog( @"Gradient Color: %@  Location: %g", gradientColor, location );
-                    }
-                }
-
-            NSLog( @"Color space: %@", [ gradientInCMYKColorSpace colorSpace ] );
-
-            [ gradientInCMYKColorSpace drawInBezierPath: bezierPathForOval angle: -30.f ];
-            [ gradientInRGBColorSpace drawInBezierPath: [ NSBezierPath bezierPathWithOvalInRect: NSMakeRect( 260, 100, 200, 200 ) ] angle: -30.f ];
+            NSGradient* axialGradient = [ [ [ NSGradient alloc ] initWithColors: gradientColors
+                                                                    atLocations: locations
+                                                                     colorSpace: [ NSColorSpace genericRGBColorSpace ] ] autorelease ];
+        #if 0
+            NSBezierPath* roundedRectPath = [ NSBezierPath bezierPathWithRoundedRect: NSMakeRect( 50, 200, 400, 250 )
+                                                                             xRadius: 10.f
+                                                                             yRadius: 10.f ];
+            [ axialGradient drawInBezierPath: roundedRectPath angle: 0.f ];
+            [ axialGradient drawInBezierPath: roundedRectPath relativeCenterPosition: NSMakePoint( 0.4, 1.0 ) ];
+        #endif
+            NSRect bounds = [ self bounds ];
+//            [ axialGradient drawFromCenter: NSMakePoint( NSMidX( bounds ), NSMidY( bounds ) )
+//                                    radius: 0
+//                                  toCenter: NSMakePoint( NSMidX( bounds ), NSMidY( bounds ) )
+//                                    radius: 200
+//                                   options: 0 ];
             free( locations );
 
+            NSGradient* docGradient = [ [ [ NSGradient alloc ] initWithStartingColor: [ NSColor orangeColor ]
+                                                                         endingColor: [ NSColor cyanColor ] ] autorelease ];
+            NSPoint centerPoint = NSMakePoint( NSMidX( bounds ), NSMidY( bounds ) );
+            NSPoint otherPoint = NSMakePoint( centerPoint.x + 60.f, centerPoint.y + 60.f );
+            CGFloat firstRadius = MIN( ( bounds.size.width / 2.f ) - 2.f
+                                     , ( bounds.size.height / 2.f ) - 2.f );
+
+            NSShadow* shadow = [ [ [ NSShadow alloc ] init ] autorelease ];
+            [ shadow setShadowOffset: NSMakeSize( 10, -10 ) ];
+            [ shadow setShadowBlurRadius: 15 ];
+            [ shadow set ];
+            [ self flipCurrentTransform ];
+            [ docGradient drawFromCenter: centerPoint
+                                  radius: firstRadius
+                                toCenter: otherPoint
+                                  radius: 0.f
+                                 options: 0 ];
+            [ self undoFlip ];
             [ self unlockFocus ];
             }
         else
