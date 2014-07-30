@@ -238,6 +238,15 @@ NSInteger const BLInvalidFileTypeError = 33;
     return [ NSError errorWithDomain: _Error.domain code: _Error.code userInfo: newUserInfo ];
     }
 
+- ( IBAction ) testingForNSScreen: ( id )_Sender
+    {
+    NSLog( @"Device Description: %@", [ [ NSScreen mainScreen ] deviceDescription ] );
+
+    NSWindow* mainWindow = [ self._mainWindowController window ];
+    NSView* contentView = [ mainWindow contentView ];
+    [ contentView displayIfNeeded ];
+    }
+
 @end // BLAppDelegate
 
 /////////////////////////////////////////////////////////////////////////////

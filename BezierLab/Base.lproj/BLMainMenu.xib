@@ -728,6 +728,12 @@
                                     <action selector="testingForConvertingBitmap:" target="-1" id="FTe-Xh-1Af"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Testing for NSScreen" id="eHM-1e-reJ">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="testingForNSScreen:" target="-1" id="r6c-1F-AE3"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>
