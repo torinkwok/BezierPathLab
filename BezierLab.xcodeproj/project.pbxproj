@@ -19,6 +19,7 @@
 		8308B46A197E73A8005460BB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8308B468197E73A8005460BB /* InfoPlist.strings */; };
 		8308B46C197E73A8005460BB /* BezierLabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308B46B197E73A8005460BB /* BezierLabTests.m */; };
 		8308B477197EB94A005460BB /* BLMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308B476197EB94A005460BB /* BLMainWindowController.m */; };
+		837B070C198A0F7100BCCE7D /* BLContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 837B070B198A0F7100BCCE7D /* BLContentView.m */; };
 		83F49754197EBA3D008CEAD4 /* BLMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F49753197EBA3D008CEAD4 /* BLMainWindow.xib */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,8 @@
 		8308B46B197E73A8005460BB /* BezierLabTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BezierLabTests.m; sourceTree = "<group>"; };
 		8308B475197EB94A005460BB /* BLMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLMainWindowController.h; sourceTree = "<group>"; };
 		8308B476197EB94A005460BB /* BLMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLMainWindowController.m; sourceTree = "<group>"; };
+		837B070A198A0F7100BCCE7D /* BLContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLContentView.h; sourceTree = "<group>"; };
+		837B070B198A0F7100BCCE7D /* BLContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLContentView.m; sourceTree = "<group>"; };
 		83F49753197EBA3D008CEAD4 /* BLMainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BLMainWindow.xib; path = BezierLab/BLMainWindow.xib; sourceTree = "<group>"; };
 		83F49756197EBB31008CEAD4 /* BLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLCommon.h; path = BezierLab/BLCommon.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +128,8 @@
 			children = (
 				8308B453197E73A8005460BB /* BLAppDelegate.h */,
 				8308B454197E73A8005460BB /* BLAppDelegate.m */,
+				837B070A198A0F7100BCCE7D /* BLContentView.h */,
+				837B070B198A0F7100BCCE7D /* BLContentView.m */,
 				8308B475197EB94A005460BB /* BLMainWindowController.h */,
 				8308B476197EB94A005460BB /* BLMainWindowController.m */,
 				8308B44D197E73A8005460BB /* main.m */,
@@ -274,6 +279,7 @@
 			files = (
 				8308B455197E73A8005460BB /* BLAppDelegate.m in Sources */,
 				8308B477197EB94A005460BB /* BLMainWindowController.m in Sources */,
+				837B070C198A0F7100BCCE7D /* BLContentView.m in Sources */,
 				8308B44E197E73A8005460BB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
