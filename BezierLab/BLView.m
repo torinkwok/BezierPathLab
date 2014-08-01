@@ -81,6 +81,19 @@ NSString* const BLBezierLabErrorDomain = @"individual.TongG.BezierLab.ErrorDomai
     return YES;
     }
 
+void BLDrawParallelogramInRect( NSRect _Rect, CGFloat _WithShift )
+    {
+    NSBezierPath* parallelogramPath = [ NSBezierPath bezierPath ];
+
+    [ parallelogramPath moveToPoint: _Rect.origin ];
+    [ parallelogramPath lineToPoint: NSMakePoint( _Rect.origin.x + _WithShift, NSMaxY( _Rect ) ) ];
+    [ parallelogramPath lineToPoint: NSMakePoint( NSMaxX( _Rect ), NSMaxY( _Rect ) ) ];
+    [ parallelogramPath lineToPoint: NSMakePoint( NSMaxX( _Rect ) - _WithShift, _Rect.origin.y ) ];
+    [ parallelogramPath closePath ];
+
+    [ parallelogramPath stroke ];
+    }
+
 NSRect customButtonFrame;
 - ( void ) drawRect: ( NSRect )_Rect
     {
@@ -88,9 +101,73 @@ NSRect customButtonFrame;
 
     if ( [ self lockFocusIfCanDraw ] )
         {
-        if ( _startCapImage && _centerFillImage && _endCapImage )
-            NSDrawThreePartImage( customButtonFrame
-                                , _startCapImage, _centerFillImage, _endCapImage, NO, NSCompositeSourceOver, 1.f, YES );
+        NSColor* strokeColor = [ NSColor colorWithCalibratedRed: 0.6549f green: 0.5216f blue: 0.8078f alpha: .8f ];
+        NSColor* fillColor = [ NSColor colorWithCalibratedRed: 0.8588f green: 0.4941f blue: 0.1255f alpha: .8f ];
+        [ strokeColor setStroke ];
+        [ fillColor setFill ];
+
+        NSImage* image = [ NSImage imageWithSize: self.bounds.size
+                                         flipped: NO
+                                  drawingHandler:
+            ^BOOL ( NSRect _DestRect )
+                {
+                [ strokeColor setStroke ];
+                [ fillColor setFill ];
+
+                NSRect lhsRect = NSMakeRect( 100, 100, 300, 200 );
+                NSRect rhsRect = NSMakeRect( 150, 200, 300, 200 );
+                NSRect intersectionRect = NSIntersectionRect( lhsRect, rhsRect );
+                NSBezierPath* lhsRectBezierPath = [ NSBezierPath bezierPathWithRect: lhsRect ];
+                NSBezierPath* rhsRectBezierPath = [ NSBezierPath bezierPathWithRect: rhsRect ];
+                NSBezierPath* intersectionRectBezierPath = [ NSBezierPath bezierPathWithRect: intersectionRect ];
+                [ lhsRectBezierPath setLineWidth: 20.f ];
+                [ rhsRectBezierPath setLineWidth: 20.f ];
+                [ intersectionRectBezierPath setLineWidth: 20.f ];
+
+                [ NSBezierPath setDefaultLineWidth: 20.F ];
+
+                NSPoint changedPoint = NSMakePoint( 500, 500 );
+                [ lhsRectBezierPath setAssociatedPoints: &changedPoint atIndex: 0 ];
+
+                NSAffineTransformStruct flipTransformStruct = { 1.f, 0.f, 0.f, -1.f, 0.f, self.bounds.size.height };
+                NSAffineTransform* flipTransform = [ NSAffineTransform transform ];
+                [ flipTransform setTransformStruct: flipTransformStruct ];
+                [ lhsRectBezierPath transformUsingAffineTransform: flipTransform ];
+
+                [ lhsRectBezierPath stroke ];
+                [ lhsRectBezierPath fill ];
+
+                // The order for rendering is reversed
+                [ NSBezierPath strokeRect: rhsRect ];
+                [ NSBezierPath fillRect: rhsRect ];
+
+                NSColor* intersectionStrokeColor = [ NSColor colorWithCalibratedRed: 0.7804f green: 0.3216f blue: 0.3333f alpha: 1.f ];
+                NSColor* intersectionFillColor = [ NSColor colorWithCalibratedRed: 0.2745f green: 0.6471f blue: 0.7137f alpha: 1.f ];
+                [ intersectionStrokeColor setStroke ];
+                [ intersectionFillColor setFill ];
+
+                [ NSBezierPath strokeRect: intersectionRect ];
+                [ NSBezierPath fillRect: intersectionRect ];
+
+                NSPoint points[ 3 ];
+                for ( NSInteger index = 0; index < [ lhsRectBezierPath elementCount ]; index++ )
+                    {
+                    NSBezierPathElement elemType = [ lhsRectBezierPath elementAtIndex: index associatedPoints: points ];
+                    NSLog( @"Elem Type: %ld", elemType );
+
+                    for ( int index = 0; index < 3; index++ )
+                        NSLog( @"%@", NSStringFromPoint( points[ index ] ) );
+
+                    printf( "\n\n" );
+                    }
+
+                return YES;
+                } ];
+
+        [ image drawAtPoint: NSMakePoint( 0, 0 )
+                   fromRect: NSZeroRect
+                  operation: NSCompositeSourceOver
+                   fraction: 1.f ];
 
         [ self unlockFocus ];
         }
