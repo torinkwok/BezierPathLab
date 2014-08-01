@@ -7,7 +7,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="BLMainWindowController"/>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application"/>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
+        <window title="BezierLab" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <rect key="contentRect" x="196" y="240" width="507" height="414"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
@@ -15,40 +15,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="507" height="414"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvd-FA-iNy">
-                        <rect key="frame" x="20" y="188" width="305" height="206"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <clipView key="contentView" ambiguous="YES" misplaced="YES" id="c4J-4E-UtF">
-                            <rect key="frame" x="1" y="1" width="303" height="204"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <subviews>
-                                <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RkI-gG-jZp" customClass="BLDashboardView">
-                                    <rect key="frame" x="0.0" y="0.0" width="303" height="204"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <connections>
-                                        <outlet property="_angleSlider" destination="YjJ-21-JnJ" id="dUe-xQ-iYb"/>
-                                        <outlet property="_backgroundColorWell" destination="CdK-ZZ-rrW" id="ajL-zS-JmO"/>
-                                        <outlet property="_dashTypeMatrix" destination="Xde-1b-msE" id="5TA-qt-1gR"/>
-                                        <outlet property="_fillColorWell" destination="19n-38-voz" id="NVJ-eg-cSt"/>
-                                        <outlet property="_isFilledButton" destination="Snu-h0-JU1" id="zXN-gk-R2G"/>
-                                        <outlet property="_lineCapStyleMatrix" destination="K9J-nP-DZZ" id="a9f-JH-TXa"/>
-                                        <outlet property="_lineColorWell" destination="ZLk-VW-b7x" id="rlk-Ji-hSt"/>
-                                        <outlet property="_lineWidthSlider" destination="F5h-c8-Bo7" id="e6b-KI-XGd"/>
-                                        <outlet property="_pathTypeMatrix" destination="Yue-nj-bBp" id="Z6R-6w-XZp"/>
-                                        <outlet property="_zoomSlider" destination="vJo-qu-8de" id="3et-mH-nMM"/>
-                                    </connections>
-                                </view>
-                            </subviews>
-                        </clipView>
-                        <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="udh-qQ-pJL">
-                            <rect key="frame" x="1" y="189" width="303" height="16"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </scroller>
-                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Efw-VT-6Q6">
-                            <rect key="frame" x="288" y="1" width="16" height="204"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </scroller>
-                    </scrollView>
                     <box autoresizesSubviews="NO" fixedFrame="YES" title="Colors" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="JXd-Wc-PfP">
                         <rect key="frame" x="17" y="95" width="311" height="85"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -60,16 +26,25 @@
                                     <rect key="frame" x="30" y="14" width="56" height="34"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <color key="color" red="0.999973" green="0.14685599999999999" blue="0.39055699999999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="changedLineColor:" target="s1J-zN-wbT" id="awz-1I-DjM"/>
+                                    </connections>
                                 </colorWell>
                                 <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="19n-38-voz">
                                     <rect key="frame" x="126" y="14" width="56" height="34"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <color key="color" red="0.28595471379999998" green="0.55219972129999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="changedFillColor:" target="s1J-zN-wbT" id="Tz3-vC-2Lt"/>
+                                    </connections>
                                 </colorWell>
                                 <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CdK-ZZ-rrW">
                                     <rect key="frame" x="222" y="14" width="56" height="34"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <color key="color" red="0.104532" green="0.097039399999999998" blue="0.071277400000000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="changedBackgroundColor:" target="s1J-zN-wbT" id="YfG-Nn-XWp"/>
+                                    </connections>
                                 </colorWell>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MWw-E3-A2X">
                                     <rect key="frame" x="45" y="45" width="38" height="17"/>
@@ -106,17 +81,26 @@
                     <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YjJ-21-JnJ">
                         <rect key="frame" x="91" y="67" width="236" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="cz7-4s-zxW"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="360" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="cz7-4s-zxW"/>
+                        <connections>
+                            <action selector="changedAngle:" target="s1J-zN-wbT" id="ZEN-Yu-Bbh"/>
+                        </connections>
                     </slider>
                     <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vJo-qu-8de">
                         <rect key="frame" x="91" y="42" width="236" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="dQL-WG-aX5"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="1" maxValue="5" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="dQL-WG-aX5"/>
+                        <connections>
+                            <action selector="changeZoom:" target="s1J-zN-wbT" id="4cv-kS-ED3"/>
+                        </connections>
                     </slider>
                     <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F5h-c8-Bo7">
                         <rect key="frame" x="91" y="17" width="236" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="Qt8-G8-aLI"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="1" maxValue="20" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="Qt8-G8-aLI"/>
+                        <connections>
+                            <action selector="changeLineWidth:" target="s1J-zN-wbT" id="L2f-Wu-dn9"/>
+                        </connections>
                     </slider>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I4z-9c-SZ5">
                         <rect key="frame" x="18" y="69" width="41" height="17"/>
@@ -182,6 +166,9 @@
                                             </buttonCell>
                                         </column>
                                     </cells>
+                                    <connections>
+                                        <action selector="changedPathType:" target="s1J-zN-wbT" id="WQu-az-sY4"/>
+                                    </connections>
                                 </matrix>
                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Snu-h0-JU1">
                                     <rect key="frame" x="17" y="12" width="103" height="18"/>
@@ -190,6 +177,9 @@
                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
+                                    <connections>
+                                        <action selector="changedFilled:" target="s1J-zN-wbT" id="HFd-F1-pY5"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </view>
@@ -219,16 +209,19 @@
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
-                                            <buttonCell type="radio" title="Square Line" imagePosition="left" alignment="left" tag="1" inset="2" id="wiV-OG-SxU">
+                                            <buttonCell type="radio" title="Round Line" imagePosition="left" alignment="left" tag="1" inset="2" id="wiV-OG-SxU">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
-                                            <buttonCell type="radio" title="Round Line" imagePosition="left" alignment="left" tag="2" inset="2" id="UgP-7x-yMt">
+                                            <buttonCell type="radio" title="Square Line" imagePosition="left" alignment="left" tag="2" inset="2" id="UgP-7x-yMt">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </column>
                                     </cells>
+                                    <connections>
+                                        <action selector="changedLineCapStyle:" target="s1J-zN-wbT" id="aad-ge-SMy"/>
+                                    </connections>
                                 </matrix>
                             </subviews>
                         </view>
@@ -272,12 +265,31 @@
                                             </buttonCell>
                                         </column>
                                     </cells>
+                                    <connections>
+                                        <action selector="changedDashType:" target="s1J-zN-wbT" id="HP3-vG-U7u"/>
+                                    </connections>
                                 </matrix>
                             </subviews>
                         </view>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
+                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s1J-zN-wbT" customClass="BLDashboardView">
+                        <rect key="frame" x="20" y="188" width="305" height="206"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <connections>
+                            <outlet property="_angleSlider" destination="YjJ-21-JnJ" id="cn5-Vb-Rrw"/>
+                            <outlet property="_backgroundColorWell" destination="CdK-ZZ-rrW" id="0WP-ld-saJ"/>
+                            <outlet property="_dashTypeMatrix" destination="Xde-1b-msE" id="c3G-Nv-Y44"/>
+                            <outlet property="_fillColorWell" destination="19n-38-voz" id="3Lw-Uf-3hi"/>
+                            <outlet property="_isFilledButton" destination="Snu-h0-JU1" id="TOJ-2F-pJn"/>
+                            <outlet property="_lineCapStyleMatrix" destination="K9J-nP-DZZ" id="RZ3-fr-uLk"/>
+                            <outlet property="_lineColorWell" destination="ZLk-VW-b7x" id="tUQ-ht-1Nr"/>
+                            <outlet property="_lineWidthSlider" destination="F5h-c8-Bo7" id="ZSq-d0-cMx"/>
+                            <outlet property="_pathTypeMatrix" destination="Yue-nj-bBp" id="89O-Hw-vxA"/>
+                            <outlet property="_zoomSlider" destination="vJo-qu-8de" id="rJa-x6-Zis"/>
+                        </connections>
+                    </customView>
                 </subviews>
             </view>
         </window>
