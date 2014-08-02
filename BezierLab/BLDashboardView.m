@@ -274,7 +274,9 @@
 - ( IBAction ) changedBackgroundColor: ( id )_Sender
     {
     self._backgroundColor = [ ( NSColorWell* )_Sender color ];
-    [ self setNeedsDisplay: YES ];
+    
+    [ self setNeedsDisplayInRect: NSMakeRect( 33, 33, 200, 200 ) ];
+    [ self setNeedsDisplayInRect: NSMakeRect( 20, 20, 200, 200 ) ];
     }
 
 - ( IBAction ) changedAngle: ( id )_Sender
