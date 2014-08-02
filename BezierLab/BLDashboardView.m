@@ -94,6 +94,11 @@
     return YES;
     }
 
+- ( BOOL ) acceptsFirstResponder
+    {
+    return YES;
+    }
+
 - ( void ) drawRect: ( NSRect )_Rect
     {
     [ self lockFocus ];
@@ -165,14 +170,18 @@
 #if 0
     [ rotation concat ];
     [ translation concat ];
-#endif
-    [ self._bezierPath stroke ];
-    [ self._bezierPath fill ];
 
     // Undo rotation!
     [ rotation invert ];[ rotation concat ];
     // Undo tranlation!
     [ translation invert ];[ translation concat ];
+#endif
+
+    if ( [ [ NSGraphicsContext currentContext ] isDrawingToScreen ] )
+        [ self drawGrid ];
+
+    [ self._bezierPath stroke ];
+    [ self._bezierPath fill ];
 
     [ self unlockFocus ];
     }
@@ -274,9 +283,7 @@
 - ( IBAction ) changedBackgroundColor: ( id )_Sender
     {
     self._backgroundColor = [ ( NSColorWell* )_Sender color ];
-    
-    [ self setNeedsDisplayInRect: NSMakeRect( 33, 33, 200, 200 ) ];
-    [ self setNeedsDisplayInRect: NSMakeRect( 20, 20, 200, 200 ) ];
+    [ self setNeedsDisplay: YES ];
     }
 
 - ( IBAction ) changedAngle: ( id )_Sender
@@ -295,6 +302,53 @@
     {
     self._lineWidth = [ ( NSSlider* )_Sender doubleValue ];
     [ self setNeedsDisplay: YES ];
+    }
+
+- ( IBAction ) drawIntoPDF: ( id )_Sender
+    {
+    dispatch_async( dispatch_get_main_queue()
+        , ^( void )
+            {
+            NSSavePanel* savePanel = [ NSSavePanel savePanel ];
+
+            [ savePanel beginSheetModalForWindow: [ self window ]
+                               completionHandler:
+                ^( NSInteger _Result )
+                    {
+                    NSData* PDFData = [ self dataWithPDFInsideRect: [ self visibleRect ] ];
+
+                    [ PDFData writeToURL: [ savePanel URL ] atomically: YES ];
+                    } ];
+            } );
+    }
+
+- ( void ) drawGrid
+    {
+    if ( [ self lockFocusIfCanDraw ] )
+        {
+        CGFloat width = [ self bounds ].size.width;
+        CGFloat height = [ self bounds ].size.height;
+        CGFloat horizontalGridSpacing = height / 3;
+        CGFloat verticalGridSpacing = width / 4;
+
+        [ [ [ NSColor lightGrayColor ] colorWithAlphaComponent: .5 ] set ];
+        NSBezierPath* gridPath = [ NSBezierPath bezierPath ];
+        for ( int hor = 0; hor < height / horizontalGridSpacing; hor++ )
+            {
+            [ gridPath moveToPoint: NSMakePoint( 0, hor * horizontalGridSpacing ) ];
+            [ gridPath lineToPoint: NSMakePoint( NSMaxX( self.bounds ), hor * horizontalGridSpacing ) ];
+            }
+
+        for ( int ver = 0; ver < width / verticalGridSpacing; ver++ )
+            {
+            [ gridPath moveToPoint: NSMakePoint( ver * verticalGridSpacing, 0 ) ];
+            [ gridPath lineToPoint: NSMakePoint( ver * verticalGridSpacing, NSMaxY( self.bounds ) ) ];
+            }
+
+        [ gridPath stroke ];
+
+        [ self unlockFocus ];
+        }
     }
 
 @end // BLDashboardView
