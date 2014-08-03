@@ -88,9 +88,6 @@ enum BLDashStyle { BLDashTyleSolid = 0, BLDashTyle5_5, BLDashTyle8_3_8, BLDashTy
 - ( void ) setCurrentLocation: ( NSPoint )_Location;
 - ( NSPoint ) currentLocation;
 
-- ( void ) setLastDraggedLocation: ( NSPoint )_Location;
-- ( NSPoint ) lastDraggedLocation;
-
 #pragma mark IBActions
 - ( IBAction ) changedPathType: ( id )_Sender;
 - ( IBAction ) changedLineCapStyle: ( id )_Sender;

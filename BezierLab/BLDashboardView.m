@@ -88,6 +88,13 @@
     self._dashStyle = ( enum BLDashStyle )[ _dashTypeMatrix selectedTag ];
 
     _isDragging = NO;
+
+    CGFloat initialSideLengthOfSquare = 100;
+    CGFloat actualSideLengthOfSquare = initialSideLengthOfSquare * self._zoom;
+    _currentLocation = NSMakePoint( NSMaxX( self.bounds ) / 2 - actualSideLengthOfSquare / 2
+                                  , NSMaxY( self.bounds ) / 2 - actualSideLengthOfSquare / 2 );
+
+    _lastDraggedLocation = NSZeroPoint;
     }
 
 #pragma mark Overrides
@@ -125,8 +132,8 @@
             CGFloat initialSideLengthOfSquare = 100;
             CGFloat actualSideLengthOfSquare = initialSideLengthOfSquare * self._zoom;
 
-            NSRect square = NSMakeRect( NSMaxX( bounds ) / 2 - actualSideLengthOfSquare / 2
-                                      , NSMaxY( bounds ) / 2 - actualSideLengthOfSquare / 2
+            NSRect square = NSMakeRect( _currentLocation.x
+                                      , _currentLocation.y
                                       , actualSideLengthOfSquare, actualSideLengthOfSquare
                                       );
 
@@ -137,8 +144,8 @@
             {
             CGFloat initialDiameterOfCircle = 100;
             CGFloat actualDiameterOfCircle = initialDiameterOfCircle * self._zoom;
-            NSRect circleInRect = NSMakeRect( NSMaxX( bounds ) / 2 - actualDiameterOfCircle / 2
-                                            , NSMaxY( bounds ) / 2 - actualDiameterOfCircle / 2
+            NSRect circleInRect = NSMakeRect( _currentLocation.x
+                                            , _currentLocation.y
                                             , actualDiameterOfCircle, actualDiameterOfCircle
                                             );
 
@@ -155,8 +162,8 @@
             CGFloat initialLengthOfLine = 100;
             CGFloat actualLengthOfLine = initialLengthOfLine * self._zoom;
 
-            NSPoint startPoint = NSMakePoint( ( NSMaxX( bounds ) - actualLengthOfLine ) / 2
-                                            , ( NSMaxY( bounds ) - self._lineWidth ) / 2
+            NSPoint startPoint = NSMakePoint( _currentLocation.x
+                                            , _currentLocation.y
                                             );
 
             [ self._bezierPath moveToPoint: startPoint ];
@@ -179,11 +186,23 @@
     [ translation invert ];[ translation concat ];
 #endif
 
-    if ( [ [ NSGraphicsContext currentContext ] isDrawingToScreen ] )
-        [ self drawGrid ];
+    if ( self._isFilled )
+        {
+        if ( [ [ NSGraphicsContext currentContext ] isDrawingToScreen ] )
+            [ self drawGrid ];
 
-    [ self._bezierPath stroke ];
-    [ self._bezierPath fill ];
+        [ self._bezierPath stroke ];
+        [ self._bezierPath fill ];
+        }
+    else
+        {
+        [ self._bezierPath fill ];
+
+        if ( [ [ NSGraphicsContext currentContext ] isDrawingToScreen ] )
+            [ self drawGrid ];
+
+        [ self._bezierPath stroke ];
+        }
 
     [ self unlockFocus ];
     }
@@ -205,42 +224,32 @@
     if ( _isDragging )
         {
         NSPoint newDraggedLocation = [ self convertPoint: [ _Event locationInWindow ] fromView: nil ];
+        CGFloat offsetX = newDraggedLocation.x - _lastDraggedLocation.x;
+        CGFloat offsetY = newDraggedLocation.y - _lastDraggedLocation.y;
 
-        [ self offsetLocation: [ self _bezierPath ]
-                          byX: newDraggedLocation.x - _lastDraggedLocation.x
-                          byY: newDraggedLocation.y - _lastDraggedLocation.y ];
+        [ self offsetLocationByX: offsetX byY: offsetY ];
+
+        _lastDraggedLocation = NSMakePoint( _lastDraggedLocation.x + offsetX
+                                          , _lastDraggedLocation.y + offsetY
+                                          );
         }
-    }
-
-- ( void ) offsetLocation: ( NSBezierPath* )_Path byX: ( CGFloat )_X byY: ( CGFloat )_Y
-    {
-    NSAffineTransformStruct affineTransformStruct = { 1.f, 0.f, 0.f, 1.f, _X, _Y };
-    NSAffineTransform* transform = [ NSAffineTransform transform ];
-
-    
-
-#if 0
-    for ( int index = 0; index < [ self._bezierPath elementCount ]; index++ )
-        {
-        NSPoint points[ 3 ];
-        NSBezierPathElement element = [ _Path elementAtIndex: index associatedPoints: points ];
-
-        if ( element != NSCurveToBezierPathElement )
-             points[ 0 ] = NSMakePoint( points[ 0 ].x + _X, points[ 0 ].y + _Y );
-        else
-            {
-            for ( int i = 0; i < 3; i++ )
-                points[ i ] = NSMakePoint( points[ 0 ].x + _X, points[ 0 ].y + _Y );
-            }
-
-        [ _Path setAssociatedPoints: points atIndex: index ];
-        }
-#endif
     }
 
 - ( void ) mouseUp: ( NSEvent* )_Event
     {
+    _isDragging = NO;
+    }
 
+- ( void ) offsetLocationByX: ( CGFloat )_X byY: ( CGFloat )_Y
+    {
+    NSAffineTransformStruct affineTransformStruct = { 1.f, 0.f, 0.f, 1.f, _X, _Y };
+
+    NSAffineTransform* transform = [ NSAffineTransform transform ];
+    [ transform setTransformStruct: affineTransformStruct ];
+
+    _currentLocation = [ transform transformPoint: _currentLocation ];
+
+    [ self setNeedsDisplay: YES ];
     }
 
 - ( void ) dealloc
@@ -273,16 +282,6 @@
 - ( NSPoint ) currentLocation
     {
     return self->_currentLocation;
-    }
-
-- ( void ) setLastDraggedLocation: ( NSPoint )_Location
-    {
-    if ( !NSEqualPoints( _Location, self->_lastDraggedLocation ) )
-        {
-        self->_lastDraggedLocation = _Location;
-
-        [ self setNeedsDisplay: YES ];
-        }
     }
 
 #pragma mark IBActions
