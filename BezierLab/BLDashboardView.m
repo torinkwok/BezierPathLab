@@ -86,6 +86,8 @@
     self._pathType = ( enum BLPathType )[ _pathTypeMatrix selectedTag ];
     self._lineCapStyle = ( enum BLLineCapStyle )[ _lineCapStyleMatrix selectedTag ];
     self._dashStyle = ( enum BLDashStyle )[ _dashTypeMatrix selectedTag ];
+
+    _isDragging = NO;
     }
 
 #pragma mark Overrides
@@ -186,6 +188,61 @@
     [ self unlockFocus ];
     }
 
+- ( void ) mouseDown: ( NSEvent* )_Event
+    {
+    NSPoint clickLocation = [ self convertPoint: [ _Event locationInWindow ] fromView: nil ];
+
+    if ( [ self._bezierPath containsPoint: clickLocation ] )
+        {
+        _isDragging = YES;
+
+        _lastDraggedLocation = clickLocation;
+        }
+    }
+
+- ( void ) mouseDragged: ( NSEvent* )_Event
+    {
+    if ( _isDragging )
+        {
+        NSPoint newDraggedLocation = [ self convertPoint: [ _Event locationInWindow ] fromView: nil ];
+
+        [ self offsetLocation: [ self _bezierPath ]
+                          byX: newDraggedLocation.x - _lastDraggedLocation.x
+                          byY: newDraggedLocation.y - _lastDraggedLocation.y ];
+        }
+    }
+
+- ( void ) offsetLocation: ( NSBezierPath* )_Path byX: ( CGFloat )_X byY: ( CGFloat )_Y
+    {
+    NSAffineTransformStruct affineTransformStruct = { 1.f, 0.f, 0.f, 1.f, _X, _Y };
+    NSAffineTransform* transform = [ NSAffineTransform transform ];
+
+    
+
+#if 0
+    for ( int index = 0; index < [ self._bezierPath elementCount ]; index++ )
+        {
+        NSPoint points[ 3 ];
+        NSBezierPathElement element = [ _Path elementAtIndex: index associatedPoints: points ];
+
+        if ( element != NSCurveToBezierPathElement )
+             points[ 0 ] = NSMakePoint( points[ 0 ].x + _X, points[ 0 ].y + _Y );
+        else
+            {
+            for ( int i = 0; i < 3; i++ )
+                points[ i ] = NSMakePoint( points[ 0 ].x + _X, points[ 0 ].y + _Y );
+            }
+
+        [ _Path setAssociatedPoints: points atIndex: index ];
+        }
+#endif
+    }
+
+- ( void ) mouseUp: ( NSEvent* )_Event
+    {
+
+    }
+
 - ( void ) dealloc
     {
     [ _bezierPath release ];
@@ -200,6 +257,32 @@
     _backgroundColor = nil;
 
     [ super dealloc ];
+    }
+
+#pragma mark Accessors
+- ( void ) setCurrentLocation: ( NSPoint )_Location
+    {
+    if ( !NSEqualPoints( _Location, self->_currentLocation ) )
+        {
+        self->_currentLocation = _Location;
+
+        [ self setNeedsDisplay: YES ];
+        }
+    }
+
+- ( NSPoint ) currentLocation
+    {
+    return self->_currentLocation;
+    }
+
+- ( void ) setLastDraggedLocation: ( NSPoint )_Location
+    {
+    if ( !NSEqualPoints( _Location, self->_lastDraggedLocation ) )
+        {
+        self->_lastDraggedLocation = _Location;
+
+        [ self setNeedsDisplay: YES ];
+        }
     }
 
 #pragma mark IBActions
