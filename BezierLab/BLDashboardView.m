@@ -38,6 +38,7 @@
     {
     // Handling dragged
     BOOL _isDragging;
+    NSPoint _initalOriginOfShapes;
     NSPoint _currentLocation;
     NSPoint _lastDraggedLocation;
 
@@ -97,10 +98,17 @@
 
     _isDragging = NO;
 
-    CGFloat initialSideLengthOfSquare = 100;
-    CGFloat actualSideLengthOfSquare = initialSideLengthOfSquare * self._zoom;
-    _currentLocation = NSMakePoint( NSMaxX( self.bounds ) / 2 - actualSideLengthOfSquare / 2
-                                  , NSMaxY( self.bounds ) / 2 - actualSideLengthOfSquare / 2 );
+    CGFloat initialWidthOfRectWrappingShape = 100;
+    CGFloat initialHeightOfRectWrappingShape = 100;
+
+    CGFloat actualWidthOfRectWrappingShape = initialWidthOfRectWrappingShape * self._zoom;
+    CGFloat actualHeightOfRectWrappingShape = initialHeightOfRectWrappingShape * self._zoom;
+
+    _initalOriginOfShapes = NSMakePoint( ( NSMaxX( self.bounds ) - actualWidthOfRectWrappingShape ) / 2
+                                       , ( NSMaxY( self.bounds ) - actualHeightOfRectWrappingShape ) / 2
+                                       );
+
+    _currentLocation = _initalOriginOfShapes;
 
     _lastDraggedLocation = NSZeroPoint;
     _rectForCurrentBezierPath = NSZeroRect;
@@ -249,9 +257,48 @@
     _isDragging = NO;
     }
 
+- ( void ) keyDown: ( NSEvent* )_Event
+    {
+    BOOL isHandled = NO;
+
+    NSString* characters = [ _Event charactersIgnoringModifiers ];
+    if ( [ characters isEqualToString: @"r" ] )
+        {
+        isHandled = YES;
+
+        if ( !NSEqualPoints( _rectForCurrentBezierPath.origin, _initalOriginOfShapes ) )
+            [ self offsetLocationByX: _initalOriginOfShapes.x - _rectForCurrentBezierPath.origin.x
+                                 byY: _initalOriginOfShapes.y - _rectForCurrentBezierPath.origin.y ];
+        }
+
+    if ( !isHandled )
+        [ super keyDown: _Event ];
+    }
+
+- ( void ) moveUp: ( id )_Sender
+    {
+    [ self offsetLocationByX: 0.f byY: -10.f ];
+    }
+
+- ( void ) moveDown: ( id )_Sender
+    {
+    [ self offsetLocationByX: 0.f byY: 10.f ];
+    }
+
+- ( void ) moveLeft: ( id )_Sender
+    {
+    [ self offsetLocationByX: -10.f byY: 0.f ];
+    }
+
+- ( void ) moveRight: ( id )_Sender
+    {
+    [ self offsetLocationByX: 10.f byY: 0.f ];
+    }
+
 - ( void ) offsetLocationByX: ( CGFloat )_X byY: ( CGFloat )_Y
     {
-    NSAffineTransformStruct affineTransformStruct = { 1.f, 0.f, 0.f, 1.f, _X, _Y };
+    int invertDeltaY = [ self isFlipped ] ? 1 : -1;
+    NSAffineTransformStruct affineTransformStruct = { 1.f, 0.f, 0.f, 1.f, _X, _Y * invertDeltaY };
 
     NSAffineTransform* transform = [ NSAffineTransform transform ];
     [ transform setTransformStruct: affineTransformStruct ];
@@ -262,7 +309,10 @@
                                            , _rectForCurrentBezierPath.size.height
                                            );
 
-    rectNeededToRefresh = NSUnionRect( rectNeededToRefresh, NSInsetRect( _rectForCurrentBezierPath, -self._lineWidth, -self._lineWidth ) );
+    // Both of the source and destination area, and the area between them need to be redrawn, so union them.
+    rectNeededToRefresh = NSInsetRect( NSUnionRect( rectNeededToRefresh, _rectForCurrentBezierPath )
+                                     , -self._lineWidth, -self._lineWidth
+                                     );
 
     [ self setNeedsDisplayInRect: rectNeededToRefresh ];
     }
@@ -380,9 +430,16 @@
     [ self invalidateTheShape: _rectForCurrentBezierPath ];
     }
 
-- ( IBAction ) changeZoom: ( id )_Sender
+- ( IBAction ) changedZoom: ( id )_Sender
     {
     self._zoom = [ ( NSSlider* )_Sender doubleValue ];
+
+    CGFloat actualWidthOfRectWrappingShape = _rectForCurrentBezierPath.size.width;
+    CGFloat actualHeightOfRectWrappingShape = _rectForCurrentBezierPath.size.height;
+
+    _initalOriginOfShapes = NSMakePoint( ( NSMaxX( self.bounds ) - actualWidthOfRectWrappingShape ) / 2
+                                       , ( NSMaxY( self.bounds ) - actualHeightOfRectWrappingShape ) / 2
+                                       );
 
     NSRect rectNeededToRefresh = NSMakeRect( _rectForCurrentBezierPath.origin.x
                                            , _rectForCurrentBezierPath.origin.y

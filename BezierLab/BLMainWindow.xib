@@ -91,7 +91,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="1" maxValue="5" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="dQL-WG-aX5"/>
                         <connections>
-                            <action selector="changeZoom:" target="s1J-zN-wbT" id="4cv-kS-ED3"/>
+                            <action selector="changedZoom:" target="s1J-zN-wbT" id="Ke3-qP-j1l"/>
                         </connections>
                     </slider>
                     <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F5h-c8-Bo7">

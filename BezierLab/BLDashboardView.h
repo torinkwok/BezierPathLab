@@ -91,7 +91,7 @@ enum BLDashStyle { BLDashTyleSolid = 0, BLDashTyle5_5, BLDashTyle8_3_8, BLDashTy
 - ( IBAction ) changedBackgroundColor: ( id )_Sender;
 
 - ( IBAction ) changedAngle: ( id )_Sender;
-- ( IBAction ) changeZoom: ( id )_Sender;
+- ( IBAction ) changedZoom: ( id )_Sender;
 - ( IBAction ) changeLineWidth: ( id )_Sender;
 
 @end // BLDashboardView
