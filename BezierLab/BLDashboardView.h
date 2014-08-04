@@ -45,11 +45,6 @@ enum BLDashStyle { BLDashTyleSolid = 0, BLDashTyle5_5, BLDashTyle8_3_8, BLDashTy
     {
     NSInteger _dashCount;
     CGFloat _dashArray[ 3 ];
-
-    // Handling dragged
-    BOOL _isDragging;
-    NSPoint _currentLocation;
-    NSPoint _lastDraggedLocation;
     }
 
 #pragma mark Outlets
@@ -83,10 +78,6 @@ enum BLDashStyle { BLDashTyleSolid = 0, BLDashTyle5_5, BLDashTyle8_3_8, BLDashTy
 @property ( retain ) NSColor* _lineColor;
 @property ( retain ) NSColor* _fillColor;
 @property ( retain ) NSColor* _backgroundColor;
-
-#pragma mark Accessors
-- ( void ) setCurrentLocation: ( NSPoint )_Location;
-- ( NSPoint ) currentLocation;
 
 #pragma mark IBActions
 - ( IBAction ) changedPathType: ( id )_Sender;

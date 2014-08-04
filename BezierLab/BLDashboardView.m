@@ -35,6 +35,14 @@
 
 // BLDashboardView class
 @implementation BLDashboardView
+    {
+    // Handling dragged
+    BOOL _isDragging;
+    NSPoint _currentLocation;
+    NSPoint _lastDraggedLocation;
+
+    NSRect _rectForCurrentBezierPath;
+    }
 
 #pragma mark Outlets
 @synthesize _lineColorWell;
@@ -95,6 +103,7 @@
                                   , NSMaxY( self.bounds ) / 2 - actualSideLengthOfSquare / 2 );
 
     _lastDraggedLocation = NSZeroPoint;
+    _rectForCurrentBezierPath = NSZeroRect;
     }
 
 #pragma mark Overrides
@@ -132,24 +141,24 @@
             CGFloat initialSideLengthOfSquare = 100;
             CGFloat actualSideLengthOfSquare = initialSideLengthOfSquare * self._zoom;
 
-            NSRect square = NSMakeRect( _currentLocation.x
-                                      , _currentLocation.y
-                                      , actualSideLengthOfSquare, actualSideLengthOfSquare
-                                      );
+            _rectForCurrentBezierPath = NSMakeRect( _currentLocation.x
+                                                  , _currentLocation.y
+                                                  , actualSideLengthOfSquare, actualSideLengthOfSquare
+                                                  );
 
-            [ self._bezierPath appendBezierPathWithRect: square ];
+            [ self._bezierPath appendBezierPathWithRect: _rectForCurrentBezierPath ];
             } break;
 
     case BLPathTypeCircle:
             {
             CGFloat initialDiameterOfCircle = 100;
             CGFloat actualDiameterOfCircle = initialDiameterOfCircle * self._zoom;
-            NSRect circleInRect = NSMakeRect( _currentLocation.x
-                                            , _currentLocation.y
-                                            , actualDiameterOfCircle, actualDiameterOfCircle
-                                            );
+            _rectForCurrentBezierPath = NSMakeRect( _currentLocation.x
+                                                  , _currentLocation.y
+                                                  , actualDiameterOfCircle, actualDiameterOfCircle
+                                                  );
 
-            [ self._bezierPath appendBezierPathWithOvalInRect: circleInRect ];
+            [ self._bezierPath appendBezierPathWithOvalInRect: _rectForCurrentBezierPath ];
             } break;
 
     case BLPathTypeArc:
@@ -248,8 +257,14 @@
     [ transform setTransformStruct: affineTransformStruct ];
 
     _currentLocation = [ transform transformPoint: _currentLocation ];
+    NSRect rectNeededToRefresh = NSMakeRect( _currentLocation.x, _currentLocation.y
+                                           , _rectForCurrentBezierPath.size.width
+                                           , _rectForCurrentBezierPath.size.height
+                                           );
 
-    [ self setNeedsDisplay: YES ];
+    rectNeededToRefresh = NSUnionRect( rectNeededToRefresh, NSInsetRect( _rectForCurrentBezierPath, -self._lineWidth, -self._lineWidth ) );
+
+    [ self setNeedsDisplayInRect: rectNeededToRefresh ];
     }
 
 - ( void ) dealloc
@@ -268,20 +283,9 @@
     [ super dealloc ];
     }
 
-#pragma mark Accessors
-- ( void ) setCurrentLocation: ( NSPoint )_Location
+- ( void ) invalidateTheShape: ( NSRect )_RectWrappingTheShape
     {
-    if ( !NSEqualPoints( _Location, self->_currentLocation ) )
-        {
-        self->_currentLocation = _Location;
-
-        [ self setNeedsDisplay: YES ];
-        }
-    }
-
-- ( NSPoint ) currentLocation
-    {
-    return self->_currentLocation;
+    [ self setNeedsDisplayInRect: NSInsetRect( _RectWrappingTheShape, -self._lineWidth, -self._lineWidth ) ];
     }
 
 #pragma mark IBActions
@@ -294,13 +298,15 @@
     else
         [ self._isFilledButton setEnabled: YES ];
 
-    [ self setNeedsDisplay: YES ];
+    [ self invalidateTheShape: _rectForCurrentBezierPath ];
     }
 
 - ( IBAction ) changedLineCapStyle: ( id )_Sender
     {
     self._lineCapStyle = ( enum BLLineCapStyle )[ ( NSMatrix* )_Sender selectedTag ];
     [ self setNeedsDisplay: YES ];
+
+    [ self invalidateTheShape: _rectForCurrentBezierPath ];
     }
 
 - ( IBAction ) changedDashType: ( id )_Sender
@@ -341,25 +347,25 @@
             } break;
         }
 
-    [ self setNeedsDisplay: YES ];
+    [ self invalidateTheShape: _rectForCurrentBezierPath ];
     }
 
 - ( IBAction ) changedFilled: ( id ) _Sender
     {
     self._isFilled = [ ( NSButton* )_Sender state ];
-    [ self setNeedsDisplay: YES ];
+    [ self invalidateTheShape: _rectForCurrentBezierPath ];
     }
 
 - ( IBAction ) changedLineColor: ( id )_Sender
     {
     self._lineColor = [ ( NSColorWell* )_Sender color ];
-    [ self setNeedsDisplay: YES ];
+    [ self invalidateTheShape: _rectForCurrentBezierPath ];
     }
 
 - ( IBAction ) changedFillColor: ( id )_Sender
     {
     self._fillColor = [ ( NSColorWell* )_Sender color ];
-    [ self setNeedsDisplay: YES ];
+    [ self invalidateTheShape: _rectForCurrentBezierPath ];
     }
 
 - ( IBAction ) changedBackgroundColor: ( id )_Sender
@@ -371,19 +377,26 @@
 - ( IBAction ) changedAngle: ( id )_Sender
     {
     self._angle = [ ( NSSlider* )_Sender doubleValue ];
-    [ self setNeedsDisplay: YES ];
+    [ self invalidateTheShape: _rectForCurrentBezierPath ];
     }
 
 - ( IBAction ) changeZoom: ( id )_Sender
     {
     self._zoom = [ ( NSSlider* )_Sender doubleValue ];
-    [ self setNeedsDisplay: YES ];
+
+    NSRect rectNeededToRefresh = NSMakeRect( _rectForCurrentBezierPath.origin.x
+                                           , _rectForCurrentBezierPath.origin.y
+                                           , _rectForCurrentBezierPath.size.width * self._zoom
+                                           , _rectForCurrentBezierPath.size.height * self._zoom
+                                           );
+
+    [ self invalidateTheShape: rectNeededToRefresh ];
     }
 
 - ( IBAction ) changeLineWidth: ( id )_Sender
     {
     self._lineWidth = [ ( NSSlider* )_Sender doubleValue ];
-    [ self setNeedsDisplay: YES ];
+    [ self invalidateTheShape: _rectForCurrentBezierPath ];
     }
 
 - ( IBAction ) drawIntoPDF: ( id )_Sender
