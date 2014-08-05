@@ -37,27 +37,22 @@
 // BLControl class
 @implementation BLControl
 
-@synthesize _blcell;
-
-- ( id ) initWithFrame: ( NSRect )_Rect
-    {
-    if ( self = [ super initWithFrame: _Rect ] )
-        self._blcell = [ [ [ BLCell alloc ] init ] autorelease ];
-
-    return self;
-    }
-
 - ( void ) drawRect: ( NSRect )_Rect
     {
-    NSRect rect = NSMakeRect( _Rect.origin.x, _Rect.origin.y, self._blcell.cellSize.width, self._blcell.cellSize.height );
+    NSRect rect = NSMakeRect( _Rect.origin.x, _Rect.origin.y, [ self.cell cellSize ].width, [ self.cell cellSize ].height );
 
     dispatch_queue_t defaultQueue = dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0 );
 
     dispatch_async( defaultQueue
         , ^( void )
             {
-            [ self._blcell drawWithFrame: rect inView: self ];
+            [ self.cell drawWithFrame: rect inView: self ];
             } );
+    }
+
++ ( Class ) cellClass
+    {
+    return [ BLCell class ];
     }
 
 @end // BLControl

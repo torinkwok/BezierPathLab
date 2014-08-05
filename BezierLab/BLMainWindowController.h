@@ -32,6 +32,7 @@
  ****************************************************************************/
 
 #import <Cocoa/Cocoa.h>
+#import "BLSlider.h"
 
 @class LIGetPathsOperation;
 

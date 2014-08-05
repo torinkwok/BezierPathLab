@@ -33,6 +33,7 @@
 
 #import "BLAppDelegate.h"
 #import "BLMainWindowController.h"
+#import "BLSlider.h"
 
 // BLAppDelegate class
 @implementation BLAppDelegate
@@ -48,9 +49,18 @@
     [ self._mainWindowController showWindow: self ];
     }
 
-- ( void ) applicationDidFinishLaunching: ( NSNotification* )_Notification
+- ( void ) applicationDidFinishLaunching:(NSNotification *)notification
     {
+    BLSlider* slider = [ [ BLSlider alloc ] initWithFrame: NSMakeRect( 20, 44, 115, 25 ) ];
+    [ slider setTarget: self ];
+    [ slider setAction: @selector( fuckingSlider: ) ];
 
+    [ self._mainWindowController.window.contentView addSubview: slider ];
+    }
+
+- ( IBAction ) fuckingSlider: _Sender
+    {
+    __CAVEMEN_DEBUGGING__PRINT_WHICH_METHOD_INVOKED__;
     }
 
 @end // BLAppDelegate

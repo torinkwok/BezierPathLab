@@ -55,7 +55,7 @@
 #pragma mark Conforms <NSNibAwaking> protocol
 - ( void ) awakeFromNib
     {
-    // TODO:
+
     }
 
 @end // BLMainWindowController

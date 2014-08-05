@@ -37,9 +37,6 @@
 
 // BLControl class
 @interface BLControl : NSControl
-
-@property ( retain ) BLCell* _blcell;
-
 @end // BLControl
 
 /////////////////////////////////////////////////////////////////////////////

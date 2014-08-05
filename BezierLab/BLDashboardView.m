@@ -32,6 +32,7 @@
  ****************************************************************************/
 
 #import "BLDashboardView.h"
+#import "BLSearchField.h"
 
 // BLDashboardView class
 @implementation BLDashboardView
@@ -50,6 +51,8 @@
 @synthesize _fillColorWell;
 @synthesize _backgroundColorWell;
 
+@synthesize _searchField;
+
 @synthesize _pathTypeMatrix;
 @synthesize _lineCapStyleMatrix;
 @synthesize _dashTypeMatrix;
@@ -59,6 +62,8 @@
 @synthesize _angleSlider;
 @synthesize _zoomSlider;
 @synthesize _lineWidthSlider;
+
+@synthesize _roundedTexturedButton;
 
 #pragma mark Instance variables
 @synthesize _bezierPath;
@@ -112,6 +117,9 @@
 
     _lastDraggedLocation = NSZeroPoint;
     _rectForCurrentBezierPath = NSZeroRect;
+
+    [ self._roundedTexturedButton setPeriodicDelay: 5.f
+                                          interval: 2.f ];
     }
 
 #pragma mark Overrides
@@ -452,6 +460,7 @@
 
 - ( IBAction ) changeLineWidth: ( id )_Sender
     {
+    __CAVEMEN_DEBUGGING__PRINT_WHICH_METHOD_INVOKED__;
     self._lineWidth = [ ( NSSlider* )_Sender doubleValue ];
     [ self invalidateTheShape: _rectForCurrentBezierPath ];
     }
@@ -501,6 +510,11 @@
 
         [ self unlockFocus ];
         }
+    }
+
+- ( IBAction ) testingForContinuous: ( id )_Sender
+    {
+    __CAVEMEN_DEBUGGING__PRINT_WHICH_METHOD_INVOKED__;
     }
 
 @end // BLDashboardView

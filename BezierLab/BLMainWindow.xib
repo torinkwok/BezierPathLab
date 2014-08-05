@@ -4,19 +4,23 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="BLMainWindowController"/>
+        <customObject id="-2" userLabel="File's Owner" customClass="BLMainWindowController">
+            <connections>
+                <outlet property="window" destination="QvC-M9-y7g" id="0Cc-H2-TdI"/>
+            </connections>
+        </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application"/>
         <window title="BezierLab" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
-            <rect key="contentRect" x="196" y="240" width="507" height="414"/>
+            <rect key="contentRect" x="196" y="240" width="507" height="466"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="507" height="414"/>
+                <rect key="frame" x="0.0" y="0.0" width="507" height="466"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <box autoresizesSubviews="NO" fixedFrame="YES" title="Colors" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="JXd-Wc-PfP">
-                        <rect key="frame" x="17" y="95" width="311" height="85"/>
+                        <rect key="frame" x="17" y="147" width="311" height="85"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView">
                             <rect key="frame" x="1" y="1" width="309" height="69"/>
@@ -79,7 +83,7 @@
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
                     <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YjJ-21-JnJ">
-                        <rect key="frame" x="91" y="67" width="236" height="20"/>
+                        <rect key="frame" x="91" y="119" width="236" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="360" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="cz7-4s-zxW"/>
                         <connections>
@@ -87,23 +91,23 @@
                         </connections>
                     </slider>
                     <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vJo-qu-8de">
-                        <rect key="frame" x="91" y="42" width="236" height="20"/>
+                        <rect key="frame" x="91" y="94" width="236" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="1" maxValue="5" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="dQL-WG-aX5"/>
                         <connections>
                             <action selector="changedZoom:" target="s1J-zN-wbT" id="Ke3-qP-j1l"/>
                         </connections>
                     </slider>
-                    <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F5h-c8-Bo7">
-                        <rect key="frame" x="91" y="17" width="236" height="20"/>
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F5h-c8-Bo7" customClass="BLSlider">
+                        <rect key="frame" x="91" y="69" width="236" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="1" maxValue="20" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="Qt8-G8-aLI"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="1" maxValue="20" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="Qt8-G8-aLI" customClass="BLSliderCell"/>
                         <connections>
                             <action selector="changeLineWidth:" target="s1J-zN-wbT" id="L2f-Wu-dn9"/>
                         </connections>
                     </slider>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I4z-9c-SZ5">
-                        <rect key="frame" x="18" y="69" width="41" height="17"/>
+                        <rect key="frame" x="18" y="121" width="41" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Angle" id="oPy-GR-gRv">
                             <font key="font" metaFont="system"/>
@@ -112,7 +116,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o7n-8p-7z1">
-                        <rect key="frame" x="18" y="44" width="40" height="17"/>
+                        <rect key="frame" x="18" y="96" width="40" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Zoom" id="QpR-fb-HjD">
                             <font key="font" metaFont="system"/>
@@ -121,7 +125,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tRU-Y7-SUx">
-                        <rect key="frame" x="18" y="19" width="66" height="17"/>
+                        <rect key="frame" x="18" y="71" width="66" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="LineWidth" id="92r-ZD-B9O">
                             <font key="font" metaFont="system"/>
@@ -130,7 +134,7 @@
                         </textFieldCell>
                     </textField>
                     <box autoresizesSubviews="NO" fixedFrame="YES" title="Path Type" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="1nr-rg-c77">
-                        <rect key="frame" x="352" y="252" width="138" height="142"/>
+                        <rect key="frame" x="352" y="270" width="138" height="142"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView">
                             <rect key="frame" x="1" y="1" width="136" height="126"/>
@@ -187,7 +191,7 @@
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
                     <box autoresizesSubviews="NO" fixedFrame="YES" title="Line Cap Style" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="xft-1z-0x7">
-                        <rect key="frame" x="352" y="144" width="138" height="97"/>
+                        <rect key="frame" x="352" y="154" width="138" height="97"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView">
                             <rect key="frame" x="1" y="1" width="136" height="81"/>
@@ -275,7 +279,7 @@
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s1J-zN-wbT" customClass="BLDashboardView">
-                        <rect key="frame" x="20" y="188" width="305" height="206"/>
+                        <rect key="frame" x="20" y="240" width="305" height="206"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <connections>
                             <outlet property="_angleSlider" destination="YjJ-21-JnJ" id="cn5-Vb-Rrw"/>
@@ -287,9 +291,19 @@
                             <outlet property="_lineColorWell" destination="ZLk-VW-b7x" id="tUQ-ht-1Nr"/>
                             <outlet property="_lineWidthSlider" destination="F5h-c8-Bo7" id="ZSq-d0-cMx"/>
                             <outlet property="_pathTypeMatrix" destination="Yue-nj-bBp" id="89O-Hw-vxA"/>
+                            <outlet property="_searchField" destination="BRH-Z9-48X" id="JEG-AK-b1g"/>
                             <outlet property="_zoomSlider" destination="vJo-qu-8de" id="rJa-x6-Zis"/>
                         </connections>
                     </customView>
+                    <searchField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BRH-Z9-48X" customClass="BLSearchField">
+                        <rect key="frame" x="355" y="424" width="132" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="Search Here" usesSingleLineMode="YES" bezelStyle="round" id="uKR-96-Mdr" customClass="BLSearchFieldCell">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </searchFieldCell>
+                    </searchField>
                 </subviews>
             </view>
         </window>

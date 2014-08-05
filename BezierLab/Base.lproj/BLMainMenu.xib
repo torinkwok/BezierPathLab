@@ -666,6 +666,25 @@
                         </items>
                     </menu>
                 </menuItem>
+                <menuItem title="Cell &amp; Control" id="jny-CC-4ev">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Cell &amp; Control" id="AcJ-NN-Wkm">
+                        <items>
+                            <menuItem title="Testing for Cell Drawing" keyEquivalent="T" id="bso-eT-XDc">
+                                <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                <connections>
+                                    <action selector="testingForCellDrawing:" target="-1" id="6ms-sL-9g4"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Testing for Color Tint" id="yNC-QB-3bo">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES"/>
+                                <connections>
+                                    <action selector="testingForColorTint:" target="-1" id="x7r-ip-QXn"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
                 <menuItem title="Drawing" id="9cy-Jo-ASY">
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>

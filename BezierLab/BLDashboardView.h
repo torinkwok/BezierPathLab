@@ -32,6 +32,9 @@
  ****************************************************************************/
 
 #import <Cocoa/Cocoa.h>
+#import "BLControl.h"
+
+@class BLSearchField;
 
 // Constants Definitions
 enum BLPathType { BLPathTypeSquare = 0, BLPathTypeCircle, BLPathTypeArc, BLPathTypeLine };
@@ -52,6 +55,8 @@ enum BLDashStyle { BLDashTyleSolid = 0, BLDashTyle5_5, BLDashTyle8_3_8, BLDashTy
 @property ( assign ) IBOutlet NSColorWell* _fillColorWell;
 @property ( assign ) IBOutlet NSColorWell* _backgroundColorWell;
 
+@property ( assign ) IBOutlet BLSearchField* _searchField;
+
 @property ( assign ) IBOutlet NSMatrix* _pathTypeMatrix;
 @property ( assign ) IBOutlet NSMatrix* _lineCapStyleMatrix;
 @property ( assign ) IBOutlet NSMatrix* _dashTypeMatrix;
@@ -61,6 +66,8 @@ enum BLDashStyle { BLDashTyleSolid = 0, BLDashTyle5_5, BLDashTyle8_3_8, BLDashTy
 @property ( assign ) IBOutlet NSSlider* _angleSlider;
 @property ( assign ) IBOutlet NSSlider* _zoomSlider;
 @property ( assign ) IBOutlet NSSlider* _lineWidthSlider;
+
+@property ( assign ) IBOutlet NSButton* _roundedTexturedButton;
 
 #pragma mark Instance variables
 @property ( retain ) NSBezierPath* _bezierPath;
@@ -78,7 +85,6 @@ enum BLDashStyle { BLDashTyleSolid = 0, BLDashTyle5_5, BLDashTyle8_3_8, BLDashTy
 @property ( retain ) NSColor* _lineColor;
 @property ( retain ) NSColor* _fillColor;
 @property ( retain ) NSColor* _backgroundColor;
-
 #pragma mark IBActions
 - ( IBAction ) changedPathType: ( id )_Sender;
 - ( IBAction ) changedLineCapStyle: ( id )_Sender;

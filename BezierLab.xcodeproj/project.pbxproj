@@ -22,6 +22,10 @@
 		8322CB37198BCC67003A2B67 /* BLDashboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8322CB36198BCC67003A2B67 /* BLDashboardView.m */; };
 		839988071990D22700C069AC /* BLCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 839988031990D22700C069AC /* BLCell.m */; };
 		839988081990D22700C069AC /* BLControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 839988041990D22700C069AC /* BLControl.m */; };
+		8399885B19911B2700C069AC /* BLSearchFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8399885A19911B2700C069AC /* BLSearchFieldCell.m */; };
+		8399886119911C3900C069AC /* BLSearchField.m in Sources */ = {isa = PBXBuildFile; fileRef = 8399886019911C3900C069AC /* BLSearchField.m */; };
+		839988641991323B00C069AC /* BLSliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 839988631991323B00C069AC /* BLSliderCell.m */; };
+		839988671991344400C069AC /* BLSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 839988661991344400C069AC /* BLSlider.m */; };
 		83F49754197EBA3D008CEAD4 /* BLMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F49753197EBA3D008CEAD4 /* BLMainWindow.xib */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +67,14 @@
 		839988041990D22700C069AC /* BLControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLControl.m; sourceTree = "<group>"; };
 		839988051990D22700C069AC /* BLControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLControl.h; sourceTree = "<group>"; };
 		839988061990D22700C069AC /* BLCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCell.h; sourceTree = "<group>"; };
+		8399885919911B2700C069AC /* BLSearchFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLSearchFieldCell.h; sourceTree = "<group>"; };
+		8399885A19911B2700C069AC /* BLSearchFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLSearchFieldCell.m; sourceTree = "<group>"; };
+		8399885F19911C3900C069AC /* BLSearchField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLSearchField.h; sourceTree = "<group>"; };
+		8399886019911C3900C069AC /* BLSearchField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLSearchField.m; sourceTree = "<group>"; };
+		839988621991323B00C069AC /* BLSliderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLSliderCell.h; path = ../BLSliderCell.h; sourceTree = "<group>"; };
+		839988631991323B00C069AC /* BLSliderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLSliderCell.m; path = ../BLSliderCell.m; sourceTree = "<group>"; };
+		839988651991344400C069AC /* BLSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLSlider.h; path = ../BLSlider.h; sourceTree = "<group>"; };
+		839988661991344400C069AC /* BLSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLSlider.m; path = ../BLSlider.m; sourceTree = "<group>"; };
 		83F49753197EBA3D008CEAD4 /* BLMainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BLMainWindow.xib; path = BezierLab/BLMainWindow.xib; sourceTree = "<group>"; };
 		83F49756197EBB31008CEAD4 /* BLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLCommon.h; path = BezierLab/BLCommon.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +152,14 @@
 				839988041990D22700C069AC /* BLControl.m */,
 				8322CB35198BCC67003A2B67 /* BLDashboardView.h */,
 				8322CB36198BCC67003A2B67 /* BLDashboardView.m */,
+				8399885F19911C3900C069AC /* BLSearchField.h */,
+				8399886019911C3900C069AC /* BLSearchField.m */,
+				8399885919911B2700C069AC /* BLSearchFieldCell.h */,
+				8399885A19911B2700C069AC /* BLSearchFieldCell.m */,
+				839988651991344400C069AC /* BLSlider.h */,
+				839988661991344400C069AC /* BLSlider.m */,
+				839988621991323B00C069AC /* BLSliderCell.h */,
+				839988631991323B00C069AC /* BLSliderCell.m */,
 				8308B475197EB94A005460BB /* BLMainWindowController.h */,
 				8308B476197EB94A005460BB /* BLMainWindowController.m */,
 				8308B44D197E73A8005460BB /* main.m */,
@@ -289,9 +309,13 @@
 			files = (
 				8308B455197E73A8005460BB /* BLAppDelegate.m in Sources */,
 				8308B477197EB94A005460BB /* BLMainWindowController.m in Sources */,
+				8399886119911C3900C069AC /* BLSearchField.m in Sources */,
+				8399885B19911B2700C069AC /* BLSearchFieldCell.m in Sources */,
+				839988641991323B00C069AC /* BLSliderCell.m in Sources */,
 				8322CB37198BCC67003A2B67 /* BLDashboardView.m in Sources */,
 				839988071990D22700C069AC /* BLCell.m in Sources */,
 				8308B44E197E73A8005460BB /* main.m in Sources */,
+				839988671991344400C069AC /* BLSlider.m in Sources */,
 				839988081990D22700C069AC /* BLControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
