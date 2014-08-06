@@ -54,18 +54,21 @@
     [ self._mainWindowController showWindow: self ];
     }
 
-- ( void ) applicationDidFinishLaunching:(NSNotification *)notification
+- ( void ) dealloc
+    {
+    [ _mainWindow release ];
+    _mainWindow = nil;
+
+    [ super dealloc ];
+    }
+
+- ( void ) applicationDidFinishLaunching: ( NSNotification* )_Notification
     {
     BLSlider* slider = [ [ BLSlider alloc ] initWithFrame: NSMakeRect( 20, 44, 115, 25 ) ];
     [ slider setTarget: self ];
     [ slider setAction: @selector( fuckingSlider: ) ];
 
     [ self._mainWindowController.window.contentView addSubview: slider ];
-    }
-
-- ( IBAction ) fuckingSlider: _Sender
-    {
-    __CAVEMEN_DEBUGGING__PRINT_WHICH_METHOD_INVOKED__;
     }
 
 - ( IBAction ) creatingAWindow: ( id )_Sender
