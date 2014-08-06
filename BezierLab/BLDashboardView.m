@@ -460,7 +460,6 @@
 
 - ( IBAction ) changeLineWidth: ( id )_Sender
     {
-    __CAVEMEN_DEBUGGING__PRINT_WHICH_METHOD_INVOKED__;
     self._lineWidth = [ ( NSSlider* )_Sender doubleValue ];
     [ self invalidateTheShape: _rectForCurrentBezierPath ];
     }
@@ -514,7 +513,6 @@
 
 - ( IBAction ) testingForContinuous: ( id )_Sender
     {
-    __CAVEMEN_DEBUGGING__PRINT_WHICH_METHOD_INVOKED__;
     }
 
 @end // BLDashboardView

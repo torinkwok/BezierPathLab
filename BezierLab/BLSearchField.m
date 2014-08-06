@@ -55,6 +55,11 @@
     return YES;
     }
 
+- ( void ) drawRect:(NSRect)dirtyRect
+    {
+    [ super drawRect: dirtyRect ];
+    }
+
 @end // BLSearchField
 
 /////////////////////////////////////////////////////////////////////////////

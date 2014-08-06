@@ -47,6 +47,11 @@
     return [ BLSliderCell class ];
     }
 
+- ( void ) drawRect:(NSRect)dirtyRect
+    {
+    [ super drawRect: dirtyRect ];
+    }
+
 @end // BLSlider class
 
 /////////////////////////////////////////////////////////////////////////////

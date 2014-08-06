@@ -34,11 +34,13 @@
 #import <Cocoa/Cocoa.h>
 
 @class BLMainWindowController;
+@class BLTestingWindowController;
 
 // BLAppDelegate class
 @interface BLAppDelegate : NSObject <NSApplicationDelegate>
 
 @property ( retain ) BLMainWindowController* _mainWindowController;
+@property ( retain ) BLTestingWindowController* _testingWindowController;
 
 @end // BLAppDelegate
 

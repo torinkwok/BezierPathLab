@@ -670,6 +670,24 @@
                                     <action selector="displayWindow:" target="-1" id="gMM-EM-nmi"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Update Window" id="m25-4O-HiI">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="updateWindow:" target="-1" id="hDN-by-2UU"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Display Modal Window" id="DpA-SX-kgb">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="displayModalWindow:" target="-1" id="XHZ-MN-66T"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Stop Modal" id="VxK-1P-NfR">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="stopModal:" target="-1" id="119-VF-nBs"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>

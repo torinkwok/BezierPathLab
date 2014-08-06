@@ -42,6 +42,11 @@
 
     }
 
+- ( void ) drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
+    {
+    [ super drawWithFrame:cellFrame inView:controlView ];
+    }
+
 @end // BLSearchFieldCell
 
 /////////////////////////////////////////////////////////////////////////////

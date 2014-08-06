@@ -48,6 +48,11 @@
     *_Interval = 2.f;
     }
 
+- ( void ) drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
+    {
+    [ super drawWithFrame:cellFrame inView:controlView ];
+    }
+
 @end // BLSliderCell
 
 /////////////////////////////////////////////////////////////////////////////
