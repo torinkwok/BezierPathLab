@@ -651,6 +651,25 @@
                                     <action selector="arrangeInFront:" target="-1" id="DRN-fu-gQh"/>
                                 </connections>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="j7o-sU-E50"/>
+                            <menuItem title="Create A Window" keyEquivalent="W" id="omp-3m-Sn5">
+                                <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                <connections>
+                                    <action selector="creatingAWindow:" target="-1" id="XCk-j8-qCX"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Print Window" id="EyY-1T-o5p">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="printingWindow:" target="-1" id="1xm-Hd-tqh"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Display Window" id="4Bq-IB-hTz">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="displayWindow:" target="-1" id="gMM-EM-nmi"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>
