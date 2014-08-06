@@ -688,6 +688,19 @@
                                     <action selector="stopModal:" target="-1" id="119-VF-nBs"/>
                                 </connections>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="KNx-ps-OZx"/>
+                            <menuItem title="Show Panel" id="If9-9h-o0V">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="showPanel:" target="-1" id="koC-qi-nnN"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Close Window" id="7YE-53-ud9">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="closeWindow:" target="-1" id="Cbk-Dy-dB0"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>

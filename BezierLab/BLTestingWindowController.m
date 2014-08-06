@@ -35,9 +35,13 @@
 #import "BGHUDAppKit/BGHUDAppKit.h"
 #import "ChromiumTabs/ChromiumTabs.h"
 #import "BWToolkitFramework/BWToolkitFramework.h"
+#import "ShortcutRecorder/SRRecorderControl.h"
 
 // BLTestingWindowController class
 @implementation BLTestingWindowController
+
+@synthesize _testPanel;
+@synthesize _testWindow;
 
 #pragma mark Initializers
 + ( id ) testingWindowController
@@ -61,12 +65,28 @@
     if ( [ [ self window ] isKindOfClass: [ NSPanel class ] ] )
         {
         [ ( NSPanel* )[ self window ] setBecomesKeyOnlyIfNeeded: YES ];
+        [ ( NSPanel* )[ self window ] setFloatingPanel: YES ];
+        [ ( NSPanel* )[ self window ] setWorksWhenModal: YES ];
 
-        BGHUDLabel* HUDlabel = [ [ [ BGHUDLabel alloc ] initWithFrame: NSMakeRect( 20, 20, 50, 25 ) ] autorelease ];
-        BGHUDView* HUDView = [ [ [ BGHUDView alloc ] initWithFrame: NSMakeRect( 20, 50, 50, 25 ) ] autorelease ];
-
-        [ self.window.contentView setSubviews: @[ HUDlabel, HUDView ] ];
+        [ NOTIFICATION_CENTER addObserver: self
+                                 selector: @selector( showPanel: )
+                                     name: @"showPanel:"
+                                   object: nil ];
         }
+    }
+
+- ( void ) windowWillClose: ( NSNotification* )_Notif
+    {
+    NSLog( @"Will be close %@   #%@", [ _Notif object ], [ [ _Notif object ] title ] );
+    }
+
+- ( IBAction ) showPanel: ( id )_Sender
+    {
+    NSLog( @"TestPanel: %@", self._testPanel );
+    NSLog( @"TestWindow: %@", self._testWindow );
+
+    [ self._testPanel orderFront: self ];
+    [ self._testWindow orderFront: self ];
     }
 
 @end // BLTestingWindowController

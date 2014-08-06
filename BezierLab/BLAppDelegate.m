@@ -145,6 +145,18 @@
         }
     }
 
+- ( IBAction ) showPanel: ( id )_Sender
+    {
+    [ NOTIFICATION_CENTER postNotificationName: @"showPanel:"
+                                        object: nil
+                                      userInfo: nil ];
+    }
+
+- ( IBAction ) closeWindow: ( id )_Sender
+    {
+    [ _mainWindow close ];
+    }
+
 @end // BLAppDelegate
 
 /////////////////////////////////////////////////////////////////////////////

@@ -19,6 +19,8 @@
 		8308B46A197E73A8005460BB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8308B468197E73A8005460BB /* InfoPlist.strings */; };
 		8308B46C197E73A8005460BB /* BezierLabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308B46B197E73A8005460BB /* BezierLabTests.m */; };
 		8308B477197EB94A005460BB /* BLMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308B476197EB94A005460BB /* BLMainWindowController.m */; };
+		832156FA1992989700AF712A /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 832156F91992989700AF712A /* ShortcutRecorder.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		832156FB1992989F00AF712A /* ShortcutRecorder.framework in Copy Bundle Frameworks */ = {isa = PBXBuildFile; fileRef = 832156F91992989700AF712A /* ShortcutRecorder.framework */; };
 		8322CB37198BCC67003A2B67 /* BLDashboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8322CB36198BCC67003A2B67 /* BLDashboardView.m */; };
 		839988071990D22700C069AC /* BLCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 839988031990D22700C069AC /* BLCell.m */; };
 		839988081990D22700C069AC /* BLControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 839988041990D22700C069AC /* BLControl.m */; };
@@ -56,6 +58,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				832156FB1992989F00AF712A /* ShortcutRecorder.framework in Copy Bundle Frameworks */,
 				839D8774199270E3001E319C /* ChromiumTabs.framework in Copy Bundle Frameworks */,
 				839D876F19926CC1001E319C /* BWToolkitFramework.framework in Copy Bundle Frameworks */,
 				839D876C199267F3001E319C /* BGHUDAppKit.framework in Copy Bundle Frameworks */,
@@ -87,6 +90,7 @@
 		8308B46B197E73A8005460BB /* BezierLabTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BezierLabTests.m; sourceTree = "<group>"; };
 		8308B475197EB94A005460BB /* BLMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLMainWindowController.h; sourceTree = "<group>"; };
 		8308B476197EB94A005460BB /* BLMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLMainWindowController.m; sourceTree = "<group>"; };
+		832156F91992989700AF712A /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = "../../XcodeProjects/Execution/ShortcutRecorder-aebskshkfvjlkzcyhpdlxflobonx/Build/Products/Release/ShortcutRecorder.framework"; sourceTree = "<group>"; };
 		8322CB35198BCC67003A2B67 /* BLDashboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLDashboardView.h; sourceTree = "<group>"; };
 		8322CB36198BCC67003A2B67 /* BLDashboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLDashboardView.m; sourceTree = "<group>"; };
 		839988031990D22700C069AC /* BLCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCell.m; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				832156FA1992989700AF712A /* ShortcutRecorder.framework in Frameworks */,
 				839D8773199270DA001E319C /* ChromiumTabs.framework in Frameworks */,
 				839D876E19926CB7001E319C /* BWToolkitFramework.framework in Frameworks */,
 				839D876B199267E3001E319C /* BGHUDAppKit.framework in Frameworks */,
@@ -162,6 +167,7 @@
 		8308B440197E73A8005460BB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				832156F91992989700AF712A /* ShortcutRecorder.framework */,
 				839D8772199270DA001E319C /* ChromiumTabs.framework */,
 				839D876D19926CB7001E319C /* BWToolkitFramework.framework */,
 				839D8768199266E1001E319C /* BGHUDAppKit.framework */,
@@ -508,6 +514,7 @@
 					/Users/EsquireTongG,
 					"/Users/EsquireTongG/XcodeProjects/Execution/BGHUDAppKit-ffdzzteoqqwoazhapanzfzpmxqzs/Build/Products/Release",
 					"/Users/EsquireTongG/XcodeProjects/Execution/chromium-tabs-gzpjirgcdsaihmbxveyurmjnfigi/Build/Products/Release",
+					"/Users/EsquireTongG/XcodeProjects/Execution/ShortcutRecorder-aebskshkfvjlkzcyhpdlxflobonx/Build/Products/Release",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BezierLab/BezierLab-Prefix.pch";
@@ -528,6 +535,7 @@
 					/Users/EsquireTongG,
 					"/Users/EsquireTongG/XcodeProjects/Execution/BGHUDAppKit-ffdzzteoqqwoazhapanzfzpmxqzs/Build/Products/Release",
 					"/Users/EsquireTongG/XcodeProjects/Execution/chromium-tabs-gzpjirgcdsaihmbxveyurmjnfigi/Build/Products/Release",
+					"/Users/EsquireTongG/XcodeProjects/Execution/ShortcutRecorder-aebskshkfvjlkzcyhpdlxflobonx/Build/Products/Release",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BezierLab/BezierLab-Prefix.pch";

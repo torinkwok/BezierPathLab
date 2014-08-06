@@ -34,7 +34,10 @@
 #import <Cocoa/Cocoa.h>
 
 // BLTestingWindowController class
-@interface BLTestingWindowController : NSWindowController
+@interface BLTestingWindowController : NSWindowController <NSWindowDelegate>
+
+@property ( assign ) IBOutlet NSPanel* _testPanel;
+@property ( assign ) IBOutlet NSWindow* _testWindow;
 
 + ( id ) testingWindowController;
 
