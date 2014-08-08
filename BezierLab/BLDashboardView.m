@@ -34,13 +34,21 @@
 #import "BLDashboardView.h"
 
 // Keys for Preferences
-NSString* const BLLineColor = @"BLLineColor";
-NSString* const BLFillColor = @"BLFillColor";
-NSString* const BLBackgroundColor = @"BLBackgroundColor";
+NSString* const BLUserDefaultsKeyLineColor = @"BLUserDefaultsKeyLineColor";
+NSString* const BLUserDefaultsKeyFillColor = @"BLUserDefaultsKeyFillColor";
+NSString* const BLUserDefaultsKeyBackgroundColor = @"BLUserDefaultsKeyBackgroundColor";
 
-NSString* const BLAngle = @"BLAngle";
-NSString* const BLZoom = @"BLZoom";
-NSString* const BLLineWidth = @"BLLineWidth";
+NSString* const BLUserDefaultsKeyAngle = @"BLUserDefaultsKeyAngle";
+NSString* const BLUserDefaultsKeyZoom = @"BLUserDefaultsKeyZoom";
+NSString* const BLUserDefaultsKeyLineWidth = @"BLUserDefaultsKeyLineWidth";
+
+NSString* const BLUserDefaultsKeyIsFilled = @"BLUserDefaultsKeyIsFilled";
+
+NSString* const BLUserDefaultsKeyPathType = @"BLUserDefaultsKeyPathType";
+NSString* const BLUserDefaultsKeyLineCapStyle = @"BLUserDefaultsKeyLineCapStyle";
+NSString* const BLUserDefaultsKeyDashStyle = @"BLUserDefaultsKeyDashStyle";
+
+NSString* const BLUserDefaultsKeyShapeLocation = @"BLUserDefaultsKeyShapeLocation";
 
 // BLDashboardView class
 @implementation BLDashboardView
@@ -86,35 +94,67 @@ NSString* const BLLineWidth = @"BLLineWidth";
 @synthesize _fillColor;
 @synthesize _backgroundColor;
 
+- ( IBAction ) testingForRemovingPreferencesFromUserDefaults: ( id )_Sender
+    {
+    [ USER_DEFAULTS removeObjectForKey: BLUserDefaultsKeyLineWidth ];
+
+    [ USER_DEFAULTS removeVolatileDomainForName: NSRegistrationDomain ];
+    }
+
+- ( void ) appWillBeTerminated: ( NSNotification* )_Notif
+    {
+    [ USER_DEFAULTS setObject: @[ [ NSNumber numberWithDouble: _currentLocation.x ]
+                                , [ NSNumber numberWithDouble: _currentLocation.y ] ]
+                       forKey: BLUserDefaultsKeyShapeLocation ];
+    }
+
 #pragma mark Conforms <NSNibAwaking> protocol
 - ( void ) awakeFromNib
     {
+    [ NOTIFICATION_CENTER addObserver: self
+                             selector: @selector( appWillBeTerminated: )
+                                 name: NSApplicationWillTerminateNotification
+                               object: nil ];
+
     self._bezierPath = [ NSBezierPath bezierPath ];
 
 #if 1   // TODO: To take advantage of NSUserDefaultController in nib file.
-    [ self._lineColorWell setColor: [ NSUnarchiver unarchiveObjectWithData: [ USER_DEFAULTS objectForKey: BLLineColor ] ] ];
-    [ self._fillColorWell setColor: [ NSUnarchiver unarchiveObjectWithData: [ USER_DEFAULTS objectForKey: BLFillColor ] ] ];
-    [ self._backgroundColorWell setColor: [ NSUnarchiver unarchiveObjectWithData: [ USER_DEFAULTS objectForKey: BLBackgroundColor ] ] ];
-#endif
+    [ self._lineColorWell setColor: [ NSUnarchiver unarchiveObjectWithData: [ USER_DEFAULTS objectForKey: BLUserDefaultsKeyLineColor ] ] ];
+    [ self._fillColorWell setColor: [ NSUnarchiver unarchiveObjectWithData: [ USER_DEFAULTS objectForKey: BLUserDefaultsKeyFillColor ] ] ];
+    [ self._backgroundColorWell setColor: [ NSUnarchiver unarchiveObjectWithData: [ USER_DEFAULTS objectForKey: BLUserDefaultsKeyBackgroundColor ] ] ];
+
+    [ self._isFilledButton setState: [ USER_DEFAULTS boolForKey: BLUserDefaultsKeyIsFilled ] ];
+
     self._lineColor = [ self._lineColorWell color ];
     self._fillColor = [ self._fillColorWell color ];
     self._backgroundColor = [ self._backgroundColorWell color ];
 
     self._isFilled = [ _isFilledButton state ];
+#endif
+
 
 #if 1   // TODO: To take advantage of NSUserDefaultController in nib file.
-    [ _angleSlider setDoubleValue: [ USER_DEFAULTS doubleForKey: BLAngle ] ];
-    [ _zoomSlider setDoubleValue: [ USER_DEFAULTS doubleForKey: BLZoom ] ];
-    [ _lineWidthSlider setDoubleValue: [ USER_DEFAULTS doubleForKey: BLLineWidth ] ];
-#endif
+
+    /* If a value from argument domain greater than maximum value in slider,
+     * the maximum value will be taken by Cocoa. */
+    [ _angleSlider setDoubleValue: [ USER_DEFAULTS doubleForKey: BLUserDefaultsKeyAngle ] ];
+    [ _zoomSlider setDoubleValue: [ USER_DEFAULTS doubleForKey: BLUserDefaultsKeyZoom ] ];
+    [ _lineWidthSlider setDoubleValue: [ USER_DEFAULTS doubleForKey: BLUserDefaultsKeyLineWidth ] ];
+
     self._angle = [ _angleSlider doubleValue ];
     self._zoom = [ _zoomSlider doubleValue ];
     self._lineWidth = floorl( [ _lineWidthSlider doubleValue ] );
+#endif
+
+#if 1   // TODO: To take advantage of NSUserDefaultController in nib file.
+    [ _pathTypeMatrix selectCellAtRow: ( [ USER_DEFAULTS integerForKey: BLUserDefaultsKeyPathType ] > 3 ) ? BLPathTypeLine : [ USER_DEFAULTS integerForKey: BLUserDefaultsKeyPathType ] column: 0 ];
+    [ _lineCapStyleMatrix selectCellAtRow: ( [ USER_DEFAULTS integerForKey: BLUserDefaultsKeyLineCapStyle ] > 2 ) ? BLLineCapStyleSquareLine : [ USER_DEFAULTS integerForKey: BLUserDefaultsKeyLineCapStyle ] column: 0 ];
+    [ _dashTypeMatrix selectCellAtRow: ( [ USER_DEFAULTS integerForKey: BLUserDefaultsKeyDashStyle ] > 3 ) ? BLDashTyle9_6_3 : [ USER_DEFAULTS integerForKey: BLUserDefaultsKeyDashStyle ] column: 0 ];
 
     self._pathType = ( enum BLPathType )[ _pathTypeMatrix selectedTag ];
     self._lineCapStyle = ( enum BLLineCapStyle )[ _lineCapStyleMatrix selectedTag ];
-    self._dashStyle = ( enum BLDashStyle )[ _dashTypeMatrix selectedTag ];
-
+    [ self setDashStyle: ( enum BLDashStyle )[ _dashTypeMatrix selectedTag ] ];
+#endif
     _isDragging = NO;
 
     CGFloat initialWidthOfRectWrappingShape = 100;
@@ -127,7 +167,15 @@ NSString* const BLLineWidth = @"BLLineWidth";
                                        , ( NSMaxY( self.bounds ) - actualHeightOfRectWrappingShape ) / 2
                                        );
 
-    _currentLocation = _initalOriginOfShapes;
+    [ USER_DEFAULTS registerDefaults:
+        @{ BLUserDefaultsKeyShapeLocation : @[ [ NSNumber numberWithDouble: _initalOriginOfShapes.x ]
+                                             , [ NSNumber numberWithDouble: _initalOriginOfShapes.y ]
+                                             ] } ];
+
+    // Archived the initialOriginOfShapes from the user defualts database.
+    _currentLocation = NSMakePoint( [ [ USER_DEFAULTS arrayForKey: BLUserDefaultsKeyShapeLocation ][ 0 ] doubleValue ]
+                                  , [ [ USER_DEFAULTS arrayForKey: BLUserDefaultsKeyShapeLocation ][ 1 ] doubleValue ]
+                                  );
 
     _lastDraggedLocation = NSZeroPoint;
     _rectForCurrentBezierPath = NSZeroRect;
@@ -368,6 +416,15 @@ NSString* const BLLineWidth = @"BLLineWidth";
         [ self._isFilledButton setEnabled: YES ];
 
     [ self invalidateTheShape: _rectForCurrentBezierPath ];
+
+    [ USER_DEFAULTS setInteger: self._pathType forKey: BLUserDefaultsKeyPathType ];
+    }
+
+- ( void ) setDashStyle: ( enum BLDashStyle )_NewStyle
+    {
+    self._dashStyle = _NewStyle;
+
+    [ self changedDashType: [ self _dashTypeMatrix ] ];
     }
 
 - ( IBAction ) changedLineCapStyle: ( id )_Sender
@@ -376,6 +433,8 @@ NSString* const BLLineWidth = @"BLLineWidth";
     [ self setNeedsDisplay: YES ];
 
     [ self invalidateTheShape: _rectForCurrentBezierPath ];
+
+    [ USER_DEFAULTS setInteger: self._lineCapStyle forKey: BLUserDefaultsKeyLineCapStyle ];
     }
 
 - ( IBAction ) changedDashType: ( id )_Sender
@@ -417,36 +476,48 @@ NSString* const BLLineWidth = @"BLLineWidth";
         }
 
     [ self invalidateTheShape: _rectForCurrentBezierPath ];
+
+    [ USER_DEFAULTS setInteger: self._dashStyle forKey: BLUserDefaultsKeyDashStyle ];
     }
 
 - ( IBAction ) changedFilled: ( id ) _Sender
     {
     self._isFilled = [ ( NSButton* )_Sender state ];
     [ self invalidateTheShape: _rectForCurrentBezierPath ];
+
+    [ USER_DEFAULTS setBool: self._isFilled forKey: BLUserDefaultsKeyIsFilled ];
     }
 
 - ( IBAction ) changedLineColor: ( id )_Sender
     {
     self._lineColor = [ ( NSColorWell* )_Sender color ];
     [ self invalidateTheShape: _rectForCurrentBezierPath ];
+
+    [ USER_DEFAULTS setObject: [ NSArchiver archivedDataWithRootObject: self._lineColor ] forKey: BLUserDefaultsKeyLineColor ];
     }
 
 - ( IBAction ) changedFillColor: ( id )_Sender
     {
     self._fillColor = [ ( NSColorWell* )_Sender color ];
     [ self invalidateTheShape: _rectForCurrentBezierPath ];
+
+    [ USER_DEFAULTS setObject: [ NSArchiver archivedDataWithRootObject: self._fillColor ] forKey: BLUserDefaultsKeyFillColor ];
     }
 
 - ( IBAction ) changedBackgroundColor: ( id )_Sender
     {
     self._backgroundColor = [ ( NSColorWell* )_Sender color ];
     [ self setNeedsDisplay: YES ];
+
+    [ USER_DEFAULTS setObject: [ NSArchiver archivedDataWithRootObject: self._backgroundColor ] forKey: BLUserDefaultsKeyBackgroundColor ];
     }
 
 - ( IBAction ) changedAngle: ( id )_Sender
     {
     self._angle = [ ( NSSlider* )_Sender doubleValue ];
     [ self invalidateTheShape: _rectForCurrentBezierPath ];
+
+    [ USER_DEFAULTS setDouble: self._angle forKey: BLUserDefaultsKeyAngle ];
     }
 
 - ( IBAction ) changedZoom: ( id )_Sender
@@ -466,13 +537,20 @@ NSString* const BLLineWidth = @"BLLineWidth";
                                            , _rectForCurrentBezierPath.size.height * self._zoom
                                            );
 
-    [ self invalidateTheShape: rectNeededToRefresh ];
+    if ( self._pathType == BLPathTypeLine )
+        [ self setNeedsDisplay: YES ];
+    else
+        [ self invalidateTheShape: rectNeededToRefresh ];
+
+    [ USER_DEFAULTS setDouble: self._zoom forKey: BLUserDefaultsKeyZoom ];
     }
 
 - ( IBAction ) changeLineWidth: ( id )_Sender
     {
     self._lineWidth = [ ( NSSlider* )_Sender doubleValue ];
     [ self invalidateTheShape: _rectForCurrentBezierPath ];
+
+    [ USER_DEFAULTS setDouble: self._lineWidth forKey: BLUserDefaultsKeyLineWidth ];
     }
 
 - ( IBAction ) drawIntoPDF: ( id )_Sender

@@ -41,13 +41,21 @@ enum BLLineCapStyle { BLLineCapStyleButtLine = 0, BLLineCapStyleSquareLine, BLLi
 enum BLDashStyle { BLDashTyleSolid = 0, BLDashTyle5_5, BLDashTyle8_3_8, BLDashTyle9_6_3 };
 
 // Keys for Preferences
-NSString extern* const BLLineColor;
-NSString extern* const BLFillColor;
-NSString extern* const BLBackgroundColor;
+NSString extern* const BLUserDefaultsKeyLineColor;
+NSString extern* const BLUserDefaultsKeyFillColor;
+NSString extern* const BLUserDefaultsKeyBackgroundColor;
 
-NSString extern* const BLAngle;
-NSString extern* const BLZoom;
-NSString extern* const BLLineWidth;
+NSString extern* const BLUserDefaultsKeyAngle;
+NSString extern* const BLUserDefaultsKeyZoom;
+NSString extern* const BLUserDefaultsKeyLineWidth;
+
+NSString extern* const BLUserDefaultsKeyIsFilled;
+
+NSString extern* const BLUserDefaultsKeyPathType;
+NSString extern* const BLUserDefaultsKeyLineCapStyle;
+NSString extern* const BLUserDefaultsKeyDashStyle;
+
+NSString extern* const BLUserDefaultsKeyShapeLocation;
 
 // BLDashboardView class
 @interface BLDashboardView : NSView

@@ -724,6 +724,19 @@
                                                 <action selector="insertValueToLoadImages:" target="-1" id="BdZ-BY-Xom"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="goi-6V-U6d"/>
+                                        <menuItem title="Print Preferences In the Standard App Domain" id="5MR-YN-SMh">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="printPreferencesInTheStandardAppDomain:" target="-1" id="Tlp-bC-Iuc"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Testing for Removing Prefenrences From User Defaults" id="nQT-v9-A4b">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="testingForRemovingPreferencesFromUserDefaults:" target="-1" id="Fwg-kc-e6t"/>
+                                            </connections>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>

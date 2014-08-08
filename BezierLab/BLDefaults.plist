@@ -2,11 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>BLAngle</key>
+	<key>BLUserDefaultsKeyAngle</key>
 	<integer>0</integer>
-	<key>BLZoom</key>
+	<key>BLUserDefaultsKeyZoom</key>
 	<integer>0</integer>
-	<key>BLLineWidth</key>
-	<integer>3</integer>
+	<key>BLUserDefaultsKeyLineWidth</key>
+	<real>3.5</real>
+	<key>BLUserDefaultsKeyIsFilled</key>
+	<false/>
+	<key>BLUserDefaultsKeyPathType</key>
+	<integer>0</integer>
+	<key>BLUserDefaultsKeyLineCapStyle</key>
+	<integer>0</integer>
+	<key>BLUserDefaultsKeyDashStyle</key>
+	<integer>0</integer>
 </dict>
 </plist>

@@ -52,6 +52,7 @@
 
     [ self._mainWindowController showWindow: self ];
 
+#if 0
 //    NSLog( @"Volatile Domain Names: %@", [ USER_DEFAULTS volatileDomainNames ] );
 //    NSLog( @"Preferences in NSRegistrationDoamin: %@", [ USER_DEFAULTS volatileDomainForName: NSRegistrationDomain ] );
 
@@ -69,6 +70,12 @@
 
     NSLog( @"%@", [ USER_DEFAULTS objectForKey: @"AHAHAH" ] );
     NSLog( @"%@", [ USER_DEFAULTS objectForKey: @"Numbers" ] );
+#endif
+    }
+
+- ( IBAction ) printPreferencesInTheStandardAppDomain: ( id )_Sender
+    {
+    NSLog( @"Preferences In Standard App Domain: %@", [ USER_DEFAULTS dictionaryRepresentation ] );
     }
 
 - ( IBAction ) testingForSynchronizing: ( id )_Sender
