@@ -8,18 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		8308B442197E73A8005460BB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8308B441197E73A8005460BB /* Cocoa.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		8308B44C197E73A8005460BB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8308B44A197E73A8005460BB /* InfoPlist.strings */; };
-		8308B452197E73A8005460BB /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8308B450197E73A8005460BB /* Credits.rtf */; };
 		8308B45A197E73A8005460BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8308B459197E73A8005460BB /* Images.xcassets */; };
 		8308B461197E73A8005460BB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8308B460197E73A8005460BB /* XCTest.framework */; };
 		8308B462197E73A8005460BB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8308B441197E73A8005460BB /* Cocoa.framework */; };
 		8308B46A197E73A8005460BB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8308B468197E73A8005460BB /* InfoPlist.strings */; };
 		8308B46C197E73A8005460BB /* BezierLabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308B46B197E73A8005460BB /* BezierLabTests.m */; };
-		830F7482199549ED00298CB5 /* BLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F745F199549ED00298CB5 /* BLAppDelegate.m */; };
-		830F7488199549ED00298CB5 /* BLMainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 830F746A199549ED00298CB5 /* BLMainMenu.xib */; };
-		830F7489199549ED00298CB5 /* BLMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 830F746B199549ED00298CB5 /* BLMainWindow.xib */; };
-		830F748C199549ED00298CB5 /* BLModalWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F7470199549ED00298CB5 /* BLModalWindowController.m */; };
-		830F7494199549ED00298CB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F747E199549ED00298CB5 /* main.m */; };
 		832156FA1992989700AF712A /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 832156F91992989700AF712A /* ShortcutRecorder.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		832156FB1992989F00AF712A /* ShortcutRecorder.framework in Copy Bundle Frameworks */ = {isa = PBXBuildFile; fileRef = 832156F91992989700AF712A /* ShortcutRecorder.framework */; };
 		839D876B199267E3001E319C /* BGHUDAppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 839D8768199266E1001E319C /* BGHUDAppKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -60,23 +53,12 @@
 		8308B444197E73A8005460BB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		8308B445197E73A8005460BB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8308B446197E73A8005460BB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		8308B449197E73A8005460BB /* BezierLab-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BezierLab-Info.plist"; sourceTree = "<group>"; };
-		8308B44B197E73A8005460BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8308B44F197E73A8005460BB /* BezierLab-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BezierLab-Prefix.pch"; sourceTree = "<group>"; };
-		8308B451197E73A8005460BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		8308B459197E73A8005460BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8308B45F197E73A8005460BB /* BezierLabTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BezierLabTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8308B460197E73A8005460BB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		8308B467197E73A8005460BB /* BezierLabTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BezierLabTests-Info.plist"; sourceTree = "<group>"; };
 		8308B469197E73A8005460BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8308B46B197E73A8005460BB /* BezierLabTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BezierLabTests.m; sourceTree = "<group>"; };
-		830F745E199549ED00298CB5 /* BLAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLAppDelegate.h; sourceTree = "<group>"; };
-		830F745F199549ED00298CB5 /* BLAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLAppDelegate.m; sourceTree = "<group>"; };
-		830F746A199549ED00298CB5 /* BLMainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BLMainMenu.xib; path = BezierLab/BLMainMenu.xib; sourceTree = "<group>"; };
-		830F746B199549ED00298CB5 /* BLMainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BLMainWindow.xib; path = BezierLab/BLMainWindow.xib; sourceTree = "<group>"; };
-		830F746F199549ED00298CB5 /* BLModalWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLModalWindowController.h; sourceTree = "<group>"; };
-		830F7470199549ED00298CB5 /* BLModalWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLModalWindowController.m; sourceTree = "<group>"; };
-		830F747E199549ED00298CB5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		832156F91992989700AF712A /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = "../../XcodeProjects/Execution/ShortcutRecorder-aebskshkfvjlkzcyhpdlxflobonx/Build/Products/Release/ShortcutRecorder.framework"; sourceTree = "<group>"; };
 		839D8768199266E1001E319C /* BGHUDAppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BGHUDAppKit.framework; path = "../../XcodeProjects/Execution/BGHUDAppKit-ffdzzteoqqwoazhapanzfzpmxqzs/Build/Products/Release/BGHUDAppKit.framework"; sourceTree = "<group>"; };
 		839D8772199270DA001E319C /* ChromiumTabs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChromiumTabs.framework; path = "../../XcodeProjects/Execution/chromium-tabs-gzpjirgcdsaihmbxveyurmjnfigi/Build/Products/Release/ChromiumTabs.framework"; sourceTree = "<group>"; };
@@ -154,26 +136,9 @@
 		8308B447197E73A8005460BB /* BezierLab */ = {
 			isa = PBXGroup;
 			children = (
-				830F745E199549ED00298CB5 /* BLAppDelegate.h */,
-				830F745F199549ED00298CB5 /* BLAppDelegate.m */,
-				830F746F199549ED00298CB5 /* BLModalWindowController.h */,
-				830F7470199549ED00298CB5 /* BLModalWindowController.m */,
-				830F747E199549ED00298CB5 /* main.m */,
 				8308B459197E73A8005460BB /* Images.xcassets */,
-				8308B448197E73A8005460BB /* Supporting Files */,
 			);
 			path = BezierLab;
-			sourceTree = "<group>";
-		};
-		8308B448197E73A8005460BB /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				8308B449197E73A8005460BB /* BezierLab-Info.plist */,
-				8308B44A197E73A8005460BB /* InfoPlist.strings */,
-				8308B44F197E73A8005460BB /* BezierLab-Prefix.pch */,
-				8308B450197E73A8005460BB /* Credits.rtf */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		8308B465197E73A8005460BB /* BezierLabTests */ = {
@@ -197,8 +162,6 @@
 		83F49755197EBB06008CEAD4 /* User Interfaces */ = {
 			isa = PBXGroup;
 			children = (
-				830F746A199549ED00298CB5 /* BLMainMenu.xib */,
-				830F746B199549ED00298CB5 /* BLMainWindow.xib */,
 			);
 			name = "User Interfaces";
 			sourceTree = "<group>";
@@ -281,11 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8308B44C197E73A8005460BB /* InfoPlist.strings in Resources */,
 				8308B45A197E73A8005460BB /* Images.xcassets in Resources */,
-				8308B452197E73A8005460BB /* Credits.rtf in Resources */,
-				830F7489199549ED00298CB5 /* BLMainWindow.xib in Resources */,
-				830F7488199549ED00298CB5 /* BLMainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,9 +263,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				830F7482199549ED00298CB5 /* BLAppDelegate.m in Sources */,
-				830F748C199549ED00298CB5 /* BLModalWindowController.m in Sources */,
-				830F7494199549ED00298CB5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,22 +285,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8308B44A197E73A8005460BB /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8308B44B197E73A8005460BB /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		8308B450197E73A8005460BB /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8308B451197E73A8005460BB /* en */,
-			);
-			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
 		8308B468197E73A8005460BB /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
