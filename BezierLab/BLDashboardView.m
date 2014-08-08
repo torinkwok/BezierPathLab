@@ -94,13 +94,6 @@ NSString* const BLUserDefaultsKeyShapeLocation = @"BLUserDefaultsKeyShapeLocatio
 @synthesize _fillColor;
 @synthesize _backgroundColor;
 
-- ( IBAction ) testingForRemovingPreferencesFromUserDefaults: ( id )_Sender
-    {
-    [ USER_DEFAULTS removeObjectForKey: BLUserDefaultsKeyLineWidth ];
-
-    [ USER_DEFAULTS removeVolatileDomainForName: NSRegistrationDomain ];
-    }
-
 - ( void ) appWillBeTerminated: ( NSNotification* )_Notif
     {
     [ USER_DEFAULTS setObject: @[ [ NSNumber numberWithDouble: _currentLocation.x ]

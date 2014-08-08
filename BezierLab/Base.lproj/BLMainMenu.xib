@@ -651,25 +651,6 @@
                                     <action selector="arrangeInFront:" target="-1" id="DRN-fu-gQh"/>
                                 </connections>
                             </menuItem>
-                            <menuItem isSeparatorItem="YES" id="j7o-sU-E50"/>
-                            <menuItem title="Create A Window" keyEquivalent="W" id="omp-3m-Sn5">
-                                <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
-                                <connections>
-                                    <action selector="creatingAWindow:" target="-1" id="XCk-j8-qCX"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Print Window" id="EyY-1T-o5p">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="printingWindow:" target="-1" id="1xm-Hd-tqh"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Display Window" id="4Bq-IB-hTz">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="displayWindow:" target="-1" id="gMM-EM-nmi"/>
-                                </connections>
-                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>
@@ -684,67 +665,6 @@
                             </menuItem>
                         </items>
                     </menu>
-                </menuItem>
-                <menuItem title="User Defaults" id="NAi-R7-aPT">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="User Defaults" id="mWE-r8-ZBs">
-                        <items>
-                            <menuItem title="Testing for Synchronizing" id="wuQ-jS-6rL">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="testingForSynchronizing:" target="-1" id="uOs-V2-hlq"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem isSeparatorItem="YES" id="93Y-ow-Vhb"/>
-                            <menuItem title="Testing for Inserting Suite Name" id="Ip0-MQ-8et">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Testing for Inserting Suite Name" id="uoS-Jl-mhd">
-                                    <items>
-                                        <menuItem title="Insert Suite Name" id="DoL-A0-f0V">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="testingForInsertingSuiteName_InsertSuiteName:" target="-1" id="0Pj-QM-ayW"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Remove Suite Name" id="yOh-EC-Nmm">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="testingForInsertingSuiteName_RemoveSuiteName:" target="-1" id="knh-cN-x1C"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Print Value" id="THc-MW-d1Q">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="testingForInsertingSuiteName_PrintValue:" target="-1" id="Nvb-zp-T5s"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Insert Value to LoadImages" id="24D-JH-ICM">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="insertValueToLoadImages:" target="-1" id="BdZ-BY-Xom"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="goi-6V-U6d"/>
-                                        <menuItem title="Print Preferences In the Standard App Domain" id="5MR-YN-SMh">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="printPreferencesInTheStandardAppDomain:" target="-1" id="Tlp-bC-Iuc"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Testing for Removing Prefenrences From User Defaults" id="nQT-v9-A4b">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="testingForRemovingPreferencesFromUserDefaults:" target="-1" id="Fwg-kc-e6t"/>
-                                            </connections>
-                                        </menuItem>
-                                    </items>
-                                </menu>
-                            </menuItem>
-                        </items>
-                    </menu>
-                </menuItem>
-                <menuItem title="Drawing" id="9cy-Jo-ASY">
-                    <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
             </items>
         </menu>
