@@ -157,6 +157,23 @@
     [ _mainWindow close ];
     }
 
+- ( IBAction ) createATestingWindow: ( id )_Sender
+    {
+    NSWindow* newWindow = [ [ [ NSWindow alloc ] initWithContentRect: NSMakeRect( 500, 200, 300, 300 )
+                                                           styleMask: NSClosableWindowMask | NSTitledWindowMask
+                                                             backing: NSBackingStoreBuffered
+                                                               defer: NO ] autorelease ];
+
+    NSLog( @"Can become key window: %@", [ newWindow canBecomeKeyWindow ] ? @"YES" : @"NO" );
+    }
+
+- ( IBAction ) orderWindowRelativeTo: ( id )_Sender
+    {
+    [ NOTIFICATION_CENTER postNotificationName: @"orderWindowRelativeTo:"
+                                        object: nil
+                                      userInfo: nil ];
+    }
+
 @end // BLAppDelegate
 
 /////////////////////////////////////////////////////////////////////////////

@@ -34,14 +34,15 @@
 #import "BLTestingWindowController.h"
 #import "BGHUDAppKit/BGHUDAppKit.h"
 #import "ChromiumTabs/ChromiumTabs.h"
-#import "BWToolkitFramework/BWToolkitFramework.h"
 #import "ShortcutRecorder/SRRecorderControl.h"
+#import "BLContentView.h"
 
 // BLTestingWindowController class
 @implementation BLTestingWindowController
 
 @synthesize _testPanel;
-@synthesize _testWindow;
+@synthesize _window_1;
+@synthesize _window_2;
 
 #pragma mark Initializers
 + ( id ) testingWindowController
@@ -62,31 +63,54 @@
 #pragma mark Conforms <NSNibAwaking> protocol
 - ( void ) awakeFromNib
     {
-    if ( [ [ self window ] isKindOfClass: [ NSPanel class ] ] )
-        {
-        [ ( NSPanel* )[ self window ] setBecomesKeyOnlyIfNeeded: YES ];
-        [ ( NSPanel* )[ self window ] setFloatingPanel: YES ];
-        [ ( NSPanel* )[ self window ] setWorksWhenModal: YES ];
+    [ self._window_1 setMinSize: NSMakeSize( 100, 100 ) ];
+    [ self._window_1 setMaxSize: NSMakeSize( 600, 600 ) ];
 
-        [ NOTIFICATION_CENTER addObserver: self
-                                 selector: @selector( showPanel: )
-                                     name: @"showPanel:"
-                                   object: nil ];
-        }
+    [ self._window_2 setMinSize: NSMakeSize( 100, 100 ) ];
+    [ self._window_2 setMaxSize: NSMakeSize( 600, 600 ) ];
+
+    [ self._window_1 setAspectRatio: NSMakeSize( 300, 400 ) ];
+    [ self._window_2 setContentAspectRatio: NSMakeSize( 300, 400 ) ];
+
+    [ self._testPanel setExcludedFromWindowsMenu: NO ];
     }
 
-- ( void ) windowWillClose: ( NSNotification* )_Notif
+- ( void ) windowDidBecomeKey: ( NSNotification* )_Notif
     {
-    NSLog( @"Will be close %@   #%@", [ _Notif object ], [ [ _Notif object ] title ] );
+    if ( [ _Notif object ] == self._testPanel )
+        [ self._testPanel center ];
     }
 
-- ( IBAction ) showPanel: ( id )_Sender
+- ( IBAction ) resizeCustomeWindow: ( id )_Sender
     {
-    NSLog( @"TestPanel: %@", self._testPanel );
-    NSLog( @"TestWindow: %@", self._testWindow );
+    NSRect currentFrame = [ self._window_1 frame ];
+    [ self._window_1 setFrame: NSMakeRect( currentFrame.origin.x - 300, currentFrame.origin.y - 300
+                                           , 400, 400 )
+                        display: YES
+                        animate: YES ];
+    }
 
-    [ self._testPanel orderFront: self ];
-    [ self._testWindow orderFront: self ];
+- ( IBAction ) zoom: ( id )_Sender
+    {
+    [ self._window_1 performZoom: self ];
+    }
+
+#pragma mark Conforms <NSWindowDelegate> protocol
+- ( void ) windowWillStartLiveResize: ( NSNotification* )_Notif
+    {
+    NSLog( @"Is in live resize: %@", [ [ _Notif object ] inLiveResize ] ? @"YES" : @"NO" );
+    }
+
+- ( void ) windowDidEndLiveResize: ( NSNotification* )_Notif
+    {
+    NSLog( @"Is in live resize: %@", [ [ _Notif object ] inLiveResize ] ? @"YES" : @"NO" );
+    }
+
+- ( NSSize ) windowWillResize: ( NSWindow* )_Window
+                       toSize: ( NSSize )_FrameSize
+    {
+    __CAVEMEN_DEBUGGING__PRINT_WHICH_METHOD_INVOKED__;
+    return _Window.frame.size;
     }
 
 @end // BLTestingWindowController

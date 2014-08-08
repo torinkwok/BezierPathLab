@@ -689,16 +689,22 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="KNx-ps-OZx"/>
-                            <menuItem title="Show Panel" id="If9-9h-o0V">
+                            <menuItem title="Resize Custome Window" id="3FL-du-iCm">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <action selector="showPanel:" target="-1" id="koC-qi-nnN"/>
+                                    <action selector="resizeCustomeWindow:" target="-1" id="Hcn-w2-3uo"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Close Window" id="7YE-53-ud9">
+                            <menuItem title="Zoom" id="xie-tV-1vd">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <action selector="closeWindow:" target="-1" id="Cbk-Dy-dB0"/>
+                                    <action selector="zoom:" target="-1" id="8hg-Z2-kwc"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Disable Window Button" id="Spm-GK-XJM">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="disableWindowButton:" target="-1" id="3so-DD-P9q"/>
                                 </connections>
                             </menuItem>
                         </items>

@@ -37,7 +37,8 @@
 @interface BLTestingWindowController : NSWindowController <NSWindowDelegate>
 
 @property ( assign ) IBOutlet NSPanel* _testPanel;
-@property ( assign ) IBOutlet NSWindow* _testWindow;
+@property ( assign ) IBOutlet NSWindow* _window_1;
+@property ( assign ) IBOutlet NSWindow* _window_2;
 
 + ( id ) testingWindowController;
 

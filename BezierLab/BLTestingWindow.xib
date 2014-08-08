@@ -6,37 +6,50 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="BLTestingWindowController">
             <connections>
-                <outlet property="_testPanel" destination="rqO-IK-q5f" id="6mF-TM-SIf"/>
-                <outlet property="_testWindow" destination="QvC-M9-y7g" id="21S-Pc-lPW"/>
-                <outlet property="window" destination="rqO-IK-q5f" id="czj-j2-gXA"/>
+                <outlet property="_testPanel" destination="wTH-wV-7qg" id="UHq-Zf-lOK"/>
+                <outlet property="_window_1" destination="VqQ-Vq-2zo" id="8Sy-Jn-LIC"/>
+                <outlet property="_window_2" destination="ec9-Qb-4Ko" id="Y1e-F1-qIB"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application"/>
-        <window title="Fucking" allowsToolTipsWhenApplicationIsInactive="NO" oneShot="NO" animationBehavior="default" id="QvC-M9-y7g">
+        <window title="Window #2" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="ec9-Qb-4Ko" customClass="BLCustomWindow">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="714" y="418" width="480" height="270"/>
+            <rect key="contentRect" x="752" y="203" width="480" height="270"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
-            <view key="contentView" id="EiT-Mj-1SZ">
+            <view key="contentView" id="CUg-gc-8X5">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>
             </view>
             <connections>
-                <outlet property="delegate" destination="-2" id="WGd-Is-EVg"/>
+                <outlet property="delegate" destination="-2" id="dVR-r4-3vL"/>
             </connections>
         </window>
-        <window title="Shit" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" showsToolbarButton="NO" animationBehavior="default" id="rqO-IK-q5f" customClass="NSPanel">
+        <window title="Window #1" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="VqQ-Vq-2zo" customClass="BLCustomWindow">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="119" y="223" width="276" height="378"/>
+            <rect key="contentRect" x="752" y="203" width="480" height="270"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
-            <view key="contentView" id="7Jl-4Y-ExC">
+            <view key="contentView" id="WBJ-H9-3rP">
+                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <autoresizingMask key="autoresizingMask"/>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="jWW-Gk-HgF"/>
+            </connections>
+        </window>
+        <window title="Panel" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="wTH-wV-7qg" customClass="BLPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="120" y="125" width="276" height="378"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
+            <view key="contentView" id="oDw-1k-4D2">
                 <rect key="frame" x="0.0" y="0.0" width="276" height="378"/>
                 <autoresizingMask key="autoresizingMask"/>
             </view>
             <connections>
-                <outlet property="delegate" destination="-2" id="IeA-sC-dyf"/>
+                <outlet property="delegate" destination="-2" id="bzz-r2-var"/>
             </connections>
         </window>
     </objects>
