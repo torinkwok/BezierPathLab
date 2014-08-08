@@ -32,10 +32,6 @@
  ****************************************************************************/
 
 #import "BLAppDelegate.h"
-#import "BLMainWindowController.h"
-#import "BLSlider.h"
-#import "BLModalWindowController.h"
-#import "BLTestingWindowController.h"
 
 // BLAppDelegate class
 @implementation BLAppDelegate

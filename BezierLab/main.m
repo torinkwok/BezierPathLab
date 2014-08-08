@@ -33,8 +33,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "BLDashboardView.h"
-
 int main( int _Argc, char const* _Argv[] )
     {
     [ USER_DEFAULTS registerDefaults: @{ BLUserDefaultsKeyLineColor : [ NSArchiver archivedDataWithRootObject: [ NSColor blackColor ] ]
