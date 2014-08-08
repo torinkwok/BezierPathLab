@@ -651,62 +651,6 @@
                                     <action selector="arrangeInFront:" target="-1" id="DRN-fu-gQh"/>
                                 </connections>
                             </menuItem>
-                            <menuItem isSeparatorItem="YES" id="j7o-sU-E50"/>
-                            <menuItem title="Create A Window" keyEquivalent="W" id="omp-3m-Sn5">
-                                <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
-                                <connections>
-                                    <action selector="creatingAWindow:" target="-1" id="XCk-j8-qCX"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Print Window" id="EyY-1T-o5p">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="printingWindow:" target="-1" id="1xm-Hd-tqh"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Display Window" id="4Bq-IB-hTz">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="displayWindow:" target="-1" id="gMM-EM-nmi"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Update Window" id="m25-4O-HiI">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="updateWindow:" target="-1" id="hDN-by-2UU"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Display Modal Window" id="DpA-SX-kgb">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="displayModalWindow:" target="-1" id="XHZ-MN-66T"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Stop Modal" id="VxK-1P-NfR">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="stopModal:" target="-1" id="119-VF-nBs"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem isSeparatorItem="YES" id="KNx-ps-OZx"/>
-                            <menuItem title="Resize Custome Window" id="3FL-du-iCm">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="resizeCustomeWindow:" target="-1" id="Hcn-w2-3uo"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Zoom" id="xie-tV-1vd">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="zoom:" target="-1" id="8hg-Z2-kwc"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Disable Window Button" id="Spm-GK-XJM">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="disableWindowButton:" target="-1" id="3so-DD-P9q"/>
-                                </connections>
-                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>
@@ -721,28 +665,6 @@
                             </menuItem>
                         </items>
                     </menu>
-                </menuItem>
-                <menuItem title="Cell &amp; Control" id="jny-CC-4ev">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Cell &amp; Control" id="AcJ-NN-Wkm">
-                        <items>
-                            <menuItem title="Testing for Cell Drawing" keyEquivalent="T" id="bso-eT-XDc">
-                                <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
-                                <connections>
-                                    <action selector="testingForCellDrawing:" target="-1" id="6ms-sL-9g4"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Testing for Color Tint" id="yNC-QB-3bo">
-                                <modifierMask key="keyEquivalentModifierMask" option="YES"/>
-                                <connections>
-                                    <action selector="testingForColorTint:" target="-1" id="x7r-ip-QXn"/>
-                                </connections>
-                            </menuItem>
-                        </items>
-                    </menu>
-                </menuItem>
-                <menuItem title="Drawing" id="9cy-Jo-ASY">
-                    <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
             </items>
         </menu>
