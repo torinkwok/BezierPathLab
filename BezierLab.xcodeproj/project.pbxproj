@@ -8,17 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8308B442197E73A8005460BB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8308B441197E73A8005460BB /* Cocoa.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		8308B45A197E73A8005460BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8308B459197E73A8005460BB /* Images.xcassets */; };
 		8308B461197E73A8005460BB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8308B460197E73A8005460BB /* XCTest.framework */; };
 		8308B462197E73A8005460BB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8308B441197E73A8005460BB /* Cocoa.framework */; };
-		8308B46A197E73A8005460BB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8308B468197E73A8005460BB /* InfoPlist.strings */; };
-		8308B46C197E73A8005460BB /* BezierLabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308B46B197E73A8005460BB /* BezierLabTests.m */; };
-		832156FA1992989700AF712A /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 832156F91992989700AF712A /* ShortcutRecorder.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		832156FB1992989F00AF712A /* ShortcutRecorder.framework in Copy Bundle Frameworks */ = {isa = PBXBuildFile; fileRef = 832156F91992989700AF712A /* ShortcutRecorder.framework */; };
-		839D876B199267E3001E319C /* BGHUDAppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 839D8768199266E1001E319C /* BGHUDAppKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		839D876C199267F3001E319C /* BGHUDAppKit.framework in Copy Bundle Frameworks */ = {isa = PBXBuildFile; fileRef = 839D8768199266E1001E319C /* BGHUDAppKit.framework */; };
-		839D8773199270DA001E319C /* ChromiumTabs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 839D8772199270DA001E319C /* ChromiumTabs.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		839D8774199270E3001E319C /* ChromiumTabs.framework in Copy Bundle Frameworks */ = {isa = PBXBuildFile; fileRef = 839D8772199270DA001E319C /* ChromiumTabs.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,9 +29,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				832156FB1992989F00AF712A /* ShortcutRecorder.framework in Copy Bundle Frameworks */,
-				839D8774199270E3001E319C /* ChromiumTabs.framework in Copy Bundle Frameworks */,
-				839D876C199267F3001E319C /* BGHUDAppKit.framework in Copy Bundle Frameworks */,
 			);
 			name = "Copy Bundle Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,16 +41,8 @@
 		8308B444197E73A8005460BB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		8308B445197E73A8005460BB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8308B446197E73A8005460BB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		8308B459197E73A8005460BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8308B45F197E73A8005460BB /* BezierLabTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BezierLabTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8308B460197E73A8005460BB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		8308B467197E73A8005460BB /* BezierLabTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BezierLabTests-Info.plist"; sourceTree = "<group>"; };
-		8308B469197E73A8005460BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8308B46B197E73A8005460BB /* BezierLabTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BezierLabTests.m; sourceTree = "<group>"; };
-		832156F91992989700AF712A /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = "../../XcodeProjects/Execution/ShortcutRecorder-aebskshkfvjlkzcyhpdlxflobonx/Build/Products/Release/ShortcutRecorder.framework"; sourceTree = "<group>"; };
-		839D8768199266E1001E319C /* BGHUDAppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BGHUDAppKit.framework; path = "../../XcodeProjects/Execution/BGHUDAppKit-ffdzzteoqqwoazhapanzfzpmxqzs/Build/Products/Release/BGHUDAppKit.framework"; sourceTree = "<group>"; };
-		839D8772199270DA001E319C /* ChromiumTabs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChromiumTabs.framework; path = "../../XcodeProjects/Execution/chromium-tabs-gzpjirgcdsaihmbxveyurmjnfigi/Build/Products/Release/ChromiumTabs.framework"; sourceTree = "<group>"; };
-		83F49756197EBB31008CEAD4 /* BLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLCommon.h; path = BezierLab/BLCommon.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,9 +50,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				832156FA1992989700AF712A /* ShortcutRecorder.framework in Frameworks */,
-				839D8773199270DA001E319C /* ChromiumTabs.framework in Frameworks */,
-				839D876B199267E3001E319C /* BGHUDAppKit.framework in Frameworks */,
 				8308B442197E73A8005460BB /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,10 +69,6 @@
 		8308B435197E73A8005460BB = {
 			isa = PBXGroup;
 			children = (
-				83F49756197EBB31008CEAD4 /* BLCommon.h */,
-				8308B447197E73A8005460BB /* BezierLab */,
-				83F49755197EBB06008CEAD4 /* User Interfaces */,
-				8308B465197E73A8005460BB /* BezierLabTests */,
 				8308B440197E73A8005460BB /* Frameworks */,
 				8308B43F197E73A8005460BB /* Products */,
 			);
@@ -113,9 +86,6 @@
 		8308B440197E73A8005460BB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				832156F91992989700AF712A /* ShortcutRecorder.framework */,
-				839D8772199270DA001E319C /* ChromiumTabs.framework */,
-				839D8768199266E1001E319C /* BGHUDAppKit.framework */,
 				8308B441197E73A8005460BB /* Cocoa.framework */,
 				8308B460197E73A8005460BB /* XCTest.framework */,
 				8308B443197E73A8005460BB /* Other Frameworks */,
@@ -131,39 +101,6 @@
 				8308B446197E73A8005460BB /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
-			sourceTree = "<group>";
-		};
-		8308B447197E73A8005460BB /* BezierLab */ = {
-			isa = PBXGroup;
-			children = (
-				8308B459197E73A8005460BB /* Images.xcassets */,
-			);
-			path = BezierLab;
-			sourceTree = "<group>";
-		};
-		8308B465197E73A8005460BB /* BezierLabTests */ = {
-			isa = PBXGroup;
-			children = (
-				8308B46B197E73A8005460BB /* BezierLabTests.m */,
-				8308B466197E73A8005460BB /* Supporting Files */,
-			);
-			path = BezierLabTests;
-			sourceTree = "<group>";
-		};
-		8308B466197E73A8005460BB /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				8308B467197E73A8005460BB /* BezierLabTests-Info.plist */,
-				8308B468197E73A8005460BB /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		83F49755197EBB06008CEAD4 /* User Interfaces */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "User Interfaces";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,7 +181,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8308B45A197E73A8005460BB /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,7 +188,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8308B46A197E73A8005460BB /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,7 +205,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8308B46C197E73A8005460BB /* BezierLabTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,17 +217,6 @@
 			targetProxy = 8308B463197E73A8005460BB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		8308B468197E73A8005460BB /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8308B469197E73A8005460BB /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		8308B46D197E73A8005460BB /* Debug */ = {
