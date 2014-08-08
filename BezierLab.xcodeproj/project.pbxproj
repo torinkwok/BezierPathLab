@@ -15,6 +15,27 @@
 		8308B462197E73A8005460BB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8308B441197E73A8005460BB /* Cocoa.framework */; };
 		8308B46A197E73A8005460BB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8308B468197E73A8005460BB /* InfoPlist.strings */; };
 		8308B46C197E73A8005460BB /* BezierLabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308B46B197E73A8005460BB /* BezierLabTests.m */; };
+		830F747F199549ED00298CB5 /* BLAppDelegate 02-05-18-296.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F745A199549ED00298CB5 /* BLAppDelegate 02-05-18-296.m */; };
+		830F7480199549ED00298CB5 /* BLDashboardView 02-05-18-328.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F745C199549ED00298CB5 /* BLDashboardView 02-05-18-328.m */; };
+		830F7481199549ED00298CB5 /* main 02-05-18-370.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F745D199549ED00298CB5 /* main 02-05-18-370.m */; };
+		830F7482199549ED00298CB5 /* BLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F745F199549ED00298CB5 /* BLAppDelegate.m */; };
+		830F7483199549ED00298CB5 /* BLCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F7461199549ED00298CB5 /* BLCell.m */; };
+		830F7484199549ED00298CB5 /* BLContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F7463199549ED00298CB5 /* BLContentView.m */; };
+		830F7485199549ED00298CB5 /* BLControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F7465199549ED00298CB5 /* BLControl.m */; };
+		830F7486199549ED00298CB5 /* BLCustomeWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F7467199549ED00298CB5 /* BLCustomeWindow.m */; };
+		830F7487199549ED00298CB5 /* BLDashboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F7469199549ED00298CB5 /* BLDashboardView.m */; };
+		830F7488199549ED00298CB5 /* BLMainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 830F746A199549ED00298CB5 /* BLMainMenu.xib */; };
+		830F7489199549ED00298CB5 /* BLMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 830F746B199549ED00298CB5 /* BLMainWindow.xib */; };
+		830F748A199549ED00298CB5 /* BLMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F746D199549ED00298CB5 /* BLMainWindowController.m */; };
+		830F748B199549ED00298CB5 /* BLModalWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 830F746E199549ED00298CB5 /* BLModalWindow.xib */; };
+		830F748C199549ED00298CB5 /* BLModalWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F7470199549ED00298CB5 /* BLModalWindowController.m */; };
+		830F748D199549ED00298CB5 /* BLPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F7472199549ED00298CB5 /* BLPanel.m */; };
+		830F748E199549ED00298CB5 /* BLSearchField.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F7474199549ED00298CB5 /* BLSearchField.m */; };
+		830F748F199549ED00298CB5 /* BLSearchFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F7476199549ED00298CB5 /* BLSearchFieldCell.m */; };
+		830F7490199549ED00298CB5 /* BLSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F7478199549ED00298CB5 /* BLSlider.m */; };
+		830F7491199549ED00298CB5 /* BLSliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F747A199549ED00298CB5 /* BLSliderCell.m */; };
+		830F7493199549ED00298CB5 /* BLTestingWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F747D199549ED00298CB5 /* BLTestingWindowController.m */; };
+		830F7494199549ED00298CB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F747E199549ED00298CB5 /* main.m */; };
 		832156FA1992989700AF712A /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 832156F91992989700AF712A /* ShortcutRecorder.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		832156FB1992989F00AF712A /* ShortcutRecorder.framework in Copy Bundle Frameworks */ = {isa = PBXBuildFile; fileRef = 832156F91992989700AF712A /* ShortcutRecorder.framework */; };
 		839D876B199267E3001E319C /* BGHUDAppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 839D8768199266E1001E319C /* BGHUDAppKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -65,6 +86,42 @@
 		8308B467197E73A8005460BB /* BezierLabTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BezierLabTests-Info.plist"; sourceTree = "<group>"; };
 		8308B469197E73A8005460BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8308B46B197E73A8005460BB /* BezierLabTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BezierLabTests.m; sourceTree = "<group>"; };
+		830F745A199549ED00298CB5 /* BLAppDelegate 02-05-18-296.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BLAppDelegate 02-05-18-296.m"; sourceTree = "<group>"; };
+		830F745B199549ED00298CB5 /* BLDashboardView 02-05-18-299.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BLDashboardView 02-05-18-299.h"; sourceTree = "<group>"; };
+		830F745C199549ED00298CB5 /* BLDashboardView 02-05-18-328.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BLDashboardView 02-05-18-328.m"; sourceTree = "<group>"; };
+		830F745D199549ED00298CB5 /* main 02-05-18-370.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "main 02-05-18-370.m"; sourceTree = "<group>"; };
+		830F745E199549ED00298CB5 /* BLAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLAppDelegate.h; sourceTree = "<group>"; };
+		830F745F199549ED00298CB5 /* BLAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLAppDelegate.m; sourceTree = "<group>"; };
+		830F7460199549ED00298CB5 /* BLCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCell.h; sourceTree = "<group>"; };
+		830F7461199549ED00298CB5 /* BLCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCell.m; sourceTree = "<group>"; };
+		830F7462199549ED00298CB5 /* BLContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLContentView.h; sourceTree = "<group>"; };
+		830F7463199549ED00298CB5 /* BLContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLContentView.m; sourceTree = "<group>"; };
+		830F7464199549ED00298CB5 /* BLControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLControl.h; sourceTree = "<group>"; };
+		830F7465199549ED00298CB5 /* BLControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLControl.m; sourceTree = "<group>"; };
+		830F7466199549ED00298CB5 /* BLCustomeWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCustomeWindow.h; sourceTree = "<group>"; };
+		830F7467199549ED00298CB5 /* BLCustomeWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCustomeWindow.m; sourceTree = "<group>"; };
+		830F7468199549ED00298CB5 /* BLDashboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLDashboardView.h; sourceTree = "<group>"; };
+		830F7469199549ED00298CB5 /* BLDashboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLDashboardView.m; sourceTree = "<group>"; };
+		830F746A199549ED00298CB5 /* BLMainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BLMainMenu.xib; path = BezierLab/BLMainMenu.xib; sourceTree = "<group>"; };
+		830F746B199549ED00298CB5 /* BLMainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BLMainWindow.xib; path = BezierLab/BLMainWindow.xib; sourceTree = "<group>"; };
+		830F746C199549ED00298CB5 /* BLMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLMainWindowController.h; sourceTree = "<group>"; };
+		830F746D199549ED00298CB5 /* BLMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLMainWindowController.m; sourceTree = "<group>"; };
+		830F746E199549ED00298CB5 /* BLModalWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLModalWindow.xib; sourceTree = "<group>"; };
+		830F746F199549ED00298CB5 /* BLModalWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLModalWindowController.h; sourceTree = "<group>"; };
+		830F7470199549ED00298CB5 /* BLModalWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLModalWindowController.m; sourceTree = "<group>"; };
+		830F7471199549ED00298CB5 /* BLPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLPanel.h; sourceTree = "<group>"; };
+		830F7472199549ED00298CB5 /* BLPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLPanel.m; sourceTree = "<group>"; };
+		830F7473199549ED00298CB5 /* BLSearchField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLSearchField.h; sourceTree = "<group>"; };
+		830F7474199549ED00298CB5 /* BLSearchField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLSearchField.m; sourceTree = "<group>"; };
+		830F7475199549ED00298CB5 /* BLSearchFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLSearchFieldCell.h; sourceTree = "<group>"; };
+		830F7476199549ED00298CB5 /* BLSearchFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLSearchFieldCell.m; sourceTree = "<group>"; };
+		830F7477199549ED00298CB5 /* BLSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLSlider.h; sourceTree = "<group>"; };
+		830F7478199549ED00298CB5 /* BLSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLSlider.m; sourceTree = "<group>"; };
+		830F7479199549ED00298CB5 /* BLSliderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLSliderCell.h; sourceTree = "<group>"; };
+		830F747A199549ED00298CB5 /* BLSliderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLSliderCell.m; sourceTree = "<group>"; };
+		830F747C199549ED00298CB5 /* BLTestingWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLTestingWindowController.h; sourceTree = "<group>"; };
+		830F747D199549ED00298CB5 /* BLTestingWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLTestingWindowController.m; sourceTree = "<group>"; };
+		830F747E199549ED00298CB5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		832156F91992989700AF712A /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = "../../XcodeProjects/Execution/ShortcutRecorder-aebskshkfvjlkzcyhpdlxflobonx/Build/Products/Release/ShortcutRecorder.framework"; sourceTree = "<group>"; };
 		839D8768199266E1001E319C /* BGHUDAppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BGHUDAppKit.framework; path = "../../XcodeProjects/Execution/BGHUDAppKit-ffdzzteoqqwoazhapanzfzpmxqzs/Build/Products/Release/BGHUDAppKit.framework"; sourceTree = "<group>"; };
 		839D8772199270DA001E319C /* ChromiumTabs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChromiumTabs.framework; path = "../../XcodeProjects/Execution/chromium-tabs-gzpjirgcdsaihmbxveyurmjnfigi/Build/Products/Release/ChromiumTabs.framework"; sourceTree = "<group>"; };
@@ -142,6 +199,40 @@
 		8308B447197E73A8005460BB /* BezierLab */ = {
 			isa = PBXGroup;
 			children = (
+				830F745A199549ED00298CB5 /* BLAppDelegate 02-05-18-296.m */,
+				830F745B199549ED00298CB5 /* BLDashboardView 02-05-18-299.h */,
+				830F745C199549ED00298CB5 /* BLDashboardView 02-05-18-328.m */,
+				830F745D199549ED00298CB5 /* main 02-05-18-370.m */,
+				830F745E199549ED00298CB5 /* BLAppDelegate.h */,
+				830F745F199549ED00298CB5 /* BLAppDelegate.m */,
+				830F7460199549ED00298CB5 /* BLCell.h */,
+				830F7461199549ED00298CB5 /* BLCell.m */,
+				830F7462199549ED00298CB5 /* BLContentView.h */,
+				830F7463199549ED00298CB5 /* BLContentView.m */,
+				830F7464199549ED00298CB5 /* BLControl.h */,
+				830F7465199549ED00298CB5 /* BLControl.m */,
+				830F7466199549ED00298CB5 /* BLCustomeWindow.h */,
+				830F7467199549ED00298CB5 /* BLCustomeWindow.m */,
+				830F7468199549ED00298CB5 /* BLDashboardView.h */,
+				830F7469199549ED00298CB5 /* BLDashboardView.m */,
+				830F746C199549ED00298CB5 /* BLMainWindowController.h */,
+				830F746D199549ED00298CB5 /* BLMainWindowController.m */,
+				830F746E199549ED00298CB5 /* BLModalWindow.xib */,
+				830F746F199549ED00298CB5 /* BLModalWindowController.h */,
+				830F7470199549ED00298CB5 /* BLModalWindowController.m */,
+				830F7471199549ED00298CB5 /* BLPanel.h */,
+				830F7472199549ED00298CB5 /* BLPanel.m */,
+				830F7473199549ED00298CB5 /* BLSearchField.h */,
+				830F7474199549ED00298CB5 /* BLSearchField.m */,
+				830F7475199549ED00298CB5 /* BLSearchFieldCell.h */,
+				830F7476199549ED00298CB5 /* BLSearchFieldCell.m */,
+				830F7477199549ED00298CB5 /* BLSlider.h */,
+				830F7478199549ED00298CB5 /* BLSlider.m */,
+				830F7479199549ED00298CB5 /* BLSliderCell.h */,
+				830F747A199549ED00298CB5 /* BLSliderCell.m */,
+				830F747C199549ED00298CB5 /* BLTestingWindowController.h */,
+				830F747D199549ED00298CB5 /* BLTestingWindowController.m */,
+				830F747E199549ED00298CB5 /* main.m */,
 				8308B459197E73A8005460BB /* Images.xcassets */,
 				8308B448197E73A8005460BB /* Supporting Files */,
 			);
@@ -180,6 +271,8 @@
 		83F49755197EBB06008CEAD4 /* User Interfaces */ = {
 			isa = PBXGroup;
 			children = (
+				830F746A199549ED00298CB5 /* BLMainMenu.xib */,
+				830F746B199549ED00298CB5 /* BLMainWindow.xib */,
 			);
 			name = "User Interfaces";
 			sourceTree = "<group>";
@@ -265,6 +358,9 @@
 				8308B44C197E73A8005460BB /* InfoPlist.strings in Resources */,
 				8308B45A197E73A8005460BB /* Images.xcassets in Resources */,
 				8308B452197E73A8005460BB /* Credits.rtf in Resources */,
+				830F748B199549ED00298CB5 /* BLModalWindow.xib in Resources */,
+				830F7489199549ED00298CB5 /* BLMainWindow.xib in Resources */,
+				830F7488199549ED00298CB5 /* BLMainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +379,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				830F7482199549ED00298CB5 /* BLAppDelegate.m in Sources */,
+				830F748E199549ED00298CB5 /* BLSearchField.m in Sources */,
+				830F748F199549ED00298CB5 /* BLSearchFieldCell.m in Sources */,
+				830F7480199549ED00298CB5 /* BLDashboardView 02-05-18-328.m in Sources */,
+				830F7486199549ED00298CB5 /* BLCustomeWindow.m in Sources */,
+				830F7481199549ED00298CB5 /* main 02-05-18-370.m in Sources */,
+				830F7483199549ED00298CB5 /* BLCell.m in Sources */,
+				830F7485199549ED00298CB5 /* BLControl.m in Sources */,
+				830F7490199549ED00298CB5 /* BLSlider.m in Sources */,
+				830F748C199549ED00298CB5 /* BLModalWindowController.m in Sources */,
+				830F7493199549ED00298CB5 /* BLTestingWindowController.m in Sources */,
+				830F7491199549ED00298CB5 /* BLSliderCell.m in Sources */,
+				830F7484199549ED00298CB5 /* BLContentView.m in Sources */,
+				830F747F199549ED00298CB5 /* BLAppDelegate 02-05-18-296.m in Sources */,
+				830F748A199549ED00298CB5 /* BLMainWindowController.m in Sources */,
+				830F748D199549ED00298CB5 /* BLPanel.m in Sources */,
+				830F7494199549ED00298CB5 /* main.m in Sources */,
+				830F7487199549ED00298CB5 /* BLDashboardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
