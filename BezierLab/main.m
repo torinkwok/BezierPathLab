@@ -33,8 +33,19 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import "BLDashboardView.h"
+
 int main( int _Argc, char const* _Argv[] )
     {
+    [ USER_DEFAULTS registerDefaults: @{ BLUserDefaultsKeyLineColor : [ NSArchiver archivedDataWithRootObject: [ NSColor blackColor ] ]
+                                       , BLUserDefaultsKeyFillColor : [ NSArchiver archivedDataWithRootObject: [ NSColor whiteColor ] ]
+                                       , BLUserDefaultsKeyBackgroundColor : [ NSArchiver archivedDataWithRootObject: [ NSColor whiteColor ] ]
+                                       } ];
+
+    [ USER_DEFAULTS registerDefaults: [ NSDictionary dictionaryWithContentsOfURL:
+                                            [ [ NSBundle mainBundle ] URLForResource: @"BLDefaults"
+                                                                       withExtension: @"plist" ] ] ];
+
     return NSApplicationMain( _Argc, _Argv );
     }
 

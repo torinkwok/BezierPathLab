@@ -243,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				8308B449197E73A8005460BB /* BezierLab-Info.plist */,
+				83B7BDD7199510E200B0B689 /* BLDefaults.plist */,
 				8308B44A197E73A8005460BB /* InfoPlist.strings */,
 				8308B44F197E73A8005460BB /* BezierLab-Prefix.pch */,
 				8308B450197E73A8005460BB /* Credits.rtf */,
