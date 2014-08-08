@@ -15,9 +15,6 @@
 		8308B462197E73A8005460BB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8308B441197E73A8005460BB /* Cocoa.framework */; };
 		8308B46A197E73A8005460BB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8308B468197E73A8005460BB /* InfoPlist.strings */; };
 		8308B46C197E73A8005460BB /* BezierLabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308B46B197E73A8005460BB /* BezierLabTests.m */; };
-		830F747F199549ED00298CB5 /* BLAppDelegate 02-05-18-296.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F745A199549ED00298CB5 /* BLAppDelegate 02-05-18-296.m */; };
-		830F7480199549ED00298CB5 /* BLDashboardView 02-05-18-328.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F745C199549ED00298CB5 /* BLDashboardView 02-05-18-328.m */; };
-		830F7481199549ED00298CB5 /* main 02-05-18-370.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F745D199549ED00298CB5 /* main 02-05-18-370.m */; };
 		830F7482199549ED00298CB5 /* BLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F745F199549ED00298CB5 /* BLAppDelegate.m */; };
 		830F7483199549ED00298CB5 /* BLCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F7461199549ED00298CB5 /* BLCell.m */; };
 		830F7484199549ED00298CB5 /* BLContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F7463199549ED00298CB5 /* BLContentView.m */; };
@@ -86,10 +83,6 @@
 		8308B467197E73A8005460BB /* BezierLabTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BezierLabTests-Info.plist"; sourceTree = "<group>"; };
 		8308B469197E73A8005460BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8308B46B197E73A8005460BB /* BezierLabTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BezierLabTests.m; sourceTree = "<group>"; };
-		830F745A199549ED00298CB5 /* BLAppDelegate 02-05-18-296.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BLAppDelegate 02-05-18-296.m"; sourceTree = "<group>"; };
-		830F745B199549ED00298CB5 /* BLDashboardView 02-05-18-299.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BLDashboardView 02-05-18-299.h"; sourceTree = "<group>"; };
-		830F745C199549ED00298CB5 /* BLDashboardView 02-05-18-328.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BLDashboardView 02-05-18-328.m"; sourceTree = "<group>"; };
-		830F745D199549ED00298CB5 /* main 02-05-18-370.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "main 02-05-18-370.m"; sourceTree = "<group>"; };
 		830F745E199549ED00298CB5 /* BLAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLAppDelegate.h; sourceTree = "<group>"; };
 		830F745F199549ED00298CB5 /* BLAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLAppDelegate.m; sourceTree = "<group>"; };
 		830F7460199549ED00298CB5 /* BLCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCell.h; sourceTree = "<group>"; };
@@ -199,10 +192,6 @@
 		8308B447197E73A8005460BB /* BezierLab */ = {
 			isa = PBXGroup;
 			children = (
-				830F745A199549ED00298CB5 /* BLAppDelegate 02-05-18-296.m */,
-				830F745B199549ED00298CB5 /* BLDashboardView 02-05-18-299.h */,
-				830F745C199549ED00298CB5 /* BLDashboardView 02-05-18-328.m */,
-				830F745D199549ED00298CB5 /* main 02-05-18-370.m */,
 				830F745E199549ED00298CB5 /* BLAppDelegate.h */,
 				830F745F199549ED00298CB5 /* BLAppDelegate.m */,
 				830F7460199549ED00298CB5 /* BLCell.h */,
@@ -243,7 +232,6 @@
 			isa = PBXGroup;
 			children = (
 				8308B449197E73A8005460BB /* BezierLab-Info.plist */,
-				83B7BDD7199510E200B0B689 /* BLDefaults.plist */,
 				8308B44A197E73A8005460BB /* InfoPlist.strings */,
 				8308B44F197E73A8005460BB /* BezierLab-Prefix.pch */,
 				8308B450197E73A8005460BB /* Credits.rtf */,
@@ -383,9 +371,7 @@
 				830F7482199549ED00298CB5 /* BLAppDelegate.m in Sources */,
 				830F748E199549ED00298CB5 /* BLSearchField.m in Sources */,
 				830F748F199549ED00298CB5 /* BLSearchFieldCell.m in Sources */,
-				830F7480199549ED00298CB5 /* BLDashboardView 02-05-18-328.m in Sources */,
 				830F7486199549ED00298CB5 /* BLCustomeWindow.m in Sources */,
-				830F7481199549ED00298CB5 /* main 02-05-18-370.m in Sources */,
 				830F7483199549ED00298CB5 /* BLCell.m in Sources */,
 				830F7485199549ED00298CB5 /* BLControl.m in Sources */,
 				830F7490199549ED00298CB5 /* BLSlider.m in Sources */,
@@ -393,7 +379,6 @@
 				830F7493199549ED00298CB5 /* BLTestingWindowController.m in Sources */,
 				830F7491199549ED00298CB5 /* BLSliderCell.m in Sources */,
 				830F7484199549ED00298CB5 /* BLContentView.m in Sources */,
-				830F747F199549ED00298CB5 /* BLAppDelegate 02-05-18-296.m in Sources */,
 				830F748A199549ED00298CB5 /* BLMainWindowController.m in Sources */,
 				830F748D199549ED00298CB5 /* BLPanel.m in Sources */,
 				830F7494199549ED00298CB5 /* main.m in Sources */,
