@@ -33,6 +33,15 @@
 
 #import "BLDashboardView.h"
 
+// Keys for Preferences
+NSString* const BLLineColor = @"BLLineColor";
+NSString* const BLFillColor = @"BLFillColor";
+NSString* const BLBackgroundColor = @"BLBackgroundColor";
+
+NSString* const BLAngle = @"BLAngle";
+NSString* const BLZoom = @"BLZoom";
+NSString* const BLLineWidth = @"BLLineWidth";
+
 // BLDashboardView class
 @implementation BLDashboardView
     {
@@ -82,15 +91,25 @@
     {
     self._bezierPath = [ NSBezierPath bezierPath ];
 
-    self._lineColor = [ _lineColorWell color ];
-    self._fillColor = [ _fillColorWell color ];
-    self._backgroundColor = [ _backgroundColorWell color ];
+#if 1   // TODO: To take advantage of NSUserDefaultController in nib file.
+    [ self._lineColorWell setColor: [ NSUnarchiver unarchiveObjectWithData: [ USER_DEFAULTS objectForKey: BLLineColor ] ] ];
+    [ self._fillColorWell setColor: [ NSUnarchiver unarchiveObjectWithData: [ USER_DEFAULTS objectForKey: BLFillColor ] ] ];
+    [ self._backgroundColorWell setColor: [ NSUnarchiver unarchiveObjectWithData: [ USER_DEFAULTS objectForKey: BLBackgroundColor ] ] ];
+#endif
+    self._lineColor = [ self._lineColorWell color ];
+    self._fillColor = [ self._fillColorWell color ];
+    self._backgroundColor = [ self._backgroundColorWell color ];
 
     self._isFilled = [ _isFilledButton state ];
 
+#if 1   // TODO: To take advantage of NSUserDefaultController in nib file.
+    [ _angleSlider setDoubleValue: [ USER_DEFAULTS doubleForKey: BLAngle ] ];
+    [ _zoomSlider setDoubleValue: [ USER_DEFAULTS doubleForKey: BLZoom ] ];
+    [ _lineWidthSlider setDoubleValue: [ USER_DEFAULTS doubleForKey: BLLineWidth ] ];
+#endif
     self._angle = [ _angleSlider doubleValue ];
     self._zoom = [ _zoomSlider doubleValue ];
-    self._lineWidth = floorl( [ _zoomSlider doubleValue ] );
+    self._lineWidth = floorl( [ _lineWidthSlider doubleValue ] );
 
     self._pathType = ( enum BLPathType )[ _pathTypeMatrix selectedTag ];
     self._lineCapStyle = ( enum BLLineCapStyle )[ _lineCapStyleMatrix selectedTag ];

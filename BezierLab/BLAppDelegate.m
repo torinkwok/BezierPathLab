@@ -51,6 +51,51 @@
     _mainWindow = [ [ self._mainWindowController window ] retain ];
 
     [ self._mainWindowController showWindow: self ];
+
+//    NSLog( @"Volatile Domain Names: %@", [ USER_DEFAULTS volatileDomainNames ] );
+//    NSLog( @"Preferences in NSRegistrationDoamin: %@", [ USER_DEFAULTS volatileDomainForName: NSRegistrationDomain ] );
+
+    NSString* string = @"Fucking";
+    [ USER_DEFAULTS setObject: string forKey: @"AHAHAH" ];
+    [ USER_DEFAULTS setObject: string forKey: @"Numbers" ];
+
+    NSMutableDictionary* preferencesInArgumentDomain = [ [ USER_DEFAULTS volatileDomainForName: NSArgumentDomain ] mutableCopy ];
+    [ preferencesInArgumentDomain addEntriesFromDictionary: @{ @"Numbers" : @"U.S.A" } ];
+    [ USER_DEFAULTS setVolatileDomain: preferencesInArgumentDomain forName: NSArgumentDomain ];
+
+    [ USER_DEFAULTS removeVolatileDomainForName: NSArgumentDomain ];
+
+    NSLog( @"Preferences in NSArgumentDomain: %@", [ USER_DEFAULTS volatileDomainForName: NSArgumentDomain ] );
+
+    NSLog( @"%@", [ USER_DEFAULTS objectForKey: @"AHAHAH" ] );
+    NSLog( @"%@", [ USER_DEFAULTS objectForKey: @"Numbers" ] );
+    }
+
+- ( IBAction ) testingForSynchronizing: ( id )_Sender
+    {
+    NSLog( @"Value for Key AHAHAH: %@", [ USER_DEFAULTS objectForKey: @"AHAHAH" ] );
+    }
+
+- ( IBAction ) testingForInsertingSuiteName_PrintValue: ( id )_Sender
+    {
+    NSLog( @"Value for Key Numbers for BezierLab.app: %@", [ USER_DEFAULTS objectForKey: @"AHAHAH" ] );
+    NSLog( @"Value for Key Numbers for LoadImages.app: %@", [ USER_DEFAULTS objectForKey: @"Numbers" ] );
+    }
+
+- ( IBAction ) testingForInsertingSuiteName_InsertSuiteName: ( id )_Sender
+    {
+    [ USER_DEFAULTS addSuiteNamed: @"individual.Tong-G.LoadImages" ];
+    }
+
+- ( IBAction ) testingForInsertingSuiteName_RemoveSuiteName: ( id )_Sender
+    {
+    [ USER_DEFAULTS removeSuiteNamed: @"individual.Tong-G.LoadImages" ];
+    }
+
+- ( IBAction ) insertValueToLoadImages: ( id )_Sender
+    {
+    [ USER_DEFAULTS setObject: @"BLAppDelegate" forKey: @"Numbers" ];
+    [ USER_DEFAULTS synchronize ];
     }
 
 - ( void ) dealloc

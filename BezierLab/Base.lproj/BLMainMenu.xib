@@ -685,6 +685,51 @@
                         </items>
                     </menu>
                 </menuItem>
+                <menuItem title="User Defaults" id="NAi-R7-aPT">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="User Defaults" id="mWE-r8-ZBs">
+                        <items>
+                            <menuItem title="Testing for Synchronizing" id="wuQ-jS-6rL">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="testingForSynchronizing:" target="-1" id="uOs-V2-hlq"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="93Y-ow-Vhb"/>
+                            <menuItem title="Testing for Inserting Suite Name" id="Ip0-MQ-8et">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Testing for Inserting Suite Name" id="uoS-Jl-mhd">
+                                    <items>
+                                        <menuItem title="Insert Suite Name" id="DoL-A0-f0V">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="testingForInsertingSuiteName_InsertSuiteName:" target="-1" id="0Pj-QM-ayW"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Remove Suite Name" id="yOh-EC-Nmm">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="testingForInsertingSuiteName_RemoveSuiteName:" target="-1" id="knh-cN-x1C"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Print Value" id="THc-MW-d1Q">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="testingForInsertingSuiteName_PrintValue:" target="-1" id="Nvb-zp-T5s"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Insert Value to LoadImages" id="24D-JH-ICM">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="insertValueToLoadImages:" target="-1" id="BdZ-BY-Xom"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
                 <menuItem title="Drawing" id="9cy-Jo-ASY">
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>

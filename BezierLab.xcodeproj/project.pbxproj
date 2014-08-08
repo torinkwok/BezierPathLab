@@ -20,6 +20,7 @@
 		8308B46C197E73A8005460BB /* BezierLabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308B46B197E73A8005460BB /* BezierLabTests.m */; };
 		8308B477197EB94A005460BB /* BLMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308B476197EB94A005460BB /* BLMainWindowController.m */; };
 		8322CB37198BCC67003A2B67 /* BLDashboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8322CB36198BCC67003A2B67 /* BLDashboardView.m */; };
+		83B7BDD8199510E200B0B689 /* BLDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83B7BDD7199510E200B0B689 /* BLDefaults.plist */; };
 		83F49754197EBA3D008CEAD4 /* BLMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F49753197EBA3D008CEAD4 /* BLMainWindow.xib */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		8308B476197EB94A005460BB /* BLMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLMainWindowController.m; sourceTree = "<group>"; };
 		8322CB35198BCC67003A2B67 /* BLDashboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLDashboardView.h; sourceTree = "<group>"; };
 		8322CB36198BCC67003A2B67 /* BLDashboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLDashboardView.m; sourceTree = "<group>"; };
+		83B7BDD7199510E200B0B689 /* BLDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BLDefaults.plist; sourceTree = "<group>"; };
 		83F49753197EBA3D008CEAD4 /* BLMainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BLMainWindow.xib; path = BezierLab/BLMainWindow.xib; sourceTree = "<group>"; };
 		83F49756197EBB31008CEAD4 /* BLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLCommon.h; path = BezierLab/BLCommon.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				8308B449197E73A8005460BB /* BezierLab-Info.plist */,
+				83B7BDD7199510E200B0B689 /* BLDefaults.plist */,
 				8308B44A197E73A8005460BB /* InfoPlist.strings */,
 				8308B44F197E73A8005460BB /* BezierLab-Prefix.pch */,
 				8308B450197E73A8005460BB /* Credits.rtf */,
@@ -259,6 +262,7 @@
 				8308B452197E73A8005460BB /* Credits.rtf in Resources */,
 				83F49754197EBA3D008CEAD4 /* BLMainWindow.xib in Resources */,
 				8308B458197E73A8005460BB /* BLMainMenu.xib in Resources */,
+				83B7BDD8199510E200B0B689 /* BLDefaults.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

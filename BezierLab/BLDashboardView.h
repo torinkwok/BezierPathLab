@@ -40,6 +40,15 @@ enum BLLineCapStyle { BLLineCapStyleButtLine = 0, BLLineCapStyleSquareLine, BLLi
 
 enum BLDashStyle { BLDashTyleSolid = 0, BLDashTyle5_5, BLDashTyle8_3_8, BLDashTyle9_6_3 };
 
+// Keys for Preferences
+NSString extern* const BLLineColor;
+NSString extern* const BLFillColor;
+NSString extern* const BLBackgroundColor;
+
+NSString extern* const BLAngle;
+NSString extern* const BLZoom;
+NSString extern* const BLLineWidth;
+
 // BLDashboardView class
 @interface BLDashboardView : NSView
     {
