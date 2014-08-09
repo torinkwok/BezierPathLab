@@ -37,6 +37,8 @@
 // BLMainWindowController class
 @implementation BLMainWindowController
 
+@synthesize _languagesPopUpButton;
+
 #pragma mark Initializers
 + ( id ) mainWindowController
     {
@@ -63,6 +65,16 @@
                             toObject: ( id )_Object
     {
     return [ [ [ BLFieldEditor alloc ] init ] autorelease ];
+    }
+
+- ( IBAction ) changedLanguage: ( id )_Sender
+    {
+
+    }
+
+- ( IBAction ) fuckEnglish: ( id )_Sender
+    {
+
     }
 
 @end // BLMainWindowController
