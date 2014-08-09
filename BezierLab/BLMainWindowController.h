@@ -36,7 +36,7 @@
 @class LIGetPathsOperation;
 
 // BLMainWindowController class
-@interface BLMainWindowController : NSWindowController
+@interface BLMainWindowController : NSWindowController <NSWindowDelegate>
 
 + ( id ) mainWindowController;
 

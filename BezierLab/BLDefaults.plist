@@ -16,5 +16,9 @@
 	<integer>0</integer>
 	<key>BLUserDefaultsKeyDashStyle</key>
 	<integer>0</integer>
+	<key>BLUserDefaultsKeyKeyEquivalent</key>
+	<string>E</string>
+	<key>BLUserDefaultsKeyKeyEquivalentModifier</key>
+	<real>1376256</real>
 </dict>
 </plist>

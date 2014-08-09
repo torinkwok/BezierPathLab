@@ -50,6 +50,9 @@ NSString* const BLUserDefaultsKeyDashStyle = @"BLUserDefaultsKeyDashStyle";
 
 NSString* const BLUserDefaultsKeyShapeLocation = @"BLUserDefaultsKeyShapeLocation";
 
+NSString* const BLUserDefaultsKeyKeyEquivalent = @"BLUserDefaultsKeyKeyEquivalent";
+NSString* const BLUserDefaultsKeyKeyEquivalentModifier = @"BLUserDefaultsKeyKeyEquivalentModifier";
+
 // BLDashboardView class
 @implementation BLDashboardView
     {
@@ -99,6 +102,23 @@ NSString* const BLUserDefaultsKeyShapeLocation = @"BLUserDefaultsKeyShapeLocatio
     [ USER_DEFAULTS setObject: @[ [ NSNumber numberWithDouble: _currentLocation.x ]
                                 , [ NSNumber numberWithDouble: _currentLocation.y ] ]
                        forKey: BLUserDefaultsKeyShapeLocation ];
+    }
+
+#pragma mark Conforms <NSUserInterfaceValidations> protocol
+- ( BOOL ) validateUserInterfaceItem: ( id <NSUserInterfaceValidations> )_Item
+    {
+    SEL action = [ ( NSMenuItem* )_Item action ];
+
+    if ( ( action == @selector( moveUp: ) || action == @selector( moveDown: ) || action == @selector( moveLeft: ) || action == @selector( moveRight: ) )
+            && ( self.window.firstResponder == self ) )
+        return YES;
+
+    return NO;
+    }
+
+- ( BOOL ) validateMenuItem: ( NSMenuItem* )_MenuItem
+    {
+    return YES;
     }
 
 #pragma mark Conforms <NSNibAwaking> protocol
@@ -335,22 +355,22 @@ NSString* const BLUserDefaultsKeyShapeLocation = @"BLUserDefaultsKeyShapeLocatio
         [ super keyDown: _Event ];
     }
 
-- ( void ) moveUp: ( id )_Sender
+- ( IBAction ) moveUp: ( id )_Sender
     {
     [ self offsetLocationByX: 0.f byY: -10.f ];
     }
 
-- ( void ) moveDown: ( id )_Sender
+- ( IBAction ) moveDown: ( id )_Sender
     {
     [ self offsetLocationByX: 0.f byY: 10.f ];
     }
 
-- ( void ) moveLeft: ( id )_Sender
+- ( IBAction ) moveLeft: ( id )_Sender
     {
     [ self offsetLocationByX: -10.f byY: 0.f ];
     }
 
-- ( void ) moveRight: ( id )_Sender
+- ( IBAction ) moveRight: ( id )_Sender
     {
     [ self offsetLocationByX: 10.f byY: 0.f ];
     }

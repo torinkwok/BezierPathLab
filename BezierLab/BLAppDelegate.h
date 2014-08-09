@@ -40,6 +40,8 @@
 
 @property ( retain ) BLMainWindowController* _mainWindowController;
 
+@property ( assign ) IBOutlet NSMenuItem* _getKeyEquivalentMenuItem;
+
 @end // BLAppDelegate
 
 /////////////////////////////////////////////////////////////////////////////

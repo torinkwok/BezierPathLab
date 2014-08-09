@@ -57,8 +57,11 @@ NSString extern* const BLUserDefaultsKeyDashStyle;
 
 NSString extern* const BLUserDefaultsKeyShapeLocation;
 
+NSString extern* const BLUserDefaultsKeyKeyEquivalent;
+NSString extern* const BLUserDefaultsKeyKeyEquivalentModifier;
+
 // BLDashboardView class
-@interface BLDashboardView : NSView
+@interface BLDashboardView : NSView <NSUserInterfaceValidations>
     {
     NSInteger _dashCount;
     CGFloat _dashArray[ 3 ];

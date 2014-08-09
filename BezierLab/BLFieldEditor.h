@@ -31,41 +31,11 @@
  **                                                                         **
  ****************************************************************************/
 
-#import "BLMainWindowController.h"
-#import "BLFieldEditor.h"
+#import <Foundation/Foundation.h>
 
-// BLMainWindowController class
-@implementation BLMainWindowController
+@interface BLFieldEditor : NSTextView <NSUserInterfaceValidations>
 
-#pragma mark Initializers
-+ ( id ) mainWindowController
-    {
-    return [ [ [ [ self class ] alloc ] init ] autorelease ];
-    }
-
-- ( id ) init
-    {
-    if ( self = [ super initWithWindowNibName: @"BLMainWindow" ] )
-        {
-        // TODO:
-        }
-
-    return self;
-    }
-
-#pragma mark Conforms <NSNibAwaking> protocol
-- ( void ) awakeFromNib
-    {
-    // TODO:
-    }
-
-- ( id ) windowWillReturnFieldEditor: ( NSWindow* )_Window
-                            toObject: ( id )_Object
-    {
-    return [ [ [ BLFieldEditor alloc ] init ] autorelease ];
-    }
-
-@end // BLMainWindowController
+@end
 
 /////////////////////////////////////////////////////////////////////////////
 

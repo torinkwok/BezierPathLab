@@ -45,7 +45,6 @@ int main( int _Argc, char const* _Argv[] )
     [ USER_DEFAULTS registerDefaults: [ NSDictionary dictionaryWithContentsOfURL:
                                             [ [ NSBundle mainBundle ] URLForResource: @"BLDefaults"
                                                                        withExtension: @"plist" ] ] ];
-
     return NSApplicationMain( _Argc, _Argv );
     }
 

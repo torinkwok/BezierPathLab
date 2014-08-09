@@ -31,41 +31,27 @@
  **                                                                         **
  ****************************************************************************/
 
-#import "BLMainWindowController.h"
 #import "BLFieldEditor.h"
 
-// BLMainWindowController class
-@implementation BLMainWindowController
+@implementation BLFieldEditor
 
-#pragma mark Initializers
-+ ( id ) mainWindowController
+- ( BOOL ) isFieldEditor
     {
-    return [ [ [ [ self class ] alloc ] init ] autorelease ];
+    return YES;
     }
 
-- ( id ) init
+- ( BOOL ) validateUserInterfaceItem: ( id <NSValidatedUserInterfaceItem> )_Item
     {
-    if ( self = [ super initWithWindowNibName: @"BLMainWindow" ] )
-        {
-        // TODO:
-        }
+    SEL action = [ _Item action ];
 
-    return self;
+    if ( ( action == @selector( moveUp: ) || action == @selector( moveDown: ) || action == @selector( moveLeft: ) || action == @selector( moveRight: ) )
+            && self.window.firstResponder == self )
+        return NO;
+
+    return [ super validateUserInterfaceItem: _Item ];
     }
 
-#pragma mark Conforms <NSNibAwaking> protocol
-- ( void ) awakeFromNib
-    {
-    // TODO:
-    }
-
-- ( id ) windowWillReturnFieldEditor: ( NSWindow* )_Window
-                            toObject: ( id )_Object
-    {
-    return [ [ [ BLFieldEditor alloc ] init ] autorelease ];
-    }
-
-@end // BLMainWindowController
+@end
 
 /////////////////////////////////////////////////////////////////////////////
 
