@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8308B442197E73A8005460BB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8308B441197E73A8005460BB /* Cocoa.framework */; };
-		8308B44C197E73A8005460BB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8308B44A197E73A8005460BB /* InfoPlist.strings */; };
 		8308B44E197E73A8005460BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308B44D197E73A8005460BB /* main.m */; };
 		8308B455197E73A8005460BB /* BLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308B454197E73A8005460BB /* BLAppDelegate.m */; };
 		8308B458197E73A8005460BB /* BLMainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8308B456197E73A8005460BB /* BLMainMenu.xib */; };
@@ -40,7 +39,6 @@
 		8308B445197E73A8005460BB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8308B446197E73A8005460BB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8308B449197E73A8005460BB /* BezierLab-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BezierLab-Info.plist"; sourceTree = "<group>"; };
-		8308B44B197E73A8005460BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8308B44D197E73A8005460BB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8308B44F197E73A8005460BB /* BezierLab-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BezierLab-Prefix.pch"; sourceTree = "<group>"; };
 		8308B453197E73A8005460BB /* BLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLAppDelegate.h; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 			children = (
 				8308B449197E73A8005460BB /* BezierLab-Info.plist */,
 				83B7BDD7199510E200B0B689 /* BLDefaults.plist */,
-				8308B44A197E73A8005460BB /* InfoPlist.strings */,
 				8308B44F197E73A8005460BB /* BezierLab-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -256,7 +253,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8308B44C197E73A8005460BB /* InfoPlist.strings in Resources */,
 				83F49754197EBA3D008CEAD4 /* BLMainWindow.xib in Resources */,
 				8308B458197E73A8005460BB /* BLMainMenu.xib in Resources */,
 				83B7BDD8199510E200B0B689 /* BLDefaults.plist in Resources */,
@@ -305,14 +301,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8308B44A197E73A8005460BB /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8308B44B197E73A8005460BB /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		8308B456197E73A8005460BB /* BLMainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
