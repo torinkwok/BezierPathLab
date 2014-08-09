@@ -7,9 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8308B442197E73A8005460BB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8308B441197E73A8005460BB /* Cocoa.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		8308B442197E73A8005460BB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8308B441197E73A8005460BB /* Cocoa.framework */; };
+		8308B44C197E73A8005460BB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8308B44A197E73A8005460BB /* InfoPlist.strings */; };
+		8308B44E197E73A8005460BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308B44D197E73A8005460BB /* main.m */; };
+		8308B455197E73A8005460BB /* BLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308B454197E73A8005460BB /* BLAppDelegate.m */; };
+		8308B458197E73A8005460BB /* BLMainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8308B456197E73A8005460BB /* BLMainMenu.xib */; };
 		8308B461197E73A8005460BB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8308B460197E73A8005460BB /* XCTest.framework */; };
 		8308B462197E73A8005460BB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8308B441197E73A8005460BB /* Cocoa.framework */; };
+		8308B46A197E73A8005460BB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8308B468197E73A8005460BB /* InfoPlist.strings */; };
+		8308B46C197E73A8005460BB /* BezierLabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308B46B197E73A8005460BB /* BezierLabTests.m */; };
+		8308B477197EB94A005460BB /* BLMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308B476197EB94A005460BB /* BLMainWindowController.m */; };
+		8322CB37198BCC67003A2B67 /* BLDashboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8322CB36198BCC67003A2B67 /* BLDashboardView.m */; };
+		8377DB2A1996264200D650E2 /* BLFieldEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8377DB291996264200D650E2 /* BLFieldEditor.m */; };
+		83B7BDD8199510E200B0B689 /* BLDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83B7BDD7199510E200B0B689 /* BLDefaults.plist */; };
+		83F49754197EBA3D008CEAD4 /* BLMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F49753197EBA3D008CEAD4 /* BLMainWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,27 +33,33 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		83A9282C19926256006C86E0 /* Copy Bundle Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Copy Bundle Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		8308B43E197E73A8005460BB /* BezierLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BezierLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8308B441197E73A8005460BB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		8308B444197E73A8005460BB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		8308B445197E73A8005460BB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8308B446197E73A8005460BB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8308B449197E73A8005460BB /* BezierLab-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BezierLab-Info.plist"; sourceTree = "<group>"; };
+		8308B44B197E73A8005460BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8308B44D197E73A8005460BB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8308B44F197E73A8005460BB /* BezierLab-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BezierLab-Prefix.pch"; sourceTree = "<group>"; };
+		8308B453197E73A8005460BB /* BLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLAppDelegate.h; sourceTree = "<group>"; };
+		8308B454197E73A8005460BB /* BLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLAppDelegate.m; sourceTree = "<group>"; };
+		8308B457197E73A8005460BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BLMainMenu.xib; sourceTree = "<group>"; };
 		8308B45F197E73A8005460BB /* BezierLabTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BezierLabTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8308B460197E73A8005460BB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		8308B467197E73A8005460BB /* BezierLabTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BezierLabTests-Info.plist"; sourceTree = "<group>"; };
+		8308B469197E73A8005460BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8308B46B197E73A8005460BB /* BezierLabTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BezierLabTests.m; sourceTree = "<group>"; };
+		8308B475197EB94A005460BB /* BLMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLMainWindowController.h; sourceTree = "<group>"; };
+		8308B476197EB94A005460BB /* BLMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLMainWindowController.m; sourceTree = "<group>"; };
+		8322CB35198BCC67003A2B67 /* BLDashboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLDashboardView.h; sourceTree = "<group>"; };
+		8322CB36198BCC67003A2B67 /* BLDashboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLDashboardView.m; sourceTree = "<group>"; };
+		8377DB281996264200D650E2 /* BLFieldEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLFieldEditor.h; sourceTree = "<group>"; };
+		8377DB291996264200D650E2 /* BLFieldEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLFieldEditor.m; sourceTree = "<group>"; };
+		8377DB2B19965E1300D650E2 /* BLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCommon.h; sourceTree = "<group>"; };
+		83B7BDD7199510E200B0B689 /* BLDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BLDefaults.plist; sourceTree = "<group>"; };
+		83F49753197EBA3D008CEAD4 /* BLMainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BLMainWindow.xib; path = BezierLab/BLMainWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +86,10 @@
 		8308B435197E73A8005460BB = {
 			isa = PBXGroup;
 			children = (
+				8377DB2B19965E1300D650E2 /* BLCommon.h */,
+				8308B447197E73A8005460BB /* BezierLab */,
+				83F49755197EBB06008CEAD4 /* User Interfaces */,
+				8308B465197E73A8005460BB /* BezierLabTests */,
 				8308B440197E73A8005460BB /* Frameworks */,
 				8308B43F197E73A8005460BB /* Products */,
 			);
@@ -103,6 +124,61 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
+		8308B447197E73A8005460BB /* BezierLab */ = {
+			isa = PBXGroup;
+			children = (
+				8308B453197E73A8005460BB /* BLAppDelegate.h */,
+				8308B454197E73A8005460BB /* BLAppDelegate.m */,
+				8322CB35198BCC67003A2B67 /* BLDashboardView.h */,
+				8322CB36198BCC67003A2B67 /* BLDashboardView.m */,
+				8377DB281996264200D650E2 /* BLFieldEditor.h */,
+				8377DB291996264200D650E2 /* BLFieldEditor.m */,
+				8308B475197EB94A005460BB /* BLMainWindowController.h */,
+				8308B476197EB94A005460BB /* BLMainWindowController.m */,
+				8308B44D197E73A8005460BB /* main.m */,
+				8308B448197E73A8005460BB /* Supporting Files */,
+			);
+			path = BezierLab;
+			sourceTree = "<group>";
+		};
+		8308B448197E73A8005460BB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8308B449197E73A8005460BB /* BezierLab-Info.plist */,
+				83B7BDD7199510E200B0B689 /* BLDefaults.plist */,
+				8308B44A197E73A8005460BB /* InfoPlist.strings */,
+				8308B44F197E73A8005460BB /* BezierLab-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8308B465197E73A8005460BB /* BezierLabTests */ = {
+			isa = PBXGroup;
+			children = (
+				8308B46B197E73A8005460BB /* BezierLabTests.m */,
+				8308B466197E73A8005460BB /* Supporting Files */,
+			);
+			path = BezierLabTests;
+			sourceTree = "<group>";
+		};
+		8308B466197E73A8005460BB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8308B467197E73A8005460BB /* BezierLabTests-Info.plist */,
+				8308B468197E73A8005460BB /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		83F49755197EBB06008CEAD4 /* User Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				8308B456197E73A8005460BB /* BLMainMenu.xib */,
+				83F49753197EBA3D008CEAD4 /* BLMainWindow.xib */,
+			);
+			name = "User Interfaces";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -113,7 +189,6 @@
 				8308B43A197E73A8005460BB /* Sources */,
 				8308B43B197E73A8005460BB /* Frameworks */,
 				8308B43C197E73A8005460BB /* Resources */,
-				83A9282C19926256006C86E0 /* Copy Bundle Frameworks */,
 			);
 			buildRules = (
 			);
@@ -181,6 +256,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8308B44C197E73A8005460BB /* InfoPlist.strings in Resources */,
+				83F49754197EBA3D008CEAD4 /* BLMainWindow.xib in Resources */,
+				8308B458197E73A8005460BB /* BLMainMenu.xib in Resources */,
+				83B7BDD8199510E200B0B689 /* BLDefaults.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,6 +267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8308B46A197E73A8005460BB /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +278,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8308B455197E73A8005460BB /* BLAppDelegate.m in Sources */,
+				8377DB2A1996264200D650E2 /* BLFieldEditor.m in Sources */,
+				8308B477197EB94A005460BB /* BLMainWindowController.m in Sources */,
+				8322CB37198BCC67003A2B67 /* BLDashboardView.m in Sources */,
+				8308B44E197E73A8005460BB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8308B46C197E73A8005460BB /* BezierLabTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +303,34 @@
 			targetProxy = 8308B463197E73A8005460BB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8308B44A197E73A8005460BB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8308B44B197E73A8005460BB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8308B456197E73A8005460BB /* BLMainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8308B457197E73A8005460BB /* Base */,
+			);
+			name = BLMainMenu.xib;
+			path = BezierLab;
+			sourceTree = "<group>";
+		};
+		8308B468197E73A8005460BB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8308B469197E73A8005460BB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		8308B46D197E73A8005460BB /* Debug */ = {
@@ -295,13 +409,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/EsquireTongG,
-					"/Users/EsquireTongG/XcodeProjects/Execution/BGHUDAppKit-ffdzzteoqqwoazhapanzfzpmxqzs/Build/Products/Release",
-					"/Users/EsquireTongG/XcodeProjects/Execution/chromium-tabs-gzpjirgcdsaihmbxveyurmjnfigi/Build/Products/Release",
-					"/Users/EsquireTongG/XcodeProjects/Execution/ShortcutRecorder-aebskshkfvjlkzcyhpdlxflobonx/Build/Products/Release",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BezierLab/BezierLab-Prefix.pch";
 				INFOPLIST_FILE = "BezierLab/BezierLab-Info.plist";
@@ -316,13 +423,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/EsquireTongG,
-					"/Users/EsquireTongG/XcodeProjects/Execution/BGHUDAppKit-ffdzzteoqqwoazhapanzfzpmxqzs/Build/Products/Release",
-					"/Users/EsquireTongG/XcodeProjects/Execution/chromium-tabs-gzpjirgcdsaihmbxveyurmjnfigi/Build/Products/Release",
-					"/Users/EsquireTongG/XcodeProjects/Execution/ShortcutRecorder-aebskshkfvjlkzcyhpdlxflobonx/Build/Products/Release",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BezierLab/BezierLab-Prefix.pch";
 				INFOPLIST_FILE = "BezierLab/BezierLab-Info.plist";
