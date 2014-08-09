@@ -38,6 +38,8 @@
 // BLMainWindowController class
 @interface BLMainWindowController : NSWindowController <NSWindowDelegate>
 
+@property ( assign ) IBOutlet NSPopUpButton* _languagesPopUpButton;
+
 + ( id ) mainWindowController;
 
 @end // BLMainWindowController
