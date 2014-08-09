@@ -293,6 +293,7 @@
                             <outlet property="_lineWidthSlider" destination="F5h-c8-Bo7" id="ZSq-d0-cMx"/>
                             <outlet property="_pathTypeMatrix" destination="Yue-nj-bBp" id="89O-Hw-vxA"/>
                             <outlet property="_zoomSlider" destination="vJo-qu-8de" id="rJa-x6-Zis"/>
+                            <outlet property="menu" destination="SVJ-NB-WTT" id="LuI-my-PUX"/>
                         </connections>
                     </customView>
                     <searchField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iR9-kc-Hhz">
@@ -328,25 +329,69 @@
                             <action selector="changedLanguage:" target="-2" id="WMU-eh-27G"/>
                         </connections>
                     </popUpButton>
-                    <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E9c-Eg-RCD">
-                        <rect key="frame" x="353" y="11" width="104" height="20"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <segmentedCell key="cell" alignment="left" style="roundRect" trackingMode="selectOne" id="RUM-mg-dbm">
-                            <font key="font" metaFont="cellTitle"/>
-                            <segments>
-                                <segment width="32"/>
-                                <segment width="32" selected="YES" tag="1"/>
-                                <segment width="32">
-                                    <nil key="label"/>
-                                </segment>
-                            </segments>
-                        </segmentedCell>
-                    </segmentedControl>
                 </subviews>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="csU-Do-ODu"/>
             </connections>
         </window>
+        <menu id="SVJ-NB-WTT" customClass="BLContextualMenu">
+            <items>
+                <menuItem title="Square" id="sXU-1Z-e4C">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Circle" tag="1" id="Apz-VQ-1HD">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Arc" tag="2" id="YD4-HL-9U9">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Line" tag="3" id="sZ5-IW-g1r">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="Q6s-EX-g8n"/>
+                <menuItem title="Filled" id="SHr-Do-hPh">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="HJu-l5-3HQ"/>
+                <menuItem title="Butt Line" id="q1K-7n-heX">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Round Line" tag="1" id="khJ-ID-bo9">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Square Line" tag="2" id="J9P-Gq-Spm">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="Ybb-b9-V0U"/>
+                <menuItem title="Solid" id="lfj-wr-bMe">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="5-5" tag="1" id="vDa-Rn-Nmd">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="8-3-8" tag="2" id="djj-rY-flp">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="9-6-3" tag="3" id="rBM-6Z-40C">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+            </items>
+            <connections>
+                <outlet property="_5_5MenuItem" destination="vDa-Rn-Nmd" id="JQn-Co-KC8"/>
+                <outlet property="_8_3_8MenuItem" destination="djj-rY-flp" id="LrV-ff-CQd"/>
+                <outlet property="_9_6_3MenuItem" destination="rBM-6Z-40C" id="HSg-hh-Zgh"/>
+                <outlet property="_arcMenuItem" destination="YD4-HL-9U9" id="yq9-gn-VWg"/>
+                <outlet property="_buttLineMenuItem" destination="q1K-7n-heX" id="Fbk-Kx-e5y"/>
+                <outlet property="_circleMenuItem" destination="Apz-VQ-1HD" id="DSB-wD-0t9"/>
+                <outlet property="_filledMenuItem" destination="SHr-Do-hPh" id="ecY-Yz-33H"/>
+                <outlet property="_lineMenuItem" destination="sZ5-IW-g1r" id="9TW-zz-zeG"/>
+                <outlet property="_roundLineMenuItem" destination="khJ-ID-bo9" id="CJ4-KP-9VI"/>
+                <outlet property="_solidMenuItem" destination="lfj-wr-bMe" id="YP6-T1-a7a"/>
+                <outlet property="_squareLineMenuItem" destination="J9P-Gq-Spm" id="jvd-wa-ipB"/>
+                <outlet property="_squareMenuItem" destination="sXU-1Z-e4C" id="Oum-6D-8uw"/>
+                <outlet property="delegate" destination="s1J-zN-wbT" id="baS-xW-AyE"/>
+            </connections>
+        </menu>
     </objects>
 </document>
