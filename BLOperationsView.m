@@ -35,17 +35,7 @@
 
 // BLOperationsView class
 @implementation BLOperationsView
-
-- ( void ) viewWillMoveToWindow: ( NSWindow* )_Window
-    {
-    NSLog( @"The view will be moved to %@", _Window );
-    }
-
-- ( void ) viewDidMoveToWindow
-    {
-    NSLog( @"View Did Move To Window" );
-    }
-
+// TODO:
 @end // BLOperationsView class
 
 /////////////////////////////////////////////////////////////////////////////
