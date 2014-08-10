@@ -14,6 +14,7 @@
         <customObject id="Voe-Tx-rLC" customClass="BLAppDelegate">
             <connections>
                 <outlet property="_getKeyEquivalentMenuItem" destination="LNt-QP-2cz" id="SmZ-UY-Gjx"/>
+                <outlet property="_operationsMenu" destination="fdo-yO-DIp" id="zbI-hc-BO5"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
@@ -672,6 +673,7 @@
                                 <modifierMask key="keyEquivalentModifierMask" option="YES"/>
                                 <connections>
                                     <action selector="keyEquivalent:" target="-1" id="zfv-Cp-fRY"/>
+                                    <outlet property="view" destination="fdo-yO-DIp" id="xBz-SA-yIW"/>
                                 </connections>
                             </menuItem>
                         </items>
@@ -716,5 +718,67 @@
                 </menuItem>
             </items>
         </menu>
+        <customView horizontalHuggingPriority="251" id="fdo-yO-DIp">
+            <rect key="frame" x="0.0" y="0.0" width="207" height="58"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qfX-0W-IdV">
+                    <rect key="frame" x="19" y="41" width="86" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Operations..." id="Eji-yP-5wp">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7a7-E5-U1H">
+                    <rect key="frame" x="14" y="-2" width="39" height="38"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="round" bezelStyle="circular" image="NSQuickLookTemplate" imagePosition="overlaps" alignment="left" borderStyle="border" imageScaling="proportionallyDown" id="khV-vS-K8j">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="label"/>
+                    </buttonCell>
+                </button>
+                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K91-Pv-txS">
+                    <rect key="frame" x="48" y="-2" width="39" height="38"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="round" bezelStyle="circular" image="NSRefreshFreestandingTemplate" imagePosition="overlaps" alignment="left" borderStyle="border" imageScaling="proportionallyDown" id="n7O-hK-qCb">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="label"/>
+                    </buttonCell>
+                </button>
+                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eGa-NV-g9v">
+                    <rect key="frame" x="82" y="-2" width="39" height="38"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="round" bezelStyle="circular" image="NSRevealFreestandingTemplate" imagePosition="overlaps" alignment="left" borderStyle="border" imageScaling="proportionallyDown" id="KvJ-vB-yEc">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="label"/>
+                    </buttonCell>
+                </button>
+                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Vm-ch-UIh">
+                    <rect key="frame" x="116" y="-2" width="39" height="38"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="round" bezelStyle="circular" image="NSSmartBadgeTemplate" imagePosition="overlaps" alignment="left" borderStyle="border" imageScaling="proportionallyDown" id="3QW-7o-yWb">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="label"/>
+                    </buttonCell>
+                </button>
+                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J0Y-TK-psz">
+                    <rect key="frame" x="150" y="-2" width="39" height="38"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="round" bezelStyle="circular" image="NSStopProgressFreestandingTemplate" imagePosition="overlaps" alignment="left" borderStyle="border" imageScaling="proportionallyDown" id="tc8-ag-Yd3">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="label"/>
+                    </buttonCell>
+                </button>
+            </subviews>
+        </customView>
     </objects>
+    <resources>
+        <image name="NSQuickLookTemplate" width="21" height="16"/>
+        <image name="NSRefreshFreestandingTemplate" width="14" height="14"/>
+        <image name="NSRevealFreestandingTemplate" width="14" height="14"/>
+        <image name="NSSmartBadgeTemplate" width="14" height="14"/>
+        <image name="NSStopProgressFreestandingTemplate" width="83" height="83"/>
+    </resources>
 </document>

@@ -42,6 +42,8 @@
 
 @property ( assign ) IBOutlet NSMenuItem* _getKeyEquivalentMenuItem;
 
+@property ( assign ) IBOutlet NSView* _operationsMenu;
+
 @end // BLAppDelegate
 
 /////////////////////////////////////////////////////////////////////////////

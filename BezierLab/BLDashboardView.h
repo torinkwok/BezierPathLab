@@ -99,6 +99,8 @@ NSString extern* const BLUserDefaultsKeyKeyEquivalentModifier;
 @property ( retain ) NSColor* _fillColor;
 @property ( retain ) NSColor* _backgroundColor;
 
+@property ( assign ) IBOutlet NSMenu* _contextualMenu;
+
 #pragma mark IBActions
 - ( IBAction ) changedPathType: ( id )_Sender;
 - ( IBAction ) changedLineCapStyle: ( id )_Sender;

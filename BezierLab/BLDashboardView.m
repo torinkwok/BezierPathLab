@@ -97,6 +97,8 @@ NSString* const BLUserDefaultsKeyKeyEquivalentModifier = @"BLUserDefaultsKeyKeyE
 @synthesize _fillColor;
 @synthesize _backgroundColor;
 
+@synthesize _contextualMenu;
+
 - ( void ) menuWillOpen: ( NSMenu* )_Menu
     {
     __CAVEMEN_DEBUGGING__PRINT_WHICH_METHOD_INVOKED__;
@@ -324,6 +326,10 @@ NSString* const BLUserDefaultsKeyKeyEquivalentModifier = @"BLUserDefaultsKeyKeyE
 
         _lastDraggedLocation = clickLocation;
         }
+    else
+        [ NSMenu popUpContextMenu: self._contextualMenu
+                        withEvent: _Event
+                          forView: self ];
     }
 
 - ( void ) mouseDragged: ( NSEvent* )_Event
