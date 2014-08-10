@@ -36,11 +36,9 @@
 @class BLMainWindowController;
 
 // BLAppDelegate class
-@interface BLAppDelegate : NSObject <NSApplicationDelegate>
+@interface BLAppDelegate : NSObject <NSApplicationDelegate, NSMenuDelegate>
 
 @property ( retain ) BLMainWindowController* _mainWindowController;
-
-@property ( assign ) IBOutlet NSMenuItem* _getKeyEquivalentMenuItem;
 
 @property ( assign ) IBOutlet NSView* _operationsMenu;
 

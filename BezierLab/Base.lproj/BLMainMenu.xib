@@ -13,7 +13,6 @@
         <customObject id="-3" userLabel="Application"/>
         <customObject id="Voe-Tx-rLC" customClass="BLAppDelegate">
             <connections>
-                <outlet property="_getKeyEquivalentMenuItem" destination="LNt-QP-2cz" id="SmZ-UY-Gjx"/>
                 <outlet property="_operationsMenu" destination="fdo-yO-DIp" id="zbI-hc-BO5"/>
             </connections>
         </customObject>
@@ -656,27 +655,10 @@
                                     <action selector="moveRight:" target="-1" id="fVo-RB-Ys8"/>
                                 </connections>
                             </menuItem>
-                            <menuItem isSeparatorItem="YES" id="OAQ-JJ-mrG"/>
-                            <menuItem title="Disable Auto Enabling Items" id="woy-nm-AMi">
-                                <modifierMask key="keyEquivalentModifierMask" option="YES"/>
-                                <connections>
-                                    <action selector="disableAutoenablesItems:" target="-1" id="PPK-LB-kmq"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Remove Current Menu" id="xpe-d4-MFc">
-                                <modifierMask key="keyEquivalentModifierMask" option="YES"/>
-                                <connections>
-                                    <action selector="removeCurrentMenu:" target="-1" id="FkR-d8-Byy"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Get Key Equivalent" id="LNt-QP-2cz">
-                                <modifierMask key="keyEquivalentModifierMask" option="YES"/>
-                                <connections>
-                                    <action selector="keyEquivalent:" target="-1" id="zfv-Cp-fRY"/>
-                                    <outlet property="view" destination="fdo-yO-DIp" id="xBz-SA-yIW"/>
-                                </connections>
-                            </menuItem>
                         </items>
+                        <connections>
+                            <outlet property="delegate" destination="Voe-Tx-rLC" id="LKQ-bT-pKQ"/>
+                        </connections>
                     </menu>
                 </menuItem>
                 <menuItem title="Window" id="aUF-d1-5bR">
@@ -718,7 +700,7 @@
                 </menuItem>
             </items>
         </menu>
-        <customView horizontalHuggingPriority="251" id="fdo-yO-DIp">
+        <customView horizontalHuggingPriority="251" id="fdo-yO-DIp" customClass="BLOperationsView">
             <rect key="frame" x="0.0" y="0.0" width="207" height="58"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>

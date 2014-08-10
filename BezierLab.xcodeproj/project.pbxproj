@@ -23,6 +23,7 @@
 		8377DB2A1996264200D650E2 /* BLFieldEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8377DB291996264200D650E2 /* BLFieldEditor.m */; };
 		8377DB3219966A6600D650E2 /* BLContextualMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 8377DB3119966A6600D650E2 /* BLContextualMenu.m */; };
 		83B7BDD8199510E200B0B689 /* BLDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83B7BDD7199510E200B0B689 /* BLDefaults.plist */; };
+		83C6A23919975B9F00A484D3 /* BLOperationsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C6A23819975B9F00A484D3 /* BLOperationsView.m */; };
 		83F49754197EBA3D008CEAD4 /* BLMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F49753197EBA3D008CEAD4 /* BLMainWindow.xib */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,8 @@
 		8377DB3019966A6600D650E2 /* BLContextualMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLContextualMenu.h; path = ../BLContextualMenu.h; sourceTree = "<group>"; };
 		8377DB3119966A6600D650E2 /* BLContextualMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLContextualMenu.m; path = ../BLContextualMenu.m; sourceTree = "<group>"; };
 		83B7BDD7199510E200B0B689 /* BLDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BLDefaults.plist; sourceTree = "<group>"; };
+		83C6A23719975B9F00A484D3 /* BLOperationsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLOperationsView.h; path = ../BLOperationsView.h; sourceTree = "<group>"; };
+		83C6A23819975B9F00A484D3 /* BLOperationsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLOperationsView.m; path = ../BLOperationsView.m; sourceTree = "<group>"; };
 		83F49753197EBA3D008CEAD4 /* BLMainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BLMainWindow.xib; path = BezierLab/BLMainWindow.xib; sourceTree = "<group>"; };
 		83F49756197EBB31008CEAD4 /* BLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLCommon.h; path = BezierLab/BLCommon.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,6 +141,8 @@
 				8308B454197E73A8005460BB /* BLAppDelegate.m */,
 				8322CB35198BCC67003A2B67 /* BLDashboardView.h */,
 				8322CB36198BCC67003A2B67 /* BLDashboardView.m */,
+				83C6A23719975B9F00A484D3 /* BLOperationsView.h */,
+				83C6A23819975B9F00A484D3 /* BLOperationsView.m */,
 				8377DB281996264200D650E2 /* BLFieldEditor.h */,
 				8377DB291996264200D650E2 /* BLFieldEditor.m */,
 				8377DB3019966A6600D650E2 /* BLContextualMenu.h */,
@@ -295,6 +300,7 @@
 				8377DB2A1996264200D650E2 /* BLFieldEditor.m in Sources */,
 				8308B477197EB94A005460BB /* BLMainWindowController.m in Sources */,
 				8322CB37198BCC67003A2B67 /* BLDashboardView.m in Sources */,
+				83C6A23919975B9F00A484D3 /* BLOperationsView.m in Sources */,
 				8308B44E197E73A8005460BB /* main.m in Sources */,
 				8377DB3219966A6600D650E2 /* BLContextualMenu.m in Sources */,
 			);
