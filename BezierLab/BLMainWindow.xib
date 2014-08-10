@@ -285,6 +285,7 @@
                         <connections>
                             <outlet property="_angleSlider" destination="YjJ-21-JnJ" id="cn5-Vb-Rrw"/>
                             <outlet property="_backgroundColorWell" destination="CdK-ZZ-rrW" id="0WP-ld-saJ"/>
+                            <outlet property="_contextualMenu" destination="SVJ-NB-WTT" id="3ir-l5-00r"/>
                             <outlet property="_dashTypeMatrix" destination="Xde-1b-msE" id="c3G-Nv-Y44"/>
                             <outlet property="_fillColorWell" destination="19n-38-voz" id="3Lw-Uf-3hi"/>
                             <outlet property="_isFilledButton" destination="Snu-h0-JU1" id="TOJ-2F-pJn"/>
@@ -293,6 +294,7 @@
                             <outlet property="_lineWidthSlider" destination="F5h-c8-Bo7" id="ZSq-d0-cMx"/>
                             <outlet property="_pathTypeMatrix" destination="Yue-nj-bBp" id="89O-Hw-vxA"/>
                             <outlet property="_zoomSlider" destination="vJo-qu-8de" id="rJa-x6-Zis"/>
+                            <outlet property="menu" destination="SVJ-NB-WTT" id="LuI-my-PUX"/>
                         </connections>
                     </customView>
                     <searchField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iR9-kc-Hhz">
@@ -328,25 +330,138 @@
                             <action selector="changedLanguage:" target="-2" id="WMU-eh-27G"/>
                         </connections>
                     </popUpButton>
-                    <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E9c-Eg-RCD">
-                        <rect key="frame" x="353" y="11" width="104" height="20"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <segmentedCell key="cell" alignment="left" style="roundRect" trackingMode="selectOne" id="RUM-mg-dbm">
-                            <font key="font" metaFont="cellTitle"/>
-                            <segments>
-                                <segment width="32"/>
-                                <segment width="32" selected="YES" tag="1"/>
-                                <segment width="32">
-                                    <nil key="label"/>
-                                </segment>
-                            </segments>
-                        </segmentedCell>
-                    </segmentedControl>
                 </subviews>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="csU-Do-ODu"/>
             </connections>
         </window>
+        <menu id="SVJ-NB-WTT" customClass="BLContextualMenu">
+            <items>
+                <menuItem title="Square" id="sXU-1Z-e4C">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Circle" tag="1" id="Apz-VQ-1HD">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Arc" tag="2" id="YD4-HL-9U9">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Line" tag="3" id="sZ5-IW-g1r">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="Q6s-EX-g8n"/>
+                <menuItem title="Filled" id="SHr-Do-hPh">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="e99-zZ-Pnj"/>
+                <menuItem title="Operations..." keyEquivalent="O" id="Hwk-vB-yGX">
+                    <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                    <connections>
+                        <outlet property="view" destination="oAJ-DD-oRc" id="V5Z-ea-oRF"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="HJu-l5-3HQ"/>
+                <menuItem title="Butt Line" id="q1K-7n-heX">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Round Line" tag="1" id="khJ-ID-bo9">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Square Line" tag="2" id="J9P-Gq-Spm">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="Ybb-b9-V0U"/>
+                <menuItem title="Solid" id="lfj-wr-bMe">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="5-5" tag="1" id="vDa-Rn-Nmd">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="8-3-8" tag="2" id="djj-rY-flp">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="9-6-3" tag="3" id="rBM-6Z-40C">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+            </items>
+            <connections>
+                <outlet property="_5_5MenuItem" destination="vDa-Rn-Nmd" id="JQn-Co-KC8"/>
+                <outlet property="_8_3_8MenuItem" destination="djj-rY-flp" id="LrV-ff-CQd"/>
+                <outlet property="_9_6_3MenuItem" destination="rBM-6Z-40C" id="HSg-hh-Zgh"/>
+                <outlet property="_arcMenuItem" destination="YD4-HL-9U9" id="yq9-gn-VWg"/>
+                <outlet property="_buttLineMenuItem" destination="q1K-7n-heX" id="Fbk-Kx-e5y"/>
+                <outlet property="_circleMenuItem" destination="Apz-VQ-1HD" id="DSB-wD-0t9"/>
+                <outlet property="_filledMenuItem" destination="SHr-Do-hPh" id="ecY-Yz-33H"/>
+                <outlet property="_lineMenuItem" destination="sZ5-IW-g1r" id="9TW-zz-zeG"/>
+                <outlet property="_roundLineMenuItem" destination="khJ-ID-bo9" id="CJ4-KP-9VI"/>
+                <outlet property="_solidMenuItem" destination="lfj-wr-bMe" id="YP6-T1-a7a"/>
+                <outlet property="_squareLineMenuItem" destination="J9P-Gq-Spm" id="jvd-wa-ipB"/>
+                <outlet property="_squareMenuItem" destination="sXU-1Z-e4C" id="Oum-6D-8uw"/>
+                <outlet property="delegate" destination="s1J-zN-wbT" id="baS-xW-AyE"/>
+            </connections>
+        </menu>
+        <customView horizontalHuggingPriority="251" id="oAJ-DD-oRc">
+            <rect key="frame" x="0.0" y="0.0" width="207" height="58"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="47G-3T-aNe">
+                    <rect key="frame" x="19" y="41" width="86" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Operations..." id="r40-UL-o4c">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DCn-jT-5aC">
+                    <rect key="frame" x="14" y="-2" width="39" height="38"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="round" bezelStyle="circular" image="NSQuickLookTemplate" imagePosition="overlaps" alignment="left" borderStyle="border" imageScaling="proportionallyDown" id="rRL-Dg-IB1">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="label"/>
+                    </buttonCell>
+                </button>
+                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Shi-n4-MUF">
+                    <rect key="frame" x="48" y="-2" width="39" height="38"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="round" bezelStyle="circular" image="NSRefreshFreestandingTemplate" imagePosition="overlaps" alignment="left" borderStyle="border" imageScaling="proportionallyDown" id="zoI-13-gbg">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="label"/>
+                    </buttonCell>
+                </button>
+                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LgV-le-NIW">
+                    <rect key="frame" x="82" y="-2" width="39" height="38"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="round" bezelStyle="circular" image="NSRevealFreestandingTemplate" imagePosition="overlaps" alignment="left" borderStyle="border" imageScaling="proportionallyDown" id="EcH-O2-sdn">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="label"/>
+                    </buttonCell>
+                </button>
+                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0hT-FS-497">
+                    <rect key="frame" x="116" y="-2" width="39" height="38"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="round" bezelStyle="circular" image="NSSmartBadgeTemplate" imagePosition="overlaps" alignment="left" borderStyle="border" imageScaling="proportionallyDown" id="VJV-YA-9wB">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="label"/>
+                    </buttonCell>
+                </button>
+                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X5b-4j-kj0">
+                    <rect key="frame" x="150" y="-2" width="39" height="38"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="round" bezelStyle="circular" image="NSStopProgressFreestandingTemplate" imagePosition="overlaps" alignment="left" borderStyle="border" imageScaling="proportionallyDown" id="ZsW-iL-tIS">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="label"/>
+                    </buttonCell>
+                </button>
+            </subviews>
+        </customView>
     </objects>
+    <resources>
+        <image name="NSQuickLookTemplate" width="21" height="16"/>
+        <image name="NSRefreshFreestandingTemplate" width="14" height="14"/>
+        <image name="NSRevealFreestandingTemplate" width="14" height="14"/>
+        <image name="NSSmartBadgeTemplate" width="14" height="14"/>
+        <image name="NSStopProgressFreestandingTemplate" width="83" height="83"/>
+    </resources>
 </document>

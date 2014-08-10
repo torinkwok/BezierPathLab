@@ -18,6 +18,7 @@
 		8308B477197EB94A005460BB /* BLMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308B476197EB94A005460BB /* BLMainWindowController.m */; };
 		8322CB37198BCC67003A2B67 /* BLDashboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8322CB36198BCC67003A2B67 /* BLDashboardView.m */; };
 		8377DB2A1996264200D650E2 /* BLFieldEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8377DB291996264200D650E2 /* BLFieldEditor.m */; };
+		8377DB3219966A6600D650E2 /* BLContextualMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 8377DB3119966A6600D650E2 /* BLContextualMenu.m */; };
 		83B7BDD8199510E200B0B689 /* BLDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83B7BDD7199510E200B0B689 /* BLDefaults.plist */; };
 		83F49754197EBA3D008CEAD4 /* BLMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F49753197EBA3D008CEAD4 /* BLMainWindow.xib */; };
 /* End PBXBuildFile section */
@@ -131,6 +132,8 @@
 				8322CB36198BCC67003A2B67 /* BLDashboardView.m */,
 				8377DB281996264200D650E2 /* BLFieldEditor.h */,
 				8377DB291996264200D650E2 /* BLFieldEditor.m */,
+				8377DB3019966A6600D650E2 /* BLContextualMenu.h */,
+				8377DB3119966A6600D650E2 /* BLContextualMenu.m */,
 				8308B475197EB94A005460BB /* BLMainWindowController.h */,
 				8308B476197EB94A005460BB /* BLMainWindowController.m */,
 				8308B44D197E73A8005460BB /* main.m */,
@@ -279,6 +282,7 @@
 				8308B477197EB94A005460BB /* BLMainWindowController.m in Sources */,
 				8322CB37198BCC67003A2B67 /* BLDashboardView.m in Sources */,
 				8308B44E197E73A8005460BB /* main.m in Sources */,
+				8377DB3219966A6600D650E2 /* BLContextualMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

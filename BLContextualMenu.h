@@ -31,20 +31,27 @@
  **                                                                         **
  ****************************************************************************/
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 
-@class BLMainWindowController;
+@interface BLContextualMenu : NSMenu
 
-// BLAppDelegate class
-@interface BLAppDelegate : NSObject <NSApplicationDelegate>
+@property ( assign ) IBOutlet NSMenuItem* _squareMenuItem;
+@property ( assign ) IBOutlet NSMenuItem* _circleMenuItem;
+@property ( assign ) IBOutlet NSMenuItem* _arcMenuItem;
+@property ( assign ) IBOutlet NSMenuItem* _lineMenuItem;
 
-@property ( retain ) BLMainWindowController* _mainWindowController;
+@property ( assign ) IBOutlet NSMenuItem* _filledMenuItem;
 
-@property ( assign ) IBOutlet NSMenuItem* _getKeyEquivalentMenuItem;
+@property ( assign ) IBOutlet NSMenuItem* _buttLineMenuItem;
+@property ( assign ) IBOutlet NSMenuItem* _roundLineMenuItem;
+@property ( assign ) IBOutlet NSMenuItem* _squareLineMenuItem;
 
-@property ( assign ) IBOutlet NSView* _operationsMenu;
+@property ( assign ) IBOutlet NSMenuItem* _solidMenuItem;
+@property ( assign ) IBOutlet NSMenuItem* _5_5MenuItem;
+@property ( assign ) IBOutlet NSMenuItem* _8_3_8MenuItem;
+@property ( assign ) IBOutlet NSMenuItem* _9_6_3MenuItem;
 
-@end // BLAppDelegate
+@end
 
 /////////////////////////////////////////////////////////////////////////////
 

@@ -31,20 +31,34 @@
  **                                                                         **
  ****************************************************************************/
 
-#import <Cocoa/Cocoa.h>
+#import "BLContextualMenu.h"
+#import "BLDashboardView.h"
 
-@class BLMainWindowController;
+@implementation BLContextualMenu
 
-// BLAppDelegate class
-@interface BLAppDelegate : NSObject <NSApplicationDelegate>
+@synthesize _squareMenuItem;
+@synthesize _circleMenuItem;
+@synthesize _arcMenuItem;
+@synthesize _lineMenuItem;
 
-@property ( retain ) BLMainWindowController* _mainWindowController;
+@synthesize _filledMenuItem;
 
-@property ( assign ) IBOutlet NSMenuItem* _getKeyEquivalentMenuItem;
+@synthesize _buttLineMenuItem;
+@synthesize _roundLineMenuItem;
+@synthesize _squareLineMenuItem;
 
-@property ( assign ) IBOutlet NSView* _operationsMenu;
+@synthesize _solidMenuItem;
+@synthesize _5_5MenuItem;
+@synthesize _8_3_8MenuItem;
+@synthesize _9_6_3MenuItem;
 
-@end // BLAppDelegate
+#pragma mark Conforms <NSNibAwaking> protocol
+- ( void ) awakeFromNib
+    {
+    [ self._filledMenuItem setState: [ USER_DEFAULTS boolForKey: BLUserDefaultsKeyIsFilled ] ];
+    }
+
+@end
 
 /////////////////////////////////////////////////////////////////////////////
 

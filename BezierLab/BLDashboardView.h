@@ -61,7 +61,7 @@ NSString extern* const BLUserDefaultsKeyKeyEquivalent;
 NSString extern* const BLUserDefaultsKeyKeyEquivalentModifier;
 
 // BLDashboardView class
-@interface BLDashboardView : NSView <NSUserInterfaceValidations>
+@interface BLDashboardView : NSView <NSUserInterfaceValidations, NSMenuDelegate>
     {
     NSInteger _dashCount;
     CGFloat _dashArray[ 3 ];
@@ -98,6 +98,8 @@ NSString extern* const BLUserDefaultsKeyKeyEquivalentModifier;
 @property ( retain ) NSColor* _lineColor;
 @property ( retain ) NSColor* _fillColor;
 @property ( retain ) NSColor* _backgroundColor;
+
+@property ( assign ) IBOutlet NSMenu* _contextualMenu;
 
 #pragma mark IBActions
 - ( IBAction ) changedPathType: ( id )_Sender;

@@ -44,6 +44,8 @@
 @synthesize _mainWindowController;
 @synthesize _getKeyEquivalentMenuItem;
 
+@synthesize _operationsMenu;
+
 #pragma mark -
 #pragma mark Conforms <NSNibLoading> protocol
 - ( void ) awakeFromNib
@@ -55,6 +57,26 @@
     [ self._mainWindowController showWindow: self ];
     [ self._getKeyEquivalentMenuItem setKeyEquivalent: [ USER_DEFAULTS stringForKey: BLUserDefaultsKeyKeyEquivalent ] ];
     [ self._getKeyEquivalentMenuItem setKeyEquivalentModifierMask: ( NSUInteger )[ USER_DEFAULTS integerForKey: BLUserDefaultsKeyKeyEquivalentModifier ] ];
+
+    NSMenuItem* viewMenuItemInMainMenuBar = [ [ NSApp mainMenu ] itemWithTitle: NSLocalizedString( @"View", nil ) ];
+    NSMenu* viewMenu = [ viewMenuItemInMainMenuBar submenu ];
+
+    [ viewMenu addItem: [ NSMenuItem separatorItem ] ];
+
+    NSMenuItem* operationsMenuItem = [ [ [ NSMenuItem alloc ] initWithTitle: NSLocalizedString( @"Operations...", nil ) action: @selector( customTwoAction: ) keyEquivalent: @"" ] autorelease ];
+    [ operationsMenuItem setView: self._operationsMenu ];
+    [ operationsMenuItem setTarget: self ];
+    [ viewMenu addItem: operationsMenuItem ];
+    }
+
+- ( IBAction ) customOneAction: ( id )_Sender
+    {
+    __CAVEMEN_DEBUGGING__PRINT_WHICH_METHOD_INVOKED__;
+    }
+
+- ( IBAction ) customTwoAction: ( id )_Sender
+    {
+    __CAVEMEN_DEBUGGING__PRINT_WHICH_METHOD_INVOKED__;
     }
 
 - ( void ) dealloc
@@ -97,7 +119,6 @@
 
 - ( IBAction ) keyEquivalent: ( id )_Sender
     {
-    NSLog( @"%@", [ _getKeyEquivalentMenuItem keyEquivalent ] );
     [ USER_DEFAULTS setInteger: NSCommandKeyMask | NSShiftKeyMask forKey: BLUserDefaultsKeyKeyEquivalentModifier ];
     }
 
