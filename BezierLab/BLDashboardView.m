@@ -99,16 +99,6 @@ NSString* const BLUserDefaultsKeyKeyEquivalentModifier = @"BLUserDefaultsKeyKeyE
 
 @synthesize _contextualMenu;
 
-- ( void ) menuWillOpen: ( NSMenu* )_Menu
-    {
-    __CAVEMEN_DEBUGGING__PRINT_WHICH_METHOD_INVOKED__;
-    }
-
-- ( void ) menuDidClose: ( NSMenu* )_Menu
-    {
-    __CAVEMEN_DEBUGGING__PRINT_WHICH_METHOD_INVOKED__;
-    }
-
 - ( void ) appWillBeTerminated: ( NSNotification* )_Notif
     {
     [ USER_DEFAULTS setObject: @[ [ NSNumber numberWithDouble: _currentLocation.x ]
@@ -365,19 +355,6 @@ NSString* const BLUserDefaultsKeyKeyEquivalentModifier = @"BLUserDefaultsKeyKeyE
         if ( !NSEqualPoints( _rectForCurrentBezierPath.origin, _initalOriginOfShapes ) )
             [ self offsetLocationByX: _initalOriginOfShapes.x - _rectForCurrentBezierPath.origin.x
                                  byY: _initalOriginOfShapes.y - _rectForCurrentBezierPath.origin.y ];
-
-        [ NSMenu popUpContextMenu: self.menu
-                        withEvent: [ NSEvent mouseEventWithType: NSLeftMouseDown
-                                                       location: _currentLocation
-                                                  modifierFlags: 0
-                                                      timestamp: 0.f
-                                                   windowNumber: [ self window ].windowNumber
-                                                        context: [ NSGraphicsContext currentContext ]
-                                                    eventNumber: 234
-                                                     clickCount: 1
-                                                       pressure: 1.f ]
-                          forView: self
-                             withFont: [ NSFont fontWithName: @"Courier New" size: 12 ] ];
         }
 
     if ( !isHandled )
