@@ -56,7 +56,9 @@
 		8322CB36198BCC67003A2B67 /* BLDashboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLDashboardView.m; sourceTree = "<group>"; };
 		8377DB281996264200D650E2 /* BLFieldEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLFieldEditor.h; sourceTree = "<group>"; };
 		8377DB291996264200D650E2 /* BLFieldEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLFieldEditor.m; sourceTree = "<group>"; };
-		8377DB2B19965E1300D650E2 /* BLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCommon.h; sourceTree = "<group>"; };
+		8377DB3019966A6600D650E2 /* BLContextualMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLContextualMenu.h; path = ../BLContextualMenu.h; sourceTree = "<group>"; };
+		8377DB3119966A6600D650E2 /* BLContextualMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLContextualMenu.m; path = ../BLContextualMenu.m; sourceTree = "<group>"; };
+		838A49AB1997500800A3AC4F /* BLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLCommon.h; path = BezierLab/BLCommon.h; sourceTree = "<group>"; };
 		83B7BDD7199510E200B0B689 /* BLDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BLDefaults.plist; sourceTree = "<group>"; };
 		83F49753197EBA3D008CEAD4 /* BLMainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BLMainWindow.xib; path = BezierLab/BLMainWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,7 +87,7 @@
 		8308B435197E73A8005460BB = {
 			isa = PBXGroup;
 			children = (
-				8377DB2B19965E1300D650E2 /* BLCommon.h */,
+				838A49AB1997500800A3AC4F /* BLCommon.h */,
 				8308B447197E73A8005460BB /* BezierLab */,
 				83F49755197EBB06008CEAD4 /* User Interfaces */,
 				8308B465197E73A8005460BB /* BezierLabTests */,
