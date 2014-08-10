@@ -14,13 +14,12 @@
 		8308B461197E73A8005460BB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8308B460197E73A8005460BB /* XCTest.framework */; };
 		8308B462197E73A8005460BB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8308B441197E73A8005460BB /* Cocoa.framework */; };
 		8308B46A197E73A8005460BB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8308B468197E73A8005460BB /* InfoPlist.strings */; };
-		8308B46C197E73A8005460BB /* BezierLabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308B46B197E73A8005460BB /* BezierLabTests.m */; };
 		8308B477197EB94A005460BB /* BLMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308B476197EB94A005460BB /* BLMainWindowController.m */; };
 		8322CB37198BCC67003A2B67 /* BLDashboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8322CB36198BCC67003A2B67 /* BLDashboardView.m */; };
 		8377DB2A1996264200D650E2 /* BLFieldEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8377DB291996264200D650E2 /* BLFieldEditor.m */; };
-		8377DB3219966A6600D650E2 /* BLContextualMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 8377DB3119966A6600D650E2 /* BLContextualMenu.m */; };
 		83B7BDD8199510E200B0B689 /* BLDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83B7BDD7199510E200B0B689 /* BLDefaults.plist */; };
-		83C6A23919975B9F00A484D3 /* BLOperationsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C6A23819975B9F00A484D3 /* BLOperationsView.m */; };
+		83C6A23E1997635400A484D3 /* BLOperationsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C6A23B1997635400A484D3 /* BLOperationsView.m */; };
+		83C6A23F1997635400A484D3 /* BLContextualMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C6A23D1997635400A484D3 /* BLContextualMenu.m */; };
 		83F49754197EBA3D008CEAD4 /* BLMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F49753197EBA3D008CEAD4 /* BLMainWindow.xib */; };
 /* End PBXBuildFile section */
 
@@ -50,19 +49,18 @@
 		8308B460197E73A8005460BB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		8308B467197E73A8005460BB /* BezierLabTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BezierLabTests-Info.plist"; sourceTree = "<group>"; };
 		8308B469197E73A8005460BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8308B46B197E73A8005460BB /* BezierLabTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BezierLabTests.m; sourceTree = "<group>"; };
 		8308B475197EB94A005460BB /* BLMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLMainWindowController.h; sourceTree = "<group>"; };
 		8308B476197EB94A005460BB /* BLMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLMainWindowController.m; sourceTree = "<group>"; };
 		8322CB35198BCC67003A2B67 /* BLDashboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLDashboardView.h; sourceTree = "<group>"; };
 		8322CB36198BCC67003A2B67 /* BLDashboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLDashboardView.m; sourceTree = "<group>"; };
 		8377DB281996264200D650E2 /* BLFieldEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLFieldEditor.h; sourceTree = "<group>"; };
 		8377DB291996264200D650E2 /* BLFieldEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLFieldEditor.m; sourceTree = "<group>"; };
-		8377DB3019966A6600D650E2 /* BLContextualMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLContextualMenu.h; path = ../BLContextualMenu.h; sourceTree = "<group>"; };
-		8377DB3119966A6600D650E2 /* BLContextualMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLContextualMenu.m; path = ../BLContextualMenu.m; sourceTree = "<group>"; };
 		838A49AB1997500800A3AC4F /* BLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLCommon.h; path = BezierLab/BLCommon.h; sourceTree = "<group>"; };
 		83B7BDD7199510E200B0B689 /* BLDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BLDefaults.plist; sourceTree = "<group>"; };
-		83C6A23719975B9F00A484D3 /* BLOperationsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLOperationsView.h; path = ../BLOperationsView.h; sourceTree = "<group>"; };
-		83C6A23819975B9F00A484D3 /* BLOperationsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLOperationsView.m; path = ../BLOperationsView.m; sourceTree = "<group>"; };
+		83C6A23A1997635400A484D3 /* BLOperationsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLOperationsView.h; sourceTree = "<group>"; };
+		83C6A23B1997635400A484D3 /* BLOperationsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLOperationsView.m; sourceTree = "<group>"; };
+		83C6A23C1997635400A484D3 /* BLContextualMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLContextualMenu.h; sourceTree = "<group>"; };
+		83C6A23D1997635400A484D3 /* BLContextualMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLContextualMenu.m; sourceTree = "<group>"; };
 		83F49753197EBA3D008CEAD4 /* BLMainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BLMainWindow.xib; path = BezierLab/BLMainWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,15 +133,15 @@
 				8308B454197E73A8005460BB /* BLAppDelegate.m */,
 				8322CB35198BCC67003A2B67 /* BLDashboardView.h */,
 				8322CB36198BCC67003A2B67 /* BLDashboardView.m */,
-				83C6A23719975B9F00A484D3 /* BLOperationsView.h */,
-				83C6A23819975B9F00A484D3 /* BLOperationsView.m */,
 				8377DB281996264200D650E2 /* BLFieldEditor.h */,
 				8377DB291996264200D650E2 /* BLFieldEditor.m */,
-				8377DB3019966A6600D650E2 /* BLContextualMenu.h */,
-				8377DB3119966A6600D650E2 /* BLContextualMenu.m */,
 				8308B475197EB94A005460BB /* BLMainWindowController.h */,
 				8308B476197EB94A005460BB /* BLMainWindowController.m */,
 				8308B44D197E73A8005460BB /* main.m */,
+				83C6A23A1997635400A484D3 /* BLOperationsView.h */,
+				83C6A23B1997635400A484D3 /* BLOperationsView.m */,
+				83C6A23C1997635400A484D3 /* BLContextualMenu.h */,
+				83C6A23D1997635400A484D3 /* BLContextualMenu.m */,
 				8308B448197E73A8005460BB /* Supporting Files */,
 			);
 			path = BezierLab;
@@ -162,7 +160,6 @@
 		8308B465197E73A8005460BB /* BezierLabTests */ = {
 			isa = PBXGroup;
 			children = (
-				8308B46B197E73A8005460BB /* BezierLabTests.m */,
 				8308B466197E73A8005460BB /* Supporting Files */,
 			);
 			path = BezierLabTests;
@@ -286,11 +283,11 @@
 			files = (
 				8308B455197E73A8005460BB /* BLAppDelegate.m in Sources */,
 				8377DB2A1996264200D650E2 /* BLFieldEditor.m in Sources */,
+				83C6A23E1997635400A484D3 /* BLOperationsView.m in Sources */,
 				8308B477197EB94A005460BB /* BLMainWindowController.m in Sources */,
+				83C6A23F1997635400A484D3 /* BLContextualMenu.m in Sources */,
 				8322CB37198BCC67003A2B67 /* BLDashboardView.m in Sources */,
-				83C6A23919975B9F00A484D3 /* BLOperationsView.m in Sources */,
 				8308B44E197E73A8005460BB /* main.m in Sources */,
-				8377DB3219966A6600D650E2 /* BLContextualMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,7 +295,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8308B46C197E73A8005460BB /* BezierLabTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
